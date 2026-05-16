@@ -1962,6 +1962,41 @@
     .contact-status--ok  { color: #4caf74; border-color: rgba(76,175,116,0.25); background: rgba(76,175,116,0.07); }
     .contact-status--err { color: #ef4444; border-color: rgba(239,68,68,0.25);  background: rgba(239,68,68,0.07); }
 
+    /* Hide contact info col on mobile — show form only */
+    @media (max-width: 899px) {
+      .contact-info-col { display: none; }
+      .contact-grid { margin-top: 48px; }
+    }
+
+    /* Footer social buttons */
+    .footer-social-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .footer-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border: 1px solid var(--border-2);
+      border-radius: 4px;
+      font-family: var(--ff-m);
+      font-size: 0.65rem;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .footer-social-btn:hover {
+        border-color: var(--teal);
+        color: var(--teal);
+        background: rgba(52,159,168,0.06);
+      }
+    }
+
     /* (mobile-menu.open defined above) */
 
     /* ─────────────────────────────────────────────────────
@@ -2577,44 +2612,6 @@
   </div>
 </section>
 
-<!-- ──────────────────────── ORBITAL GROWTH ENGINE ─── -->
-<section class="orbital-section reveal" id="orbital">
-  <div class="wrap">
-    <div class="orbital-layout">
-
-      <!-- Left: copy -->
-      <div>
-        <div class="section-eyebrow reveal">The Growth Engine</div>
-        <h2 class="section-title reveal">Four disciplines.<br>One connected system.</h2>
-        <p class="section-sub reveal" style="margin-bottom:0;">Each layer feeds the next. Click any node to explore how they connect.</p>
-
-        <!-- Info panel — populated by JS -->
-        <div class="orb-info" id="orb-info">
-          <div class="orb-info-default" id="orb-info-default">
-            <div class="orb-info-default-lbl">Growth Engine</div>
-            <p class="orb-info-default-hint">Select a node on the orbital to learn how each system drives the next and how each one builds on the last.</p>
-          </div>
-          <div class="orb-info-inner" id="orb-info-inner" style="display:none;"></div>
-        </div>
-      </div>
-
-      <!-- Right: orbital stage -->
-      <div class="orbital-stage" id="orb-stage">
-        <!-- Center orb -->
-        <div class="orb-center-orb">
-          <div class="orb-center-ring r1"></div>
-          <div class="orb-center-ring r2"></div>
-          <div class="orb-center-dot"></div>
-        </div>
-        <!-- Orbit ring -->
-        <div class="orb-orbit-ring"></div>
-        <!-- Nodes injected by JS -->
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ──────────────────────────────── GROWTH ENGINE ─── -->
 <section class="engine-section" id="growth-engine">
   <div class="wrap">
@@ -3038,7 +3035,7 @@
     <div class="contact-grid">
 
       <!-- Left: info -->
-      <div class="reveal">
+      <div class="reveal contact-info-col">
         <div class="contact-info-item">
           <div class="contact-info-label">Email</div>
           <div class="contact-info-value"><a href="mailto:novummarketingagency@gmail.com">novummarketingagency@gmail.com</a></div>
@@ -3119,9 +3116,19 @@
           <img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img">
         </div>
         <p class="footer-tagline" style="margin-top:16px;">Performance marketing built to convert. One integrated growth system for ambitious Maltese brands.</p>
-        <div class="footer-contact">
-          <a href="mailto:novummarketingagency@gmail.com">novummarketingagency@gmail.com</a><br>
-          Malta · Available globally
+        <div class="footer-social-btns">
+          <a href="mailto:novummarketingagency@gmail.com" class="footer-social-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          <a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener" class="footer-social-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener" class="footer-social-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
         </div>
       </div>
       <div class="footer-nav">
