@@ -10,6 +10,10 @@
   <meta property="og:description" content="Strategy, design, and digital innovation that converts.">
   <meta property="og:type" content="website">
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
   <!-- Google Fonts (fallbacks while custom fonts load) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -356,9 +360,10 @@
       font-family: var(--ff-d);
       font-size: clamp(2.2rem, 4.5vw, 4rem);
       font-weight: 800;
-      letter-spacing: -0.028em;
+      letter-spacing: 0.01em;
       line-height: 1.04;
       color: var(--text);
+      text-transform: uppercase;
     }
     .section-sub {
       font-size: clamp(0.95rem, 1.5vw, 1.1rem);
@@ -1844,6 +1849,119 @@
       .counters { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ─────────────────────────────────────────────────────
+       CONTACT FORM
+    ───────────────────────────────────────────────────── */
+    .contact-section {
+      padding: 96px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 768px) { .contact-section { padding: 140px 0; } }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+      margin-top: 64px;
+    }
+    @media (min-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr 1.5fr; gap: 80px; }
+    }
+
+    .contact-info-item { margin-bottom: 32px; }
+    .contact-info-label {
+      font-family: var(--ff-m);
+      font-size: 0.62rem;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+    .contact-info-value {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+    .contact-info-value a { color: var(--text-2); transition: color 0.2s; }
+    @media (hover: hover) and (pointer: fine) {
+      .contact-info-value a:hover { color: var(--teal); }
+    }
+
+    .contact-form-wrap {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+    }
+    @media (max-width: 767px) { .contact-form-wrap { padding: 28px 22px; } }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) { .contact-form-row { grid-template-columns: 1fr; } }
+
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .contact-label {
+      font-family: var(--ff-m);
+      font-size: 0.63rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .contact-input,
+    .contact-textarea {
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-sm);
+      padding: 13px 16px;
+      font-family: var(--ff-b);
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .contact-input::placeholder,
+    .contact-textarea::placeholder { color: var(--text-4); }
+    .contact-input:focus,
+    .contact-textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(52,159,168,0.10);
+    }
+    .contact-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+    .contact-submit-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .contact-status {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: var(--r-sm);
+      font-size: 0.875rem;
+      margin-top: 16px;
+      border: 1px solid;
+    }
+    .contact-status.show { display: flex; }
+    .contact-status--ok  { color: #4caf74; border-color: rgba(76,175,116,0.25); background: rgba(76,175,116,0.07); }
+    .contact-status--err { color: #ef4444; border-color: rgba(239,68,68,0.25);  background: rgba(239,68,68,0.07); }
+
     /* (mobile-menu.open defined above) */
 
     /* ─────────────────────────────────────────────────────
@@ -2238,6 +2356,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
       <a href="#strategy" class="btn btn-teal" style="display:none;" id="nav-cta">Strategy Session →</a>
@@ -2253,6 +2372,7 @@
   <a href="#work">Work</a>
   <a href="#results">Results</a>
   <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
 </div>
 
 <main>
@@ -2502,7 +2622,7 @@
     <div class="engine-head">
       <div>
         <div class="section-eyebrow reveal">The Growth Engine</div>
-        <h2 class="section-title reveal">The full stack,<br>built to work as one.</h2>
+        <h2 class="section-title reveal">Four disciplines.<br>One integrated system.</h2>
         <p class="section-sub reveal">Most agencies hand you four separate invoices and leave the integration to you. We architect all four layers as a single connected system, each one feeding the next.</p>
       </div>
       <div class="engine-callout reveal">
@@ -2576,85 +2696,6 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ───────────────────────────────────── SERVICES ─── -->
-<section class="services-section" id="services">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-eyebrow">What we build</div>
-      <h2 class="section-title">The specialist stack.</h2>
-      <p class="section-sub">Four focused disciplines. One integrated playbook. Your hub for strategy, design, and digital innovation that stands out.</p>
-    </div>
-
-    <div class="service-list stagger">
-
-      <div class="service-item">
-        <div class="service-num">01</div>
-        <div class="service-body">
-          <div class="service-title">Shopify &amp; Web Development</div>
-          <div class="service-desc">From concept to revenue-generating storefront. We design and build Shopify experiences that are fast, accessible, and optimised to convert from day one, with CRO architecture built into every decision.</div>
-          <div class="service-tags">
-            <span class="service-tag">Shopify</span>
-            <span class="service-tag">CRO</span>
-            <span class="service-tag">Web Design</span>
-            <span class="service-tag">Core Web Vitals</span>
-          </div>
-        </div>
-        <div class="service-arrow">↗</div>
-        <div class="svc-line"></div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-num">02</div>
-        <div class="service-body">
-          <div class="service-title">Performance SEO</div>
-          <div class="service-desc">Ranking signals, content architecture, and link strategy, all aligned to commercial goals. We build the kind of organic visibility that grows month over month, not vanity metrics that plateau.</div>
-          <div class="service-tags">
-            <span class="service-tag">Technical SEO</span>
-            <span class="service-tag">Content Strategy</span>
-            <span class="service-tag">Link Building</span>
-            <span class="service-tag">Local SEO</span>
-          </div>
-        </div>
-        <div class="service-arrow">↗</div>
-        <div class="svc-line"></div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-num">03</div>
-        <div class="service-body">
-          <div class="service-title">Google &amp; Meta Ads</div>
-          <div class="service-desc">Every euro traced back to revenue. We manage performance campaigns across Google Search, Shopping, Performance Max, and Meta, with CRM audience sync and continuous ROAS optimisation.</div>
-          <div class="service-tags">
-            <span class="service-tag">Google Ads</span>
-            <span class="service-tag">Meta Ads</span>
-            <span class="service-tag">Performance Max</span>
-            <span class="service-tag">ROAS Optimisation</span>
-          </div>
-        </div>
-        <div class="service-arrow">↗</div>
-        <div class="svc-line"></div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-num">04</div>
-        <div class="service-body">
-          <div class="service-title">CRM &amp; Marketing Automation</div>
-          <div class="service-desc">Revenue doesn't stop at purchase. We build the automation systems that keep customers buying: welcome sequences, cart recovery, post-purchase upsells, loyalty flows, and win-back campaigns.</div>
-          <div class="service-tags">
-            <span class="service-tag">Email Automation</span>
-            <span class="service-tag">SMS Flows</span>
-            <span class="service-tag">Lifecycle Marketing</span>
-            <span class="service-tag">Retention</span>
-          </div>
-        </div>
-        <div class="service-arrow">↗</div>
-        <div class="svc-line"></div>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -2985,6 +3026,88 @@
   </div>
 </section>
 
+<!-- ──────────────────────────────────── CONTACT ─── -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Start the<br><span class="hl-accent">conversation.</span></h2>
+      <p class="section-sub">Ready to build a growth system? Tell us about your brand and we'll be in touch within 24 hours.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="mailto:novummarketingagency@gmail.com">novummarketingagency@gmail.com</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">Malta · Available globally</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Response Time</div>
+          <div class="contact-info-value">Within 24 hours</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Follow Us</div>
+          <div class="contact-info-value">
+            <a href="https://www.linkedin.com/company/novum-agency/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
+            <a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap reveal">
+        <form id="contact-form" novalidate>
+          <!-- Web3Forms: get your free access key at web3forms.com (enter novummarketingagency@gmail.com) -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+          <input type="hidden" name="subject" value="New enquiry from Novum website">
+          <input type="hidden" name="from_name" value="Novum Website">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label class="contact-label" for="cf-name">Name</label>
+              <input class="contact-input" type="text" id="cf-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="contact-field">
+              <label class="contact-label" for="cf-email">Email</label>
+              <input class="contact-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label class="contact-label" for="cf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
+            <input class="contact-input" type="text" id="cf-company" name="company" placeholder="Your company or brand name">
+          </div>
+
+          <div class="contact-field">
+            <label class="contact-label" for="cf-message">What are you looking to achieve?</label>
+            <textarea class="contact-textarea" id="cf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea>
+          </div>
+
+          <div class="contact-submit-wrap">
+            <button type="submit" class="btn btn-teal btn-lg" id="cf-submit">Send Message →</button>
+          </div>
+
+          <div class="contact-status contact-status--ok" id="cf-success">
+            ✓ &nbsp;Message sent. We'll be in touch within 24 hours.
+          </div>
+          <div class="contact-status contact-status--err" id="cf-error">
+            Something went wrong. Please email us directly at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">novummarketingagency@gmail.com</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ─────────────────────────────────────── FOOTER ─── -->
@@ -3024,7 +3147,7 @@
           <div class="footer-col-ttl">Get Started</div>
           <div class="footer-col">
             <a href="#strategy">Growth Blueprint</a>
-            <a href="mailto:novummarketingagency@gmail.com">Contact</a>
+            <a href="#contact">Contact</a>
             <a href="https://www.linkedin.com/company/novum-agency/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener">Facebook</a>
@@ -3636,6 +3759,48 @@
 
     init();
   })();
+
+  /* ── Contact Form ──────────────────────────────────── */
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var submitBtn = document.getElementById('cf-submit');
+      var successEl = document.getElementById('cf-success');
+      var errorEl   = document.getElementById('cf-error');
+
+      successEl.classList.remove('show');
+      errorEl.classList.remove('show');
+      submitBtn.disabled = true;
+      submitBtn.querySelector('.btn-arrow') && (submitBtn.querySelector('.btn-arrow').textContent = '');
+      submitBtn.textContent = 'Sending…';
+
+      var data = {};
+      new FormData(contactForm).forEach(function (v, k) { data[k] = v; });
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (json.success) {
+          successEl.classList.add('show');
+          contactForm.reset();
+        } else {
+          errorEl.classList.add('show');
+        }
+      })
+      .catch(function () { errorEl.classList.add('show'); })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+        /* Re-wrap arrow after text reset */
+        submitBtn.innerHTML = submitBtn.innerHTML.replace(/(→)(\s*)$/, '<span class="btn-arrow">$1</span>$2');
+      });
+    });
+  }
 
 })();
 </script>
