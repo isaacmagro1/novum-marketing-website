@@ -1968,12 +1968,18 @@
       .contact-grid { margin-top: 48px; }
     }
 
-    /* Footer social buttons */
+    /* Footer social buttons — mobile only, centered */
     .footer-social-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .footer-social-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
     }
     .footer-social-btn {
       display: inline-flex;
