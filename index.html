@@ -428,38 +428,90 @@
       pointer-events: none;
     }
 
-    /* Ambient teal blobs — Gencyo reference */
-    .hero-blob {
+    /* ── Hero Gradient Animation (ported from Aceternity UI BackgroundGradientAnimation) */
+    .hero-grad-anim {
       position: absolute;
-      border-radius: 50%;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
       pointer-events: none;
-      filter: blur(80px);
+      --grad-size: 80%;
     }
-    .hero-blob.b1 {
-      width: 620px; height: 620px;
-      top: -140px; right: 2%;
-      background: rgba(52,159,168,0.20);
-      animation: blob-drift-a 22s ease-in-out infinite alternate;
+    .hero-grad-svg { display: none; }
+
+    .hero-grad-blobs {
+      position: absolute;
+      inset: 0;
+      filter: url(#hero-goo) blur(40px);
     }
-    .hero-blob.b2 {
-      width: 380px; height: 380px;
-      bottom: 0; left: 2%;
-      background: rgba(52,159,168,0.09);
-      animation: blob-drift-b 30s ease-in-out infinite alternate;
+    .hero-grad-blobs.hgb-safari { filter: blur(24px); }
+
+    .hero-grad-blob {
+      position: absolute;
+      width: var(--grad-size);
+      height: var(--grad-size);
+      top: calc(50% - var(--grad-size) / 2);
+      left: calc(50% - var(--grad-size) / 2);
+      mix-blend-mode: hard-light;
+      opacity: 1;
     }
-    .hero-blob.b3 {
-      width: 340px; height: 340px;
-      top: 40%; left: -6%;
-      background: rgba(52,159,168,0.07);
-      animation: blob-drift-a 27s ease-in-out infinite alternate-reverse;
+    /* Blob 1 — primary teal, moves vertically */
+    .hgb-1 {
+      background: radial-gradient(circle at center, rgba(52,159,168,1) 0, rgba(52,159,168,1) 50%) no-repeat;
+      transform-origin: center center;
+      animation: hgb-vertical 30s ease infinite;
     }
-    @keyframes blob-drift-a {
-      from { transform: translate(0,0) scale(1); }
-      to   { transform: translate(28px,-18px) scale(1.1); }
+    /* Blob 2 — teal, counter-clockwise circle */
+    .hgb-2 {
+      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
+      transform-origin: calc(50% - 400px);
+      animation: hgb-circle 20s reverse infinite;
     }
-    @keyframes blob-drift-b {
-      from { transform: translate(0,0) scale(1); }
-      to   { transform: translate(-22px,24px) scale(1.14); }
+    /* Blob 3 — mid teal, clockwise circle */
+    .hgb-3 {
+      background: radial-gradient(circle at center, rgba(29,98,105,0.8) 0, rgba(29,98,105,0) 50%) no-repeat;
+      transform-origin: calc(50% + 400px);
+      animation: hgb-circle 40s linear infinite;
+    }
+    /* Blob 4 — dark teal, horizontal drift */
+    .hgb-4 {
+      background: radial-gradient(circle at center, rgba(10,45,55,0.8) 0, rgba(10,45,55,0) 50%) no-repeat;
+      transform-origin: calc(50% - 200px);
+      animation: hgb-horizontal 40s ease infinite;
+      opacity: 0.7;
+    }
+    /* Blob 5 — teal, wide-origin circle */
+    .hgb-5 {
+      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
+      transform-origin: calc(50% - 800px) calc(50% + 800px);
+      animation: hgb-circle 20s ease infinite;
+    }
+    /* Interactive pointer blob */
+    .hero-grad-pointer {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+      opacity: 0.7;
+    }
+
+    @keyframes hgb-vertical {
+      0%   { transform: translateY(-50%); }
+      50%  { transform: translateY(50%); }
+      100% { transform: translateY(-50%); }
+    }
+    @keyframes hgb-circle {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(180deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes hgb-horizontal {
+      0%   { transform: translateX(-50%) translateY(-10%); }
+      50%  { transform: translateX(50%) translateY(10%); }
+      100% { transform: translateX(-50%) translateY(-10%); }
     }
 
     /* Teal radial glow from top */
@@ -2372,6 +2424,7 @@
       .clients-slider-track { animation: none; }
       .clients-sparkles-canvas { display: none; }
       .wloading-ring { animation: none; }
+      .hero-grad-blob { animation: none !important; }
       .hero-h1, .hero-eyebrow, .hero-sub, .hero-actions, .hero-stats {
         transition-duration: 0.01s !important;
         opacity: 1 !important;
@@ -2431,9 +2484,30 @@
 <section class="hero">
   <div class="hero-noise"></div>
   <div class="hero-dots"></div>
-  <div class="hero-blob b1"></div>
-  <div class="hero-blob b2"></div>
-  <div class="hero-blob b3"></div>
+
+  <!-- Gradient animation background (ported from Aceternity UI) -->
+  <div class="hero-grad-anim" aria-hidden="true">
+    <svg class="hero-grad-svg">
+      <defs>
+        <filter id="hero-goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+          <feColorMatrix in="blur" mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+            result="goo"/>
+          <feBlend in="SourceGraphic" in2="goo"/>
+        </filter>
+      </defs>
+    </svg>
+    <div class="hero-grad-blobs" id="hero-grad-blobs">
+      <div class="hero-grad-blob hgb-1"></div>
+      <div class="hero-grad-blob hgb-2"></div>
+      <div class="hero-grad-blob hgb-3"></div>
+      <div class="hero-grad-blob hgb-4"></div>
+      <div class="hero-grad-blob hgb-5"></div>
+      <div class="hero-grad-pointer" id="hero-grad-pointer"></div>
+    </div>
+  </div>
+
   <div class="hero-glow"></div>
   <div class="wrap">
     <div class="hero-grid">
@@ -3298,6 +3372,31 @@
   document.querySelectorAll('.btn').forEach(function(btn) {
     btn.innerHTML = btn.innerHTML.replace(/(→)(\s*)$/, '<span class="btn-arrow">$1</span>$2');
   });
+
+  /* ── Hero gradient animation: Safari detection + interactive pointer ── */
+  (function () {
+    var gradBlobs   = document.getElementById('hero-grad-blobs');
+    var gradPointer = document.getElementById('hero-grad-pointer');
+    var heroEl      = document.querySelector('.hero');
+
+    if (gradBlobs && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      gradBlobs.classList.add('hgb-safari');
+    }
+
+    if (gradPointer && heroEl && window.matchMedia('(hover: hover)').matches) {
+      var gpCurX = 0, gpCurY = 0, gpTgX = 0, gpTgY = 0;
+      heroEl.addEventListener('mousemove', function (e) {
+        gpTgX = e.clientX;
+        gpTgY = e.clientY;
+      }, { passive: true });
+      (function moveGradPointer() {
+        gpCurX += (gpTgX - gpCurX) / 20;
+        gpCurY += (gpTgY - gpCurY) / 20;
+        gradPointer.style.transform = 'translate(' + Math.round(gpCurX) + 'px, ' + Math.round(gpCurY) + 'px)';
+        requestAnimationFrame(moveGradPointer);
+      })();
+    }
+  })();
 
   /* ── Ring parallax ─────────────────────────────── */
   var ringSys = document.getElementById('ring-sys');
