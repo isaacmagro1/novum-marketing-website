@@ -442,9 +442,8 @@
     .hero-grad-blobs {
       position: absolute;
       inset: 0;
-      filter: url(#hero-goo) blur(40px);
+      filter: blur(80px);
     }
-    .hero-grad-blobs.hgb-safari { filter: blur(24px); }
 
     .hero-grad-blob {
       position: absolute;
@@ -452,50 +451,45 @@
       height: var(--grad-size);
       top: calc(50% - var(--grad-size) / 2);
       left: calc(50% - var(--grad-size) / 2);
-      mix-blend-mode: hard-light;
-      opacity: 1;
     }
     /* Blob 1 — primary teal, moves vertically */
     .hgb-1 {
-      background: radial-gradient(circle at center, rgba(52,159,168,1) 0, rgba(52,159,168,1) 50%) no-repeat;
+      background: radial-gradient(circle at center, rgba(52,159,168,0.18) 0, rgba(52,159,168,0) 70%) no-repeat;
       transform-origin: center center;
       animation: hgb-vertical 30s ease infinite;
     }
-    /* Blob 2 — teal, counter-clockwise circle */
+    /* Blob 2 — teal fade, counter-clockwise circle */
     .hgb-2 {
-      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
+      background: radial-gradient(circle at center, rgba(52,159,168,0.12) 0, rgba(52,159,168,0) 50%) no-repeat;
       transform-origin: calc(50% - 400px);
       animation: hgb-circle 20s reverse infinite;
     }
-    /* Blob 3 — mid teal, clockwise circle */
+    /* Blob 3 — mid teal, clockwise slow circle */
     .hgb-3 {
-      background: radial-gradient(circle at center, rgba(29,98,105,0.8) 0, rgba(29,98,105,0) 50%) no-repeat;
+      background: radial-gradient(circle at center, rgba(29,98,105,0.10) 0, rgba(29,98,105,0) 50%) no-repeat;
       transform-origin: calc(50% + 400px);
       animation: hgb-circle 40s linear infinite;
     }
     /* Blob 4 — dark teal, horizontal drift */
     .hgb-4 {
-      background: radial-gradient(circle at center, rgba(10,45,55,0.8) 0, rgba(10,45,55,0) 50%) no-repeat;
+      background: radial-gradient(circle at center, rgba(10,45,55,0.09) 0, rgba(10,45,55,0) 50%) no-repeat;
       transform-origin: calc(50% - 200px);
       animation: hgb-horizontal 40s ease infinite;
-      opacity: 0.7;
     }
     /* Blob 5 — teal, wide-origin circle */
     .hgb-5 {
-      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
+      background: radial-gradient(circle at center, rgba(52,159,168,0.10) 0, rgba(52,159,168,0) 50%) no-repeat;
       transform-origin: calc(50% - 800px) calc(50% + 800px);
       animation: hgb-circle 20s ease infinite;
     }
-    /* Interactive pointer blob */
+    /* Interactive pointer blob — very subtle */
     .hero-grad-pointer {
       position: absolute;
-      background: radial-gradient(circle at center, rgba(52,159,168,0.8) 0, rgba(52,159,168,0) 50%) no-repeat;
-      mix-blend-mode: hard-light;
+      background: radial-gradient(circle at center, rgba(52,159,168,0.12) 0, rgba(52,159,168,0) 50%) no-repeat;
       width: 100%;
       height: 100%;
       top: -50%;
       left: -50%;
-      opacity: 0.7;
     }
 
     @keyframes hgb-vertical {
@@ -3378,10 +3372,6 @@
     var gradBlobs   = document.getElementById('hero-grad-blobs');
     var gradPointer = document.getElementById('hero-grad-pointer');
     var heroEl      = document.querySelector('.hero');
-
-    if (gradBlobs && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-      gradBlobs.classList.add('hgb-safari');
-    }
 
     if (gradPointer && heroEl && window.matchMedia('(hover: hover)').matches) {
       var gpCurX = 0, gpCurY = 0, gpTgX = 0, gpTgY = 0;
