@@ -761,8 +761,15 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      border: 1px dashed rgba(52,159,168,0.20);
       animation: ring-spin 36s linear infinite;
+    }
+    .ring-outer-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
     }
     .ring-inner {
       position: absolute;
@@ -2688,6 +2695,9 @@
         <!-- CSS ring system -->
         <div class="ring-sys" id="ring-sys">
           <div class="ring-outer">
+            <svg class="ring-outer-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="190" cy="190" r="189" stroke="rgba(52,159,168,0.20)" stroke-width="1" pathLength="100" stroke-dasharray="0.35 0.65"/>
+            </svg>
             <div class="ring-particle rp-a"></div>
             <div class="ring-particle rp-b"></div>
             <div class="ring-particle rp-c"></div>
