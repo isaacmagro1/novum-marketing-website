@@ -242,6 +242,8 @@
     @keyframes wl-spin{to{transform:rotate(360deg)}}
     .wloading-text{font-family:var(--ff-m);font-size:0.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em}
     @media(max-width:959px){#proj-strategy-btn{display:none!important}}
+    #proj-strategy-btn{padding:7px 15px;font-size:0.78rem;background:transparent;color:var(--teal);border-color:rgba(52,159,168,0.45);letter-spacing:0.02em}
+    @media(hover:hover) and (pointer:fine){#proj-strategy-btn:hover{background:rgba(52,159,168,0.08);border-color:var(--teal);box-shadow:none}}
   </style>
 </head>
 <body>
@@ -262,7 +264,7 @@
       <li><a href="/#growth-engine">Services</a></li><li><a href="/#work">Work</a></li>
       <li><a href="/#results">Results</a></li><li><a href="/#process">Process</a></li><li><a href="/#contact">Contact</a></li>
     </ul>
-    <div class="nav-right"><button class="btn btn-teal btn-sm" id="proj-strategy-btn">Strategy Session</button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+    <div class="nav-right"><button class="btn btn-teal" id="proj-strategy-btn">Strategy Session</button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
