@@ -241,7 +241,7 @@
     @media (min-width: 1280px) { .nav-inner { padding: 0 72px; } }
 
     .nav-logo-link { display: flex; align-items: center; justify-self: start; overflow: hidden; height: 48px; }
-    .nav-logo-img  { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .nav-logo-img  { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
     :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
 
     .nav-links a.active { color: var(--text); }
@@ -338,7 +338,7 @@
       transition: color 0.2s;
       min-height: 52px;
     }
-    .mobile-menu a:last-child { border: none; margin-top: 12px; justify-content: center; min-height: 48px; }
+    .mobile-menu a:last-child { border: none; margin-top: 12px; min-height: 48px; }
     @media (hover: hover) and (pointer: fine) { .mobile-menu a:hover { color: var(--text); } }
 
     /* ─────────────────────────────────────────────────────
@@ -849,6 +849,9 @@
       align-items: center;
       width: max-content;
       animation: clients-scroll 28s linear infinite;
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     @keyframes clients-scroll {
       from { transform: translateX(0); }
@@ -871,6 +874,9 @@
       filter: brightness(0) invert(1);
       opacity: 0.7;
       transition: opacity 0.3s ease, filter 0.3s ease;
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
     .clients-logo-img--invert {
       filter: invert(1) grayscale(1);
@@ -1670,7 +1676,7 @@
       .footer-grid { grid-template-columns: 240px 1fr; gap: 80px; }
     }
     .footer-logo-wrap { margin-bottom: 0; overflow: hidden; height: 32px; }
-    .footer-logo-img { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-logo-img { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
     .footer-tagline { font-size: 0.875rem; color: var(--text-2); max-width: 26ch; line-height: 1.65; margin-top: 14px; }
     .footer-contact { font-family: var(--ff-m); font-size: 0.72rem; color: var(--text-3); margin-top: 24px; line-height: 1.8; }
     .footer-contact a { color: var(--teal); }
@@ -1811,10 +1817,13 @@
       .mrow { padding: 12px 0; }
       .mitem { font-size: 0.65rem; padding: 0 14px; }
 
-      /* Footer */
-      .footer-grid { gap: 36px; margin-bottom: 44px; }
+      /* Footer — centered on mobile */
+      .footer-grid { gap: 36px; margin-bottom: 44px; text-align: center; }
       .footer-nav { grid-template-columns: 1fr 1fr; gap: 28px; }
       footer { padding: 56px 0 32px; }
+      .footer-logo-wrap { margin: 0 auto; }
+      .footer-tagline { margin-left: auto; margin-right: auto; }
+      .footer-bottom { flex-direction: column; align-items: center; gap: 8px; text-align: center; }
     }
 
     /* Small phones (<480px) */
@@ -2459,7 +2468,7 @@
           </div>
           <div class="hero-stat">
             <div class="hero-stat-n counter" data-target="10" data-suffix="+">0+</div>
-            <div class="hero-stat-l">Years combined experience</div>
+            <div class="hero-stat-l">Yrs. experience</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-n counter" data-target="8" data-suffix="">0</div>
