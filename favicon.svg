@@ -1,14 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
-  <defs>
-    <filter id="w" color-interpolation-filters="sRGB">
-      <feColorMatrix type="matrix"
-        values="0 0 0 0 1
-                0 0 0 0 1
-                0 0 0 0 1
-                0 0 0 10 0"/>
-    </filter>
-  </defs>
-  <rect width="32" height="32" fill="#000000"/>
-  <image href="Novum.svg" x="2" y="2" width="28" height="28"
-    preserveAspectRatio="xMidYMid meet" filter="url(#w)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#000000"/>
+  <g stroke="#ffffff" stroke-width="4.5" stroke-linecap="round">
+    <line x1="8" y1="5.5" x2="8" y2="26.5"/>
+    <line x1="24" y1="5.5" x2="24" y2="26.5"/>
+    <line x1="8" y1="5.5" x2="24" y2="26.5"/>
+  </g>
 </svg>
