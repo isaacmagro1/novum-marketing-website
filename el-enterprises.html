@@ -192,6 +192,29 @@
     .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:8px}
     .footer-legal{font-family:var(--ff-m);font-size:.6rem;color:var(--text-4);text-transform:uppercase;letter-spacing:.07em}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    .modal-overlay{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease-expo)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);width:100%;max-width:560px;max-height:90svh;overflow-y:auto;transform:scale(.95) translateY(12px);transition:transform .35s var(--ease-expo);position:relative;scrollbar-width:thin;scrollbar-color:var(--border-2) transparent}
+    .modal-overlay.open .modal-box{transform:scale(1) translateY(0)}
+    .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;background:rgba(255,255,255,.06);border:1px solid var(--border-2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;color:var(--text-3);transition:background .2s,color .2s;z-index:2}
+    @media(hover:none){.modal-close{cursor:pointer}}
+    @media(hover:hover) and (pointer:fine){.modal-close:hover{background:rgba(255,255,255,.14);color:var(--text)}}
+    .modal-inner{padding:40px 36px 36px} @media(max-width:540px){.modal-inner{padding:28px 20px 24px}}
+    .modal-head{margin-bottom:28px;padding-right:40px}
+    .modal-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;text-shadow:0 0 18px rgba(52,159,168,.35)}
+    .modal-title{font-family:var(--ff-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:10px}
+    .modal-sub{font-size:.875rem;color:var(--text-2);line-height:1.7}
+    .contact-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media(max-width:560px){.contact-form-row{grid-template-columns:1fr}}
+    .contact-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+    .contact-label{font-family:var(--ff-m);font-size:.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em}
+    .contact-input,.contact-textarea{background:var(--surface-2);border:1px solid var(--border-2);border-radius:var(--r-sm);padding:13px 16px;font-family:var(--ff-b);font-size:.9rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+    .contact-input::placeholder,.contact-textarea::placeholder{color:var(--text-4)}
+    .contact-input:focus,.contact-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(52,159,168,.10)}
+    .contact-textarea{resize:vertical;min-height:120px;line-height:1.6}
+    .contact-submit-wrap{margin-top:8px}
+    .contact-status{display:none;align-items:center;gap:10px;padding:14px 20px;border-radius:var(--r-sm);font-size:.875rem;margin-top:16px;border:1px solid} .contact-status.show{display:flex}
+    .contact-status--ok{color:#4caf74;border-color:rgba(76,175,116,.25);background:rgba(76,175,116,.07)}
+    .contact-status--err{color:#ef4444;border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.07)}
   </style>
 </head>
 <body>
@@ -337,7 +360,7 @@
     <div class="proj-cta-eyebrow reveal">Work With Us</div>
     <h2 class="proj-cta-title reveal" style="transition-delay:60ms">Ready to<br>stand out?</h2>
     <p class="proj-cta-sub reveal" style="transition-delay:120ms">Let's build something your audience actually remembers.</p>
-    <div class="reveal" style="transition-delay:180ms"><a href="/#contact" class="btn btn-teal btn-lg">Start the conversation <span class="btn-arrow">→</span></a></div>
+    <div class="reveal" style="transition-delay:180ms"><button class="btn btn-teal btn-lg" id="proj-contact-btn">Start the conversation <span class="btn-arrow">→</span></button></div>
   </div>
 </section>
 </main>
@@ -362,6 +385,36 @@
     <div class="footer-bottom"><div class="footer-legal">© 2026 Novum Marketing. All rights reserved.</div></div>
   </div>
 </footer>
+<!-- Contact Modal -->
+<div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-label="Contact Form">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-contact-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Get In Touch</div>
+        <h3 class="modal-title">Start the conversation.</h3>
+        <p class="modal-sub">Tell us where you are and what you need — we'll be in touch within 24 hours.</p>
+      </div>
+      <form id="contact-form-modal" novalidate>
+        <input type="hidden" name="access_key" value="1aea86c8-12b7-4d05-a000-b78cc7f75099">
+        <input type="hidden" name="subject" value="New enquiry from Novum website">
+        <input type="hidden" name="from_name" value="Novum Website">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <div class="contact-form-row">
+          <div class="contact-field"><label class="contact-label" for="mf-name">Name</label><input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required></div>
+          <div class="contact-field"><label class="contact-label" for="mf-email">Email</label><input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required></div>
+        </div>
+        <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name"></div>
+        <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea></div>
+        <div class="contact-submit-wrap"><button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button></div>
+        <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
+        <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">novummarketingagency@gmail.com</a></div>
+      </form>
+    </div>
+  </div>
+</div>
 <script>
 (function(){
   'use strict';
@@ -381,6 +434,32 @@
   document.querySelectorAll('.reveal,.stagger').forEach(function(el){ro.observe(el)});
   var gp=document.getElementById('hero-grad-pointer');
   if(gp&&window.matchMedia('(hover:hover)').matches){var gpx=0,gpy=0,gtx=0,gty=0;document.addEventListener('mousemove',function(e){gtx=e.clientX;gty=e.clientY},{passive:true});(function m(){gpx+=(gtx-gpx)/20;gpy+=(gty-gpy)/20;gp.style.transform='translate('+Math.round(gpx)+'px,'+Math.round(gpy)+'px)';requestAnimationFrame(m)})()}
+})();
+(function(){
+  'use strict';
+  var overlay=document.getElementById('modal-contact');
+  var closeBtn=document.getElementById('modal-contact-close');
+  var trigger=document.getElementById('proj-contact-btn');
+  function open(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';}
+  if(trigger)trigger.addEventListener('click',open);
+  if(closeBtn)closeBtn.addEventListener('click',close);
+  if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+    if(dot&&ring&&closeBtn){closeBtn.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});closeBtn.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')})}
+  }
+  var form=document.getElementById('contact-form-modal');
+  if(form){form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
+    ok.classList.remove('show');err.classList.remove('show');btn.disabled=true;btn.textContent='Sending…';
+    var data={};new FormData(form).forEach(function(v,k){data[k]=v;});
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){return r.json();}).then(function(j){if(j.success){ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
+    .catch(function(){err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
+  });}
 })();
 </script>
 </body>

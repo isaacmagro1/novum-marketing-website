@@ -2553,6 +2553,21 @@
       .pstep::before { transition-duration: 0.01s !important; }
       #spr { display: none; }
     }
+    /* ─── Modals ──────────────────────────────────────── */
+    .modal-overlay{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease-expo)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);width:100%;max-width:560px;max-height:90svh;overflow-y:auto;transform:scale(.95) translateY(12px);transition:transform .35s var(--ease-expo);position:relative;scrollbar-width:thin;scrollbar-color:var(--border-2) transparent}
+    .modal-overlay.open .modal-box{transform:scale(1) translateY(0)}
+    .modal-box--wide{max-width:700px}
+    .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;background:rgba(255,255,255,.06);border:1px solid var(--border-2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;color:var(--text-3);transition:background .2s,color .2s;z-index:2;flex-shrink:0}
+    @media(hover:none){.modal-close{cursor:pointer}}
+    @media(hover:hover) and (pointer:fine){.modal-close:hover{background:rgba(255,255,255,.14);color:var(--text)}}
+    .modal-inner{padding:40px 36px 36px}
+    @media(max-width:540px){.modal-inner{padding:28px 20px 24px}}
+    .modal-head{margin-bottom:28px;padding-right:40px}
+    .modal-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;text-shadow:0 0 18px rgba(52,159,168,.35)}
+    .modal-title{font-family:var(--ff-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:10px}
+    .modal-sub{font-size:.875rem;color:var(--text-2);line-height:1.7}
   </style>
 </head>
 <body>
@@ -2588,7 +2603,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="#strategy" class="btn btn-teal" style="display:none;" id="nav-cta">Strategy Session →</a>
+      <button class="btn btn-teal" style="display:none;" id="nav-cta">Strategy Session</button>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -2634,7 +2649,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-teal btn-lg magnetic">Start the Conversation →</a>
+          <button class="btn btn-teal btn-lg magnetic" id="hero-contact-btn">Start the Conversation →</button>
           <a href="#work" class="btn btn-outline btn-lg magnetic">View Our Work</a>
         </div>
 
@@ -3169,113 +3184,7 @@
       <div class="section-eyebrow">Find Your Fit</div>
       <h2 class="section-title">Not sure where<br><span class="hl-accent">to start?</span></h2>
       <p class="section-sub">Answer three quick questions and we'll point you towards the services that make the most sense for your brand right now.</p>
-    </div>
-
-    <div class="stack-widget reveal">
-      <div class="widget-hdr">
-        <div class="widget-hdr-title">Growth Stack Builder</div>
-        <div class="wdots">
-          <div class="wdot on" id="wd1"></div>
-          <div class="wdot"    id="wd2"></div>
-          <div class="wdot"    id="wd3"></div>
-        </div>
-      </div>
-
-      <div class="widget-body">
-        <!-- Step 1 -->
-        <div id="ws1">
-          <div class="wq">What does your brand need most right now?</div>
-          <div class="wq-sub">Pick the option that feels closest to where you are.</div>
-          <div class="wopts">
-            <button class="wopt" data-step="1" data-val="social">
-              <div class="wopt-t">A social media presence</div>
-              <div class="wopt-s">Need someone to manage content and posting</div>
-            </button>
-            <button class="wopt" data-step="1" data-val="branding">
-              <div class="wopt-t">A stronger brand identity</div>
-              <div class="wopt-s">Need a new look or proper brand guidelines</div>
-            </button>
-            <button class="wopt" data-step="1" data-val="web">
-              <div class="wopt-t">A new website</div>
-              <div class="wopt-s">Need a website that reflects the brand</div>
-            </button>
-            <button class="wopt" data-step="1" data-val="all">
-              <div class="wopt-t">All of the above</div>
-              <div class="wopt-s">Need the full package</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div id="ws2" style="display:none;">
-          <div class="wq">How established is your brand online?</div>
-          <div class="wq-sub">This helps us understand how much groundwork is needed.</div>
-          <div class="wopts">
-            <button class="wopt" data-step="2" data-val="new">
-              <div class="wopt-t">Just starting out</div>
-              <div class="wopt-s">Little or no online presence yet</div>
-            </button>
-            <button class="wopt" data-step="2" data-val="inconsistent">
-              <div class="wopt-t">Present but inconsistent</div>
-              <div class="wopt-s">Some profiles, but not well maintained</div>
-            </button>
-            <button class="wopt" data-step="2" data-val="refresh">
-              <div class="wopt-t">Established, needs a refresh</div>
-              <div class="wopt-s">Already online but the brand needs updating</div>
-            </button>
-            <button class="wopt" data-step="2" data-val="launch">
-              <div class="wopt-t">Ready for a big launch</div>
-              <div class="wopt-s">Have something new to announce</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div id="ws3" style="display:none;">
-          <div class="wq">What's your monthly budget for marketing?</div>
-          <div class="wq-sub">This helps us recommend what's realistic for your stage.</div>
-          <div class="wopts wopts-3">
-            <button class="wopt" data-step="3" data-val="micro">
-              <div class="wopt-t">€200 – €500</div>
-              <div class="wopt-s">Starting lean</div>
-            </button>
-            <button class="wopt" data-step="3" data-val="small">
-              <div class="wopt-t">€500 – €1,000</div>
-              <div class="wopt-s">Building momentum</div>
-            </button>
-            <button class="wopt" data-step="3" data-val="large">
-              <div class="wopt-t">€1,000+</div>
-              <div class="wopt-s">Ready to invest seriously</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Loading -->
-        <div id="ws-loading" style="display:none;">
-          <div class="wloading">
-            <div class="wloading-ring"></div>
-            <p class="wloading-text">Building your stack&hellip;</p>
-          </div>
-        </div>
-
-        <!-- Result -->
-        <div id="ws4" style="display:none;">
-          <div class="wresult show" id="wresult">
-            <div class="wresult-l">Your recommended growth stack</div>
-            <div class="wresult-title" id="wres-title">Performance Foundation</div>
-            <div class="wresult-items" id="wres-items"></div>
-            <div class="wresult-cta">
-              <a href="mailto:novummarketingagency@gmail.com?subject=Strategy Session Request" class="btn btn-teal btn-lg magnetic">Book Strategy Session →</a>
-              <button class="btn btn-outline" id="wres-restart">Start over</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="widget-ftr">
-        <div class="wstep-l" id="wstep-lbl">Step 1 of 3</div>
-        <button class="btn btn-outline" id="wback" style="display:none; padding:8px 18px; font-size:0.8rem;">← Back</button>
-      </div>
+      <div style="margin-top:36px"><button class="btn btn-teal btn-lg" id="strategy-trigger">Build My Growth Stack →</button></div>
     </div>
   </div>
 </section>
@@ -3363,6 +3272,126 @@
 </section>
 
 </main>
+
+<!-- ─── Strategy Modal ──────────────────────────────── -->
+<div class="modal-overlay" id="modal-strategy" role="dialog" aria-modal="true" aria-label="Growth Stack Builder">
+  <div class="modal-box modal-box--wide">
+    <button class="modal-close" id="modal-strategy-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Find Your Fit</div>
+        <h3 class="modal-title">Build your growth stack.</h3>
+        <p class="modal-sub">Answer three quick questions and we'll point you towards the services that make the most sense for your brand right now.</p>
+      </div>
+      <div class="stack-widget" style="margin-top:0;border-radius:var(--r);overflow:hidden">
+        <div class="widget-hdr">
+          <div class="widget-hdr-title">Growth Stack Builder</div>
+          <div class="wdots">
+            <div class="wdot on" id="wd1"></div>
+            <div class="wdot"    id="wd2"></div>
+            <div class="wdot"    id="wd3"></div>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div id="ws1">
+            <div class="wq">What does your brand need most right now?</div>
+            <div class="wq-sub">Pick the option that feels closest to where you are.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="1" data-val="social"><div class="wopt-t">A social media presence</div><div class="wopt-s">Need someone to manage content and posting</div></button>
+              <button class="wopt" data-step="1" data-val="branding"><div class="wopt-t">A stronger brand identity</div><div class="wopt-s">Need a new look or proper brand guidelines</div></button>
+              <button class="wopt" data-step="1" data-val="web"><div class="wopt-t">A new website</div><div class="wopt-s">Need a website that reflects the brand</div></button>
+              <button class="wopt" data-step="1" data-val="all"><div class="wopt-t">All of the above</div><div class="wopt-s">Need the full package</div></button>
+            </div>
+          </div>
+          <div id="ws2" style="display:none;">
+            <div class="wq">How established is your brand online?</div>
+            <div class="wq-sub">This helps us understand how much groundwork is needed.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="2" data-val="new"><div class="wopt-t">Just starting out</div><div class="wopt-s">Little or no online presence yet</div></button>
+              <button class="wopt" data-step="2" data-val="inconsistent"><div class="wopt-t">Present but inconsistent</div><div class="wopt-s">Some profiles, but not well maintained</div></button>
+              <button class="wopt" data-step="2" data-val="refresh"><div class="wopt-t">Established, needs a refresh</div><div class="wopt-s">Already online but the brand needs updating</div></button>
+              <button class="wopt" data-step="2" data-val="launch"><div class="wopt-t">Ready for a big launch</div><div class="wopt-s">Have something new to announce</div></button>
+            </div>
+          </div>
+          <div id="ws3" style="display:none;">
+            <div class="wq">What's your monthly budget for marketing?</div>
+            <div class="wq-sub">This helps us recommend what's realistic for your stage.</div>
+            <div class="wopts wopts-3">
+              <button class="wopt" data-step="3" data-val="micro"><div class="wopt-t">€200 – €500</div><div class="wopt-s">Starting lean</div></button>
+              <button class="wopt" data-step="3" data-val="small"><div class="wopt-t">€500 – €1,000</div><div class="wopt-s">Building momentum</div></button>
+              <button class="wopt" data-step="3" data-val="large"><div class="wopt-t">€1,000+</div><div class="wopt-s">Ready to invest seriously</div></button>
+            </div>
+          </div>
+          <div id="ws-loading" style="display:none;">
+            <div class="wloading"><div class="wloading-ring"></div><p class="wloading-text">Building your stack&hellip;</p></div>
+          </div>
+          <div id="ws4" style="display:none;">
+            <div class="wresult show" id="wresult">
+              <div class="wresult-l">Your recommended growth stack</div>
+              <div class="wresult-title" id="wres-title">Performance Foundation</div>
+              <div class="wresult-items" id="wres-items"></div>
+              <div class="wresult-cta">
+                <a href="mailto:novummarketingagency@gmail.com?subject=Strategy Session Request" class="btn btn-teal btn-lg magnetic">Book Strategy Session →</a>
+                <button class="btn btn-outline" id="wres-restart">Start over</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widget-ftr">
+          <div class="wstep-l" id="wstep-lbl">Step 1 of 3</div>
+          <button class="btn btn-outline" id="wback" style="display:none; padding:8px 18px; font-size:0.8rem;">← Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Contact Modal ────────────────────────────────── -->
+<div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-label="Contact Form">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-contact-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Get In Touch</div>
+        <h3 class="modal-title">Start the conversation.</h3>
+        <p class="modal-sub">Tell us where you are and what you need — we'll be in touch within 24 hours.</p>
+      </div>
+      <form id="contact-form-modal" novalidate>
+        <input type="hidden" name="access_key" value="1aea86c8-12b7-4d05-a000-b78cc7f75099">
+        <input type="hidden" name="subject" value="New enquiry from Novum website">
+        <input type="hidden" name="from_name" value="Novum Website">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <div class="contact-form-row">
+          <div class="contact-field">
+            <label class="contact-label" for="mf-name">Name</label>
+            <input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="mf-email">Email</label>
+            <input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
+          <input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mf-message">What are you looking to achieve?</label>
+          <textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea>
+        </div>
+        <div class="contact-submit-wrap">
+          <button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button>
+        </div>
+        <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
+        <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">novummarketingagency@gmail.com</a></div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- ─────────────────────────────────────── FOOTER ─── -->
 <footer>
@@ -4189,6 +4218,105 @@
   });
 
   updateState();
+})();
+
+/* ── Modals ─────────────────────────────────────────── */
+(function(){
+  'use strict';
+
+  function openModal(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var firstFocusable = el.querySelector('button, input, textarea, [href]');
+    if (firstFocusable) firstFocusable.focus();
+  }
+  function closeModal(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeAllModals() {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+      m.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+
+  /* Trigger buttons */
+  var strategyTrigger = document.getElementById('strategy-trigger');
+  var navCta = document.getElementById('nav-cta');
+  var heroContactBtn = document.getElementById('hero-contact-btn');
+
+  if (strategyTrigger) strategyTrigger.addEventListener('click', function(){ openModal('modal-strategy'); });
+  if (navCta) navCta.addEventListener('click', function(){ openModal('modal-strategy'); });
+  if (heroContactBtn) heroContactBtn.addEventListener('click', function(){ openModal('modal-contact'); });
+
+  /* Close buttons */
+  var strategyClose = document.getElementById('modal-strategy-close');
+  var contactClose  = document.getElementById('modal-contact-close');
+  if (strategyClose) strategyClose.addEventListener('click', function(){ closeModal('modal-strategy'); });
+  if (contactClose)  contactClose.addEventListener('click',  function(){ closeModal('modal-contact'); });
+
+  /* Click outside box to close */
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeAllModals();
+    });
+  });
+
+  /* ESC to close */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAllModals();
+  });
+
+  /* Cursor hover on modal close buttons */
+  if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    var dot = document.getElementById('cdot'), ring = document.getElementById('cring');
+    if (dot && ring) {
+      document.querySelectorAll('.modal-close').forEach(function(btn) {
+        btn.addEventListener('mouseenter', function(){ dot.classList.add('hover'); ring.classList.add('hover'); });
+        btn.addEventListener('mouseleave', function(){ dot.classList.remove('hover'); ring.classList.remove('hover'); });
+      });
+    }
+  }
+
+  /* Contact modal form submission */
+  var modalForm = document.getElementById('contact-form-modal');
+  if (modalForm) {
+    modalForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var submitBtn = document.getElementById('mf-submit');
+      var successEl = document.getElementById('mf-success');
+      var errorEl   = document.getElementById('mf-error');
+      successEl.classList.remove('show');
+      errorEl.classList.remove('show');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      var data = {};
+      new FormData(modalForm).forEach(function(v, k){ data[k] = v; });
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(json){
+        if (json.success) {
+          successEl.classList.add('show');
+          modalForm.reset();
+        } else { errorEl.classList.add('show'); }
+      })
+      .catch(function(){ errorEl.classList.add('show'); })
+      .finally(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+      });
+    });
+  }
+
 })();
 </script>
 
