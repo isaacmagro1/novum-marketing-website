@@ -1251,10 +1251,14 @@
     @media (min-width: 768px) { .service-arrow { display: block; } }
 
     /* ─────────────────────────────────────────────────────
-       SELECTED WORK
+       SELECTED WORK — Gallery Carousel
     ───────────────────────────────────────────────────── */
-    .work-section { padding: 96px 0; background: var(--surface); }
-    @media (min-width: 768px) { .work-section { padding: 140px 0; } }
+    .work-section {
+      padding: 96px 0 80px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    @media (min-width: 768px) { .work-section { padding: 140px 0 100px; } }
 
     .work-head {
       display: flex;
@@ -1262,94 +1266,211 @@
       align-items: flex-end;
       flex-wrap: wrap;
       gap: 20px;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
     }
 
-    .work-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
+    /* Prev / Next nav buttons */
+    .work-nav-btns { display: none; gap: 8px; }
+    @media (min-width: 768px) { .work-nav-btns { display: flex; } }
+
+    .work-nav-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-2);
+      background: transparent;
+      color: var(--text-2);
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.14s var(--ease-expo);
+    }
+    .work-nav-btn:active { transform: scale(0.93); }
+    @media (hover: hover) and (pointer: fine) {
+      .work-nav-btn:hover { border-color: var(--teal); color: var(--teal); background: rgba(52,159,168,0.07); }
+    }
+    .work-nav-btn:disabled { opacity: 0.28; pointer-events: none; }
+    .work-nav-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Carousel outer — full viewport width, bleeds past .wrap */
+    .work-carousel-outer {
+      width: 100%;
+      overflow: hidden;
+      cursor: grab;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .work-carousel-outer.is-dragging { cursor: grabbing; }
+
+    .work-carousel {
+      display: flex;
+      gap: 20px;
+      /* Left padding matches .wrap at each breakpoint so first card aligns with page content */
+      padding-left: 24px;
+      padding-right: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .work-carousel::-webkit-scrollbar { display: none; }
+    @media (min-width: 768px)  { .work-carousel { padding-left: 48px; padding-right: 48px; } }
+    @media (min-width: 1280px) { .work-carousel { padding-left: max(72px, calc(50vw - 568px)); } }
+
+    /* Individual slides */
+    .work-slide {
+      flex-shrink: 0;
+      width: 280px;
+      scroll-snap-align: start;
+    }
+    @media (min-width: 640px)  { .work-slide { width: 320px; } }
+    @media (min-width: 1024px) { .work-slide { width: 380px; } }
+
+    .work-slide-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: var(--r);
       overflow: hidden;
     }
-    @media (min-width: 640px) { .work-grid { grid-template-columns: 1fr 1fr; } }
 
-    .work-card {
-      padding: 44px 40px;
-      background: var(--bg);
+    .work-slide-inner {
       position: relative;
+      height: 432px;
+      border-radius: var(--r);
       overflow: hidden;
-      transition: background 0.3s var(--ease-quart);
-      min-height: 260px;
+      /* Placeholder gradient — replaced by background-image / <img> when photo available */
+    }
+    @media (min-width: 768px)  { .work-slide-inner { aspect-ratio: 5/4;  height: auto; } }
+    @media (min-width: 1024px) { .work-slide-inner { aspect-ratio: 4/5;  height: auto; } }
+
+    /* Per-card placeholder backgrounds */
+    .ws-adoro .work-slide-inner  { background: linear-gradient(145deg, #0a2228 0%, #1a6470 40%, #051015 100%); }
+    .ws-bone  .work-slide-inner  { background: linear-gradient(160deg, #051015 0%, #134a52 50%, #0a2228 100%); }
+    .ws-rugby .work-slide-inner  { background: linear-gradient(125deg, #0d2e38 0%, #1e7080 45%, #040d10 100%); }
+    .ws-el    .work-slide-inner  { background: linear-gradient(150deg, #040d10 0%, #0f3d45 55%, #1a6470 100%); }
+
+    /* Subtle dot-grid texture overlay for the placeholder look */
+    .work-slide-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(52,159,168,0.10) 1px, transparent 1px);
+      background-size: 22px 22px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.45) 0%, transparent 65%);
+      mask-image: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.45) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .work-slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 2;
+      transition: transform 0.4s var(--ease-quart);
+    }
+    .work-slide-link:hover .work-slide-img { transform: scale(1.05); }
+
+    /* Dark gradient overlay for text legibility */
+    .work-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0)     0%,
+        rgba(0,0,0,0.25)  45%,
+        rgba(0,0,0,0.90)  100%
+      );
+      z-index: 3;
+    }
+
+    /* Text content pinned to bottom */
+    .work-slide-content {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      padding: 28px 24px;
+      z-index: 4;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: flex-start;
     }
-    .work-card:hover { background: #050505; }
-    .work-card:hover .work-card-link { color: var(--teal); transform: translateX(4px); }
-    .work-card:hover .work-card-link::after { width: 100%; }
+    @media (min-width: 768px) { .work-slide-content { padding: 32px; } }
 
-    .work-card-top {}
-    .work-card-sector {
+    .work-slide-sector {
       font-family: var(--ff-m);
-      font-size: 0.62rem;
-      color: var(--teal);
+      font-size: 0.58rem;
+      color: rgba(52,159,168,0.90);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 14px;
+      letter-spacing: 0.13em;
+      margin-bottom: 8px;
     }
-    .work-card-name {
+    .work-slide-title {
       font-family: var(--ff-d);
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.3rem, 3vw, 1.65rem);
       font-weight: 800;
-      letter-spacing: -0.028em;
-      color: var(--text);
+      letter-spacing: -0.025em;
       line-height: 1.05;
+      color: #ffffff;
       margin-bottom: 10px;
     }
-    .work-card-services {
+    .work-slide-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
+      margin-bottom: 20px;
     }
-    .work-card-service-tag {
+    .work-slide-tag {
       font-family: var(--ff-m);
-      font-size: 0.6rem;
-      color: var(--text-3);
-      border: 1px solid var(--border-2);
+      font-size: 0.57rem;
+      color: rgba(255,255,255,0.48);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 3px;
-      padding: 3px 8px;
+      padding: 3px 7px;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
     }
-    .work-card-link {
+    .work-slide-readmore {
       font-family: var(--ff-m);
-      font-size: 0.72rem;
-      color: var(--text-3);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.60);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .work-slide-link:hover .work-slide-readmore { color: #ffffff; }
+    .work-slide-arrow {
       display: inline-block;
-      transition: color 0.25s, transform 0.25s var(--ease-quart);
+      transition: transform 0.2s var(--ease-quart);
     }
+    .work-slide-link:hover .work-slide-arrow { transform: translateX(4px); }
 
-    /* Decorative number watermark */
-    .work-card::before {
-      content: attr(data-idx);
-      position: absolute;
-      right: 32px;
-      bottom: 28px;
-      font-family: var(--ff-d);
-      font-size: 6rem;
-      font-weight: 800;
-      color: var(--surface-3);
-      line-height: 1;
-      pointer-events: none;
-      transition: color 0.3s;
+    /* Scroll dots */
+    .work-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 36px;
     }
-    .work-card:hover::before { color: rgba(52,159,168,0.05); }
+    .work-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: rgba(52,159,168,0.18);
+      cursor: none;
+      transition: background 0.25s, transform 0.25s var(--ease-quart);
+    }
+    @media (hover: none) { .work-dot { cursor: pointer; } }
+    .work-dot.active {
+      background: var(--teal);
+      transform: scale(1.35);
+    }
 
     /* ─────────────────────────────────────────────────────
        RESULTS
@@ -1819,8 +1940,6 @@
 
       /* Work */
       .work-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 36px; }
-      .work-card { padding: 30px 24px; min-height: 200px; }
-      .work-card::before { font-size: 4rem; right: 20px; bottom: 16px; }
 
       /* Results */
       .results-head { flex-direction: column; gap: 16px; margin-bottom: 36px; }
@@ -1886,7 +2005,7 @@
       .engine-nodes { grid-template-columns: 1fr; }
       .counters { grid-template-columns: repeat(2, 1fr); }
       .section-title { font-size: clamp(1.5rem, 8vw, 2.2rem); }
-      .work-grid { grid-template-columns: 1fr; }
+      .work-carousel { padding-left: 16px; }
       .wopts { grid-template-columns: 1fr; }
       .wopts-3 { grid-template-columns: 1fr; }
       .clients-logo-img { height: 34px; }
@@ -2782,70 +2901,113 @@
 <!-- ──────────────────────────── SELECTED WORK ─── -->
 <section class="work-section" id="work">
   <div class="wrap">
-
-    <div class="work-head">
-      <div class="reveal">
+    <div class="work-head reveal">
+      <div>
         <div class="section-eyebrow">Selected Work</div>
         <h2 class="section-title">Ideas &amp; execution,<br>delivered.</h2>
       </div>
-      <a href="#" class="btn btn-outline reveal">View all projects →</a>
+      <div class="work-nav-btns">
+        <button class="work-nav-btn" id="work-prev" aria-label="Previous project" disabled>
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="work-nav-btn" id="work-next" aria-label="Next project">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div class="work-grid stagger">
+  <div class="work-carousel-outer" id="work-carousel-outer">
+    <div class="work-carousel" id="work-carousel">
 
-      <div class="work-card" data-idx="01">
-        <div class="work-card-top">
-          <div class="work-card-sector">Marine &amp; Hospitality</div>
-          <div class="work-card-name">Adoro Charters</div>
-          <div class="work-card-services">
-            <span class="work-card-service-tag">Social Media</span>
-            <span class="work-card-service-tag">Branding</span>
-            <span class="work-card-service-tag">Web Dev</span>
+      <!-- Adoro Charters -->
+      <div class="work-slide ws-adoro">
+        <a href="#contact" class="work-slide-link">
+          <div class="work-slide-inner">
+            <img class="work-slide-img" src="" alt="Adoro Charters project" style="display:none">
+            <div class="work-slide-overlay"></div>
+            <div class="work-slide-content">
+              <div class="work-slide-sector">Marine &amp; Hospitality</div>
+              <div class="work-slide-title">Adoro<br>Charters</div>
+              <div class="work-slide-tags">
+                <span class="work-slide-tag">Social Media</span>
+                <span class="work-slide-tag">Branding</span>
+                <span class="work-slide-tag">Web Dev</span>
+              </div>
+              <div class="work-slide-readmore">View Project <span class="work-slide-arrow">→</span></div>
+            </div>
           </div>
-        </div>
-        <div class="work-card-link">View Project →</div>
+        </a>
       </div>
 
-      <div class="work-card" data-idx="02">
-        <div class="work-card-top">
-          <div class="work-card-sector">Health &amp; Fitness</div>
-          <div class="work-card-name">Bone Fitness Studio</div>
-          <div class="work-card-services">
-            <span class="work-card-service-tag">Social Media</span>
-            <span class="work-card-service-tag">Branding</span>
-            <span class="work-card-service-tag">Launch Campaign</span>
+      <!-- Bone Fitness Studio -->
+      <div class="work-slide ws-bone">
+        <a href="#contact" class="work-slide-link">
+          <div class="work-slide-inner">
+            <img class="work-slide-img" src="" alt="Bone Fitness Studio project" style="display:none">
+            <div class="work-slide-overlay"></div>
+            <div class="work-slide-content">
+              <div class="work-slide-sector">Health &amp; Fitness</div>
+              <div class="work-slide-title">Bone Fitness<br>Studio</div>
+              <div class="work-slide-tags">
+                <span class="work-slide-tag">Social Media</span>
+                <span class="work-slide-tag">Branding</span>
+                <span class="work-slide-tag">Launch Campaign</span>
+              </div>
+              <div class="work-slide-readmore">View Project <span class="work-slide-arrow">→</span></div>
+            </div>
           </div>
-        </div>
-        <div class="work-card-link">View Project →</div>
+        </a>
       </div>
 
-      <div class="work-card" data-idx="03">
-        <div class="work-card-top">
-          <div class="work-card-sector">Sports &amp; Events</div>
-          <div class="work-card-name">Malta Rugby Championship</div>
-          <div class="work-card-services">
-            <span class="work-card-service-tag">Social Media</span>
-            <span class="work-card-service-tag">Content Creation</span>
-            <span class="work-card-service-tag">Strategy</span>
+      <!-- Malta Rugby Championship -->
+      <div class="work-slide ws-rugby">
+        <a href="#contact" class="work-slide-link">
+          <div class="work-slide-inner">
+            <img class="work-slide-img" src="" alt="Malta Rugby Championship project" style="display:none">
+            <div class="work-slide-overlay"></div>
+            <div class="work-slide-content">
+              <div class="work-slide-sector">Sports &amp; Events</div>
+              <div class="work-slide-title">Malta Rugby<br>Championship</div>
+              <div class="work-slide-tags">
+                <span class="work-slide-tag">Social Media</span>
+                <span class="work-slide-tag">Content Creation</span>
+                <span class="work-slide-tag">Strategy</span>
+              </div>
+              <div class="work-slide-readmore">View Project <span class="work-slide-arrow">→</span></div>
+            </div>
           </div>
-        </div>
-        <div class="work-card-link">View Project →</div>
+        </a>
       </div>
 
-      <div class="work-card" data-idx="04">
-        <div class="work-card-top">
-          <div class="work-card-sector">Enterprise &amp; Corporate</div>
-          <div class="work-card-name">E&amp;L Enterprise</div>
-          <div class="work-card-services">
-            <span class="work-card-service-tag">Branding</span>
-            <span class="work-card-service-tag">Brand Guidelines</span>
-            <span class="work-card-service-tag">Web Dev</span>
+      <!-- E&L Enterprise -->
+      <div class="work-slide ws-el">
+        <a href="#contact" class="work-slide-link">
+          <div class="work-slide-inner">
+            <img class="work-slide-img" src="" alt="E&amp;L Enterprise project" style="display:none">
+            <div class="work-slide-overlay"></div>
+            <div class="work-slide-content">
+              <div class="work-slide-sector">Enterprise &amp; Corporate</div>
+              <div class="work-slide-title">E&amp;L<br>Enterprise</div>
+              <div class="work-slide-tags">
+                <span class="work-slide-tag">Branding</span>
+                <span class="work-slide-tag">Brand Guidelines</span>
+                <span class="work-slide-tag">Web Dev</span>
+              </div>
+              <div class="work-slide-readmore">View Project <span class="work-slide-arrow">→</span></div>
+            </div>
           </div>
-        </div>
-        <div class="work-card-link">View Project →</div>
+        </a>
       </div>
 
     </div>
+  </div>
+
+  <div class="work-dots" id="work-dots">
+    <button class="work-dot active" aria-label="Go to slide 1"></button>
+    <button class="work-dot" aria-label="Go to slide 2"></button>
+    <button class="work-dot" aria-label="Go to slide 3"></button>
+    <button class="work-dot" aria-label="Go to slide 4"></button>
   </div>
 </section>
 
@@ -3420,7 +3582,7 @@
     });
   }
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.work-card, .case-card, .engine-node').forEach(initTilt);
+    document.querySelectorAll('.case-card, .engine-node').forEach(initTilt);
   }
 
   /* ── Intersection Observer — reveal ───────────── */
@@ -3920,6 +4082,104 @@
     });
   }
 
+})();
+
+/* ── Work carousel ──────────────────────────────── */
+(function () {
+  var carousel   = document.getElementById('work-carousel');
+  var outer      = document.getElementById('work-carousel-outer');
+  var prevBtn    = document.getElementById('work-prev');
+  var nextBtn    = document.getElementById('work-next');
+  var dotsEl     = document.getElementById('work-dots');
+  if (!carousel || !outer || !prevBtn || !nextBtn || !dotsEl) return;
+
+  var slides = carousel.querySelectorAll('.work-slide');
+  var dots   = dotsEl.querySelectorAll('.work-dot');
+  var count  = slides.length;
+  var current = 0;
+
+  function getSlideLeft(idx) {
+    return slides[idx].offsetLeft - carousel.offsetLeft;
+  }
+
+  function goTo(idx, smooth) {
+    idx = Math.max(0, Math.min(count - 1, idx));
+    current = idx;
+    carousel.scrollTo({ left: getSlideLeft(idx), behavior: smooth === false ? 'instant' : 'smooth' });
+    updateState();
+  }
+
+  function updateState() {
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === count - 1;
+  }
+
+  prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { goTo(i); });
+  });
+
+  /* Scroll tracking — update dot/button state when user scroll-snaps */
+  var scrollTimer;
+  carousel.addEventListener('scroll', function () {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () {
+      var scrollLeft = carousel.scrollLeft;
+      var closest = 0;
+      var minDist  = Infinity;
+      slides.forEach(function (slide, i) {
+        var dist = Math.abs(slide.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      current = closest;
+      updateState();
+    }, 60);
+  }, { passive: true });
+
+  /* Mouse drag */
+  var isDragging = false;
+  var dragStartX = 0;
+  var dragScrollStart = 0;
+
+  outer.addEventListener('mousedown', function (e) {
+    isDragging  = true;
+    dragStartX  = e.pageX;
+    dragScrollStart = carousel.scrollLeft;
+    outer.classList.add('is-dragging');
+    carousel.style.scrollSnapType = 'none';
+  });
+
+  window.addEventListener('mousemove', function (e) {
+    if (!isDragging) return;
+    var delta = dragStartX - e.pageX;
+    carousel.scrollLeft = dragScrollStart + delta;
+  });
+
+  window.addEventListener('mouseup', function (e) {
+    if (!isDragging) return;
+    isDragging = false;
+    outer.classList.remove('is-dragging');
+    carousel.style.scrollSnapType = '';
+    /* Snap to nearest slide */
+    var delta = e.pageX - dragStartX;
+    if (Math.abs(delta) > 40) {
+      goTo(delta < 0 ? current + 1 : current - 1);
+    } else {
+      goTo(current);
+    }
+  });
+
+  /* Prevent link clicks when dragged */
+  outer.addEventListener('click', function (e) {
+    if (Math.abs(carousel.scrollLeft - dragScrollStart) > 8) {
+      e.preventDefault();
+    }
+  });
+
+  updateState();
 })();
 </script>
 
