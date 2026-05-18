@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bone Fitness — Novum Marketing</title>
+  <title>Bone Fitness Studio — Novum Marketing</title>
   <meta name="description" content="How Novum built a consistent, high-quality social media presence for Bone Fitness Studio — professional content direction that reflects the gym's energy and community.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -215,6 +215,33 @@
     .contact-status{display:none;align-items:center;gap:10px;padding:14px 20px;border-radius:var(--r-sm);font-size:.875rem;margin-top:16px;border:1px solid} .contact-status.show{display:flex}
     .contact-status--ok{color:#4caf74;border-color:rgba(76,175,116,.25);background:rgba(76,175,116,.07)}
     .contact-status--err{color:#ef4444;border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.07)}
+    .modal-box--wide{max-width:700px}
+    .stack-widget{background:var(--surface);border:1px solid rgba(52,159,168,0.22);border-radius:var(--r);overflow:hidden;box-shadow:0 0 60px rgba(52,159,168,0.07),0 0 0 1px rgba(52,159,168,0.08)}
+    .widget-hdr{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;border-bottom:1px solid var(--border)}
+    .widget-hdr-title{font-family:var(--ff-d);font-size:0.95rem;font-weight:700;color:var(--text);letter-spacing:-0.01em}
+    .wdots{display:flex;gap:7px} .wdot{width:9px;height:9px;border-radius:50%;background:var(--border-2);transition:background 0.3s} .wdot.on{background:var(--teal)}
+    .widget-body{padding:40px 32px;min-height:260px}
+    .wq{font-family:var(--ff-d);font-size:1.2rem;font-weight:700;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px}
+    .wq-sub{font-size:0.875rem;color:var(--text-2);margin-bottom:26px}
+    .wopts{display:grid;grid-template-columns:1fr 1fr;gap:10px} .wopts-3{grid-template-columns:1fr 1fr 1fr}
+    @media(max-width:520px){.wopts,.wopts-3{grid-template-columns:1fr}}
+    .wopt{padding:17px 18px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;text-align:left;transition:border-color 0.2s,background 0.2s}
+    .wopt:hover{border-color:rgba(52,159,168,0.35)} .wopt.picked{border-color:var(--teal);background:rgba(52,159,168,0.07)}
+    .wopt-t{font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:2px} .wopt-s{font-size:0.75rem;color:var(--text-2)}
+    .widget-ftr{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-top:1px solid var(--border)}
+    .wstep-l{font-family:var(--ff-m);font-size:0.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.1em}
+    .wresult{display:none;flex-direction:column;gap:18px} .wresult.show{display:flex}
+    .wresult-l{font-family:var(--ff-m);font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em}
+    .wresult-title{font-family:var(--ff-d);font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
+    .wresult-items{display:flex;flex-direction:column;gap:9px}
+    .wresult-item{display:flex;align-items:center;gap:13px;padding:13px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.875rem;color:var(--text-2)}
+    .wresult-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+    .wresult-cta{display:flex;gap:12px;flex-wrap:wrap;padding-top:8px}
+    .wloading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:52px 0}
+    .wloading-ring{width:34px;height:34px;border:2px solid var(--border-2);border-top-color:var(--teal);border-radius:50%;animation:wl-spin 0.75s linear infinite}
+    @keyframes wl-spin{to{transform:rotate(360deg)}}
+    .wloading-text{font-family:var(--ff-m);font-size:0.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em}
+    @media(max-width:959px){#proj-strategy-btn{display:none!important}}
   </style>
 </head>
 <body>
@@ -230,12 +257,12 @@
 </div>
 <nav id="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo-link"><img src="Novum.svg" alt="Novum Marketing" class="nav-logo-img" height="48"></a>
+    <a href="index.html" class="nav-logo-link"><img src="Novum.svg" alt="Novum Marketing" class="nav-logo-img" height="48"></a>
     <ul class="nav-links">
       <li><a href="/#growth-engine">Services</a></li><li><a href="/#work">Work</a></li>
       <li><a href="/#results">Results</a></li><li><a href="/#process">Process</a></li><li><a href="/#contact">Contact</a></li>
     </ul>
-    <div class="nav-right"><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+    <div class="nav-right"><button class="btn btn-teal btn-sm" id="proj-strategy-btn">Strategy Session</button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
@@ -245,11 +272,11 @@
 
 <section class="proj-hero">
   <div class="proj-hero-bg"></div>
-  <img class="proj-hero-img" src="" alt="Bone Fitness hero">
+  <img class="proj-hero-img" src="" alt="Bone Fitness Studio hero">
   <div class="proj-hero-overlay"></div>
   <div class="proj-hero-texture"></div>
   <div class="proj-hero-nav">
-    <a href="/" class="proj-hero-back">
+    <a href="index.html" class="proj-hero-back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All Projects
     </a>
@@ -271,7 +298,7 @@
         <div class="proj-brief-eyebrow">The Brief</div>
         <p class="proj-brief-lead">Build a strong, consistent social media presence that reflects the energy, community, and intensity of the gym.</p>
         <div class="proj-brief-body">
-          <p>Bone Fitness is a fast-paced gym built around structured classes, personal training, and a strong community culture. Their social media needed to capture that energy and bring it to life online, while maintaining the kind of professional consistency that builds long-term trust and credibility.</p>
+          <p>Bone Fitness Studio is a fast-paced gym built around structured classes, personal training, and a strong community culture. Their social media needed to capture that energy and bring it to life online, while maintaining the kind of professional consistency that builds long-term trust and credibility.</p>
           <p>The existing content lacked structure, consistency, and a unified creative direction. Without professional photography, videography, and branded design, the online presence wasn't reaching its potential — leaving an active and engaged community underrepresented across digital platforms.</p>
         </div>
         <div class="proj-approach">
@@ -329,7 +356,7 @@
 
 <section class="proj-featured">
   <div class="wrap">
-    <div class="proj-featured-wrap reveal"><img src="" alt="Bone Fitness featured work"></div>
+    <div class="proj-featured-wrap reveal"><img src="" alt="Bone Fitness Studio featured work"></div>
   </div>
 </section>
 
@@ -337,9 +364,9 @@
   <div class="wrap">
     <div class="proj-gallery-eyebrow reveal">Gallery</div>
     <div class="proj-gallery-grid stagger">
-      <div class="pg-img pg-main"><img src="" alt="Bone Fitness gallery 1"></div>
-      <div class="pg-img"><img src="" alt="Bone Fitness gallery 2"></div>
-      <div class="pg-img"><img src="" alt="Bone Fitness gallery 3"></div>
+      <div class="pg-img pg-main"><img src="" alt="Bone Fitness Studio gallery 1"></div>
+      <div class="pg-img"><img src="" alt="Bone Fitness Studio gallery 2"></div>
+      <div class="pg-img"><img src="" alt="Bone Fitness Studio gallery 3"></div>
     </div>
   </div>
 </section>
@@ -386,6 +413,82 @@
   </div>
 </footer>
 <!-- Contact Modal -->
+<!-- ─── Strategy Modal ───────────────────────────────── -->
+<div class="modal-overlay" id="modal-strategy" role="dialog" aria-modal="true" aria-label="Growth Stack Builder">
+  <div class="modal-box modal-box--wide">
+    <button class="modal-close" id="modal-strategy-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Find Your Fit</div>
+        <h3 class="modal-title">Build your growth stack.</h3>
+        <p class="modal-sub">Answer three quick questions and we'll point you towards the services that make the most sense for your brand right now.</p>
+      </div>
+      <div class="stack-widget" style="margin-top:0">
+        <div class="widget-hdr">
+          <div class="widget-hdr-title">Growth Stack Builder</div>
+          <div class="wdots">
+            <div class="wdot on" id="wd1"></div>
+            <div class="wdot"    id="wd2"></div>
+            <div class="wdot"    id="wd3"></div>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div id="ws1">
+            <div class="wq">What does your brand need most right now?</div>
+            <div class="wq-sub">Pick the option that feels closest to where you are.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="1" data-val="social"><div class="wopt-t">A social media presence</div><div class="wopt-s">Need someone to manage content and posting</div></button>
+              <button class="wopt" data-step="1" data-val="branding"><div class="wopt-t">A stronger brand identity</div><div class="wopt-s">Need a new look or proper brand guidelines</div></button>
+              <button class="wopt" data-step="1" data-val="web"><div class="wopt-t">A new website</div><div class="wopt-s">Need a website that reflects the brand</div></button>
+              <button class="wopt" data-step="1" data-val="all"><div class="wopt-t">All of the above</div><div class="wopt-s">Need the full package</div></button>
+            </div>
+          </div>
+          <div id="ws2" style="display:none;">
+            <div class="wq">How established is your brand online?</div>
+            <div class="wq-sub">This helps us understand how much groundwork is needed.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="2" data-val="new"><div class="wopt-t">Just starting out</div><div class="wopt-s">Little or no online presence yet</div></button>
+              <button class="wopt" data-step="2" data-val="inconsistent"><div class="wopt-t">Present but inconsistent</div><div class="wopt-s">Some profiles, but not well maintained</div></button>
+              <button class="wopt" data-step="2" data-val="refresh"><div class="wopt-t">Established, needs a refresh</div><div class="wopt-s">Already online but the brand needs updating</div></button>
+              <button class="wopt" data-step="2" data-val="launch"><div class="wopt-t">Ready for a big launch</div><div class="wopt-s">Have something new to announce</div></button>
+            </div>
+          </div>
+          <div id="ws3" style="display:none;">
+            <div class="wq">What's your monthly budget for marketing?</div>
+            <div class="wq-sub">This helps us recommend what's realistic for your stage.</div>
+            <div class="wopts wopts-3">
+              <button class="wopt" data-step="3" data-val="micro"><div class="wopt-t">€200 – €500</div><div class="wopt-s">Starting lean</div></button>
+              <button class="wopt" data-step="3" data-val="small"><div class="wopt-t">€500 – €1,000</div><div class="wopt-s">Building momentum</div></button>
+              <button class="wopt" data-step="3" data-val="large"><div class="wopt-t">€1,000+</div><div class="wopt-s">Ready to invest seriously</div></button>
+            </div>
+          </div>
+          <div id="ws-loading" style="display:none;">
+            <div class="wloading"><div class="wloading-ring"></div><p class="wloading-text">Building your stack&hellip;</p></div>
+          </div>
+          <div id="ws4" style="display:none;">
+            <div class="wresult show" id="wresult">
+              <div class="wresult-l">Your recommended growth stack</div>
+              <div class="wresult-title" id="wres-title">Performance Foundation</div>
+              <div class="wresult-items" id="wres-items"></div>
+              <div class="wresult-cta">
+                <a href="mailto:novummarketingagency@gmail.com?subject=Strategy Session Request" class="btn btn-teal btn-lg">Book Strategy Session →</a>
+                <button class="btn btn-outline" id="wres-restart">Start over</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widget-ftr">
+          <div class="wstep-l" id="wstep-lbl">Step 1 of 3</div>
+          <button class="btn btn-outline" id="wback" style="display:none;padding:8px 18px;font-size:0.8rem;">← Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Contact Modal ────────────────────────────────── -->
 <div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-label="Contact Form">
   <div class="modal-box">
     <button class="modal-close" id="modal-contact-close" aria-label="Close">
@@ -460,6 +563,61 @@
     .then(function(r){return r.json();}).then(function(j){if(j.success){ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
     .catch(function(){err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
+})();
+(function(){
+  'use strict';
+  var overlay=document.getElementById('modal-strategy');
+  var closeBtn=document.getElementById('modal-strategy-close');
+  var trigger=document.getElementById('proj-strategy-btn');
+  function open(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';}
+  if(trigger)trigger.addEventListener('click',open);
+  if(closeBtn)closeBtn.addEventListener('click',close);
+  if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))close();});
+  var answers={},curStep=1;
+  var steps=[null,document.getElementById('ws1'),document.getElementById('ws2'),document.getElementById('ws3'),document.getElementById('ws4')];
+  var dots=[document.getElementById('wd1'),document.getElementById('wd2'),document.getElementById('wd3')];
+  var stepLbl=document.getElementById('wstep-lbl');
+  var backBtn=document.getElementById('wback');
+  var restBtn=document.getElementById('wres-restart');
+  var loadEl=document.getElementById('ws-loading');
+  function showStep(n){
+    for(var i=1;i<=4;i++){if(steps[i])steps[i].style.display='none';}
+    if(steps[n])steps[n].style.display='';
+    dots.forEach(function(d,i){if(d)d.classList.toggle('on',i<Math.min(n,3));});
+    stepLbl.textContent=n<=3?'Step '+n+' of 3':'Your Stack';
+    backBtn.style.display=n>1?'':'none';
+    curStep=n;
+  }
+  function getStack(){
+    var s1=answers[1],s2=answers[2],s3=answers[3];
+    if(s1==='all'||s2==='refresh')return{title:'Full Brand Package',items:['Social media management (monthly retainer)','Brand refresh + brand guidelines','New website implementing the brand','Launch campaign to announce the changes']};
+    if(s1==='social'&&s2==='launch')return{title:'Social + Launch',items:['Social media management (monthly retainer)','Content creation and posting strategy','Launch campaign: Instagram + Facebook rollout','Community management and engagement']};
+    if(s1==='branding'){if(s2==='new')return{title:'Brand Foundation',items:['Brand identity design (logo, colours, typography)','Digital brand guidelines','Social media profile setup and branding']};return{title:'Brand Refresh',items:['Brand refresh: updated logo and visual identity','Brand guidelines documentation','Website update to reflect the new brand','Launch campaign around the rebrand']};}
+    if(s1==='web')return{title:'Web Development',items:['New website design and build','Brand implementation across all pages','Mobile-first, built to last','Optional: Shopify if e-commerce is needed']};
+    if(s3==='micro')return{title:'Starter Social Package',items:['Social media management (entry-level retainer)','Content creation for 1 platform','Monthly performance reporting']};
+    return{title:'Social Media Management',items:['Monthly retainer: content creation and posting','Instagram and Facebook management','Community engagement','Monthly performance review']};
+  }
+  function showResult(){
+    var stack=getStack();
+    document.getElementById('wres-title').textContent=stack.title;
+    var el=document.getElementById('wres-items');el.innerHTML='';
+    stack.items.forEach(function(item){var d=document.createElement('div');d.className='wresult-item';d.innerHTML='<div class="wresult-dot"></div>'+item;el.appendChild(d);});
+    showStep(4);
+  }
+  document.querySelectorAll('.wopt').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var step=parseInt(this.dataset.step);
+      answers[step]=this.dataset.val;
+      this.parentElement.querySelectorAll('.wopt').forEach(function(b){b.classList.remove('picked');});
+      this.classList.add('picked');
+      if(step<3){setTimeout(function(){showStep(step+1);},280);}
+      else{setTimeout(function(){for(var i=1;i<=4;i++){if(steps[i])steps[i].style.display='none';}if(loadEl)loadEl.style.display='';stepLbl.textContent='Analysing…';backBtn.style.display='none';setTimeout(function(){if(loadEl)loadEl.style.display='none';showResult();},1100);},280);}
+    });
+  });
+  if(backBtn)backBtn.addEventListener('click',function(){showStep(curStep===4?3:curStep-1);});
+  if(restBtn)restBtn.addEventListener('click',function(){answers={};if(loadEl)loadEl.style.display='none';document.querySelectorAll('.wopt').forEach(function(b){b.classList.remove('picked');});showStep(1);});
 })();
 </script>
 </body>
