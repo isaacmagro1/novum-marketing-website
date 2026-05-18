@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#000"/>
-  <rect x="4" y="4" width="6" height="24" fill="#fff"/>
-  <rect x="22" y="4" width="6" height="24" fill="#fff"/>
-  <polygon points="10,4 16,4 28,28 22,28" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
+  <defs>
+    <filter id="w" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 0 1
+                0 0 0 10 0"/>
+    </filter>
+  </defs>
+  <rect width="32" height="32" fill="#000000"/>
+  <image href="Novum.svg" x="2" y="2" width="28" height="28"
+    preserveAspectRatio="xMidYMid meet" filter="url(#w)"/>
 </svg>
