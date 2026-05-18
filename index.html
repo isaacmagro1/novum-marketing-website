@@ -240,8 +240,8 @@
     @media (min-width: 768px)  { .nav-inner { padding: 0 48px; } }
     @media (min-width: 1280px) { .nav-inner { padding: 0 72px; } }
 
-    .nav-logo-link { display: flex; align-items: center; justify-self: start; overflow: hidden; height: 48px; }
-    .nav-logo-img  { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+    .nav-logo-link { display: flex; align-items: center; justify-self: start; height: 48px; }
+    .nav-logo-img  { height: 48px; width: auto; max-width: 160px; display: block; filter: brightness(0) invert(1); transform: translate3d(0,0,0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
     :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 2px; }
 
     .nav-links a.active { color: var(--text); }
@@ -854,8 +854,8 @@
       backface-visibility: hidden;
     }
     @keyframes clients-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
     }
     @media (hover: hover) and (pointer: fine) {
       .clients-slider-outer:hover .clients-slider-track { animation-play-state: paused; }
@@ -920,8 +920,8 @@
     }
     .mrow.fwd  .mtrack { animation: mq-fwd 28s linear infinite; }
     .mrow.rev  .mtrack { animation: mq-rev 28s linear infinite; }
-    @keyframes mq-fwd { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
-    @keyframes mq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @keyframes mq-fwd { from { transform: translate3d(0,0,0); }     to { transform: translate3d(-50%,0,0); } }
+    @keyframes mq-rev { from { transform: translate3d(-50%,0,0); }  to { transform: translate3d(0,0,0); } }
 
     .mitem {
       display: inline-flex;
@@ -1675,8 +1675,8 @@
     @media (min-width: 768px) {
       .footer-grid { grid-template-columns: 240px 1fr; gap: 80px; }
     }
-    .footer-logo-wrap { margin-bottom: 0; overflow: hidden; height: 32px; }
-    .footer-logo-img { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+    .footer-logo-wrap { margin-bottom: 0; height: 32px; }
+    .footer-logo-img { height: 32px; width: auto; max-width: 140px; display: block; filter: brightness(0) invert(1); transform: translate3d(0,0,0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
     .footer-tagline { font-size: 0.875rem; color: var(--text-2); max-width: 26ch; line-height: 1.65; margin-top: 14px; }
     .footer-contact { font-family: var(--ff-m); font-size: 0.72rem; color: var(--text-3); margin-top: 24px; line-height: 1.8; }
     .footer-contact a { color: var(--teal); }
@@ -1818,11 +1818,11 @@
       .mitem { font-size: 0.65rem; padding: 0 14px; }
 
       /* Footer — centered on mobile */
-      .footer-grid { gap: 36px; margin-bottom: 44px; text-align: center; }
+      .footer-grid { gap: 36px; margin-bottom: 44px; }
       .footer-nav { grid-template-columns: 1fr 1fr; gap: 28px; }
       footer { padding: 56px 0 32px; }
-      .footer-logo-wrap { margin: 0 auto; }
-      .footer-tagline { margin-left: auto; margin-right: auto; }
+      .footer-grid > div:first-child { display: flex; flex-direction: column; align-items: center; text-align: center; }
+      .footer-tagline { max-width: 100%; }
       .footer-bottom { flex-direction: column; align-items: center; gap: 8px; text-align: center; }
     }
 
