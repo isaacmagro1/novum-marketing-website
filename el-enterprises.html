@@ -53,7 +53,7 @@
     @media(min-width:960px){.nav-inner{display:grid;grid-template-columns:1fr auto 1fr}}
     @media(min-width:768px){.nav-inner{padding:0 48px}} @media(min-width:1280px){.nav-inner{padding:0 72px}}
     .nav-logo-link{display:flex;align-items:center;justify-self:start;height:48px}
-    .nav-logo-img{height:48px;width:auto;max-width:160px;filter:brightness(0) invert(1);will-change:filter}
+    .nav-logo-img{display:block;height:48px;width:48px;background:#fff;-webkit-mask:url('Novum.svg') center/contain no-repeat;mask:url('Novum.svg') center/contain no-repeat}
     :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
     .nav-links{display:none;list-style:none;gap:36px}
     @media(min-width:960px){.nav-links{display:flex}}
@@ -288,7 +288,7 @@
 </div>
 <nav id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo-link"><img src="Novum.svg" alt="Novum Marketing" class="nav-logo-img" height="48"></a>
+    <a href="index.html" class="nav-logo-link" aria-label="Novum Marketing"><span class="nav-logo-img" aria-hidden="true"></span></a>
     <ul class="nav-links">
       <li><a href="/#growth-engine">Services</a></li><li><a href="/#work">Work</a></li>
       <li><a href="/#results">Results</a></li><li><a href="/#process">Process</a></li><li><a href="/#contact">Contact</a></li>
