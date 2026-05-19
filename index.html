@@ -16,9 +16,6 @@
   <link rel="preload" href="Qurova-Bold.otf" as="font" type="font/otf" crossorigin>
 
   <!-- Google Fonts (fallbacks while custom fonts load) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 
   <style>
     /* ─────────────────────────────────────────────────────
@@ -66,8 +63,8 @@
       --text-3: #555555;
       --text-4: #333333;
 
-      --ff-d: 'Qurova', 'Syne', system-ui, sans-serif;
-      --ff-b: 'Aileron', 'DM Sans', system-ui, sans-serif;
+      --ff-d: 'Qurova', system-ui, sans-serif;
+      --ff-b: 'Aileron', system-ui, sans-serif;
       --ff-m: 'DM Mono', 'Cascadia Code', monospace;
 
       --r:    12px;
@@ -3200,22 +3197,22 @@
           <div class="contact-form-row">
             <div class="contact-field">
               <label class="contact-label" for="cf-name">Name</label>
-              <input class="contact-input" type="text" id="cf-name" name="name" placeholder="Your name" required>
+              <input class="contact-input" type="text" id="cf-name" name="name" placeholder="Your name" required maxlength="100" autocomplete="name">
             </div>
             <div class="contact-field">
               <label class="contact-label" for="cf-email">Email</label>
-              <input class="contact-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+              <input class="contact-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required maxlength="254" autocomplete="email">
             </div>
           </div>
 
           <div class="contact-field">
             <label class="contact-label" for="cf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
-            <input class="contact-input" type="text" id="cf-company" name="company" placeholder="Your company or brand name">
+            <input class="contact-input" type="text" id="cf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization">
           </div>
 
           <div class="contact-field">
             <label class="contact-label" for="cf-message">What are you looking to achieve?</label>
-            <textarea class="contact-textarea" id="cf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea>
+            <textarea class="contact-textarea" id="cf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea>
           </div>
 
           <!-- Replace 0x4AAAAAADSn79EDdRSSoayW with your key from Cloudflare Dashboard → Turnstile -->
@@ -3335,20 +3332,20 @@
         <div class="contact-form-row">
           <div class="contact-field">
             <label class="contact-label" for="mf-name">Name</label>
-            <input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required>
+            <input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required maxlength="100" autocomplete="name">
           </div>
           <div class="contact-field">
             <label class="contact-label" for="mf-email">Email</label>
-            <input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required>
+            <input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required maxlength="254" autocomplete="email">
           </div>
         </div>
         <div class="contact-field">
           <label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
-          <input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name">
+          <input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization">
         </div>
         <div class="contact-field">
           <label class="contact-label" for="mf-message">What are you looking to achieve?</label>
-          <textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea>
+          <textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea>
         </div>
         <!-- Replace 0x4AAAAAADSn79EDdRSSoayW with your key from Cloudflare Dashboard → Turnstile -->
         <div class="cf-turnstile" data-sitekey="0x4AAAAAADSn79EDdRSSoayW" data-theme="dark" style="margin-bottom:16px"></div>
@@ -4050,10 +4047,18 @@
   })();
 
   /* ── Contact Form ──────────────────────────────────── */
+  var FORM_COOLDOWN = 60000; /* 60 s between submissions */
+  function isRateLimited() {
+    var last = parseInt(sessionStorage.getItem('nv_last_submit') || '0', 10);
+    return Date.now() - last < FORM_COOLDOWN;
+  }
+  function markSubmitted() { sessionStorage.setItem('nv_last_submit', Date.now()); }
+
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isRateLimited()) return;
       var submitBtn = document.getElementById('cf-submit');
       var successEl = document.getElementById('cf-success');
       var errorEl   = document.getElementById('cf-error');
@@ -4075,6 +4080,7 @@
       .then(function (res) { return res.json(); })
       .then(function (json) {
         if (json.success) {
+          markSubmitted();
           successEl.classList.add('show');
           contactForm.reset();
         } else {
@@ -4252,6 +4258,7 @@
   if (modalForm) {
     modalForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      if (isRateLimited()) return;
       var submitBtn = document.getElementById('mf-submit');
       var successEl = document.getElementById('mf-success');
       var errorEl   = document.getElementById('mf-error');
@@ -4269,6 +4276,7 @@
       .then(function(res){ return res.json(); })
       .then(function(json){
         if (json.success) {
+          markSubmitted();
           successEl.classList.add('show');
           modalForm.reset();
         } else { errorEl.classList.add('show'); }
