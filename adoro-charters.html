@@ -273,6 +273,7 @@
       .footer-nav{display:none}
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="c-dot" id="cdot"></div>
@@ -541,11 +542,12 @@
         <input type="hidden" name="from_name" value="Novum Website">
         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="contact-form-row">
-          <div class="contact-field"><label class="contact-label" for="mf-name">Name</label><input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required></div>
-          <div class="contact-field"><label class="contact-label" for="mf-email">Email</label><input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required></div>
+          <div class="contact-field"><label class="contact-label" for="mf-name">Name</label><input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required maxlength="100" autocomplete="name"></div>
+          <div class="contact-field"><label class="contact-label" for="mf-email">Email</label><input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required maxlength="254" autocomplete="email"></div>
         </div>
-        <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name"></div>
-        <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required></textarea></div>
+        <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization"></div>
+        <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADSn79EDdRSSoayW" data-theme="dark" style="margin-bottom:16px"></div>
         <div class="contact-submit-wrap"><button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button></div>
         <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
         <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">novummarketingagency@gmail.com</a></div>
@@ -592,14 +594,15 @@
     var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
     if(dot&&ring&&closeBtn){closeBtn.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});closeBtn.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')})}
   }
+  var FORM_COOLDOWN=60000;function isRateLimited(){var l=parseInt(sessionStorage.getItem('nv_last_submit')||'0',10);return Date.now()-l<FORM_COOLDOWN;}function markSubmitted(){sessionStorage.setItem('nv_last_submit',Date.now());}
   var form=document.getElementById('contact-form-modal');
   if(form){form.addEventListener('submit',function(e){
-    e.preventDefault();
+    e.preventDefault();if(isRateLimited())return;
     var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
     ok.classList.remove('show');err.classList.remove('show');btn.disabled=true;btn.textContent='Sending…';
     var data={};new FormData(form).forEach(function(v,k){data[k]=v;});
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){return r.json();}).then(function(j){if(j.success){ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
+    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
     .catch(function(){err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
 })();
