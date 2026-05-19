@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Two One Interiors — Novum Marketing</title>
-  <meta name="description" content="How Novum transformed One Two One Interiors' static website into a fully functional Shopify store — built for e-commerce, optimised for mobile, and designed for a modern customer journey.">
+  <title>Sips Watersports Malta — Novum Marketing</title>
+  <meta name="description" content="How Novum grew Sips Watersports Malta through a full-year retainer, paid advertising, and a brand new website with real-time booking — 473K impressions, 129K reach.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +43,7 @@
     .btn:active{transform:scale(.97);transition-duration:100ms}
     .btn-teal{background:var(--teal);color:#000;border-color:var(--teal)}
     .btn-teal::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-100%);transition:transform 520ms var(--ease-expo);pointer-events:none}
+    .btn-outline{background:transparent;color:var(--text-2);border-color:var(--border-2)}
     .btn-arrow{display:inline-block;transition:transform 160ms var(--ease-expo)}
     .btn-lg{padding:17px 36px;font-size:1rem}
     @media(hover:hover) and (pointer:fine){.btn-teal:hover{background:#3dbac4;border-color:#3dbac4;box-shadow:0 0 0 4px rgba(52,159,168,.18),0 6px 24px rgba(52,159,168,.30)} .btn-teal:hover::before{transform:translateX(100%)} .btn:hover .btn-arrow{transform:translateX(3px)}}
@@ -80,7 +81,6 @@
     .stagger.in>*:nth-child(4){opacity:1;transform:none;transition-delay:270ms}
     .section-eyebrow{font-family:var(--ff-m);font-size:.68rem;color:var(--teal);text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;text-shadow:0 0 18px rgba(52,159,168,.35)}
     .section-title{font-family:var(--ff-d);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:800;letter-spacing:.01em;line-height:1.04;color:var(--text);text-transform:uppercase}
-    /* Global gradient */
     .hero-grad-anim{position:fixed;inset:0;z-index:-1;pointer-events:none;--grad-size:80%}
     .hero-grad-blobs{position:absolute;inset:0;filter:blur(80px)}
     .hero-grad-blob{position:absolute;width:var(--grad-size);height:var(--grad-size);top:calc(50% - var(--grad-size)/2);left:calc(50% - var(--grad-size)/2)}
@@ -93,9 +93,8 @@
     @keyframes hgb-vertical{0%{transform:translateY(-50%)}50%{transform:translateY(50%)}100%{transform:translateY(-50%)}}
     @keyframes hgb-circle{0%{transform:rotate(0deg)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
     @keyframes hgb-horizontal{0%{transform:translateX(-50%) translateY(-10%)}50%{transform:translateX(50%) translateY(10%)}100%{transform:translateX(-50%) translateY(-10%)}}
-    /* Hero */
     .proj-hero{position:relative;height:100svh;min-height:580px;overflow:hidden;display:flex;flex-direction:column}
-    .proj-hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#040d10 0%,#051825 35%,#0d4a52 65%,#040d10 100%)}
+    .proj-hero-bg{position:absolute;inset:0;background:linear-gradient(140deg,#030d14 0%,#0a3345 35%,#177580 65%,#040d10 100%)}
     .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
     .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.20) 0%,rgba(0,0,0,.15) 30%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.92) 85%,rgba(0,0,0,1) 100%)}
     .proj-hero-texture{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(52,159,168,.08) 1px,transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,0,0,.5) 0%,transparent 70%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,0,0,.5) 0%,transparent 70%);pointer-events:none}
@@ -110,7 +109,6 @@
     .proj-hero-title{font-family:var(--ff-d);font-size:clamp(3rem,9vw,7.5rem);font-weight:800;letter-spacing:-.03em;line-height:.93;color:#fff;margin-bottom:28px}
     .proj-hero-tags{display:flex;flex-wrap:wrap;gap:8px}
     .proj-hero-tag{font-family:var(--ff-m);font-size:.6rem;border:1px solid rgba(255,255,255,.18);border-radius:3px;padding:5px 11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.48)}
-    /* Overview */
     .proj-overview{padding:96px 0 80px}
     .proj-overview-grid{display:grid;gap:56px}
     @media(min-width:900px){.proj-overview-grid{grid-template-columns:1fr 320px;gap:80px;align-items:start}}
@@ -134,7 +132,6 @@
     .proj-meta-value{font-size:.9rem;color:var(--text);font-weight:500}
     .proj-meta-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
     .proj-meta-tag{font-family:var(--ff-m);font-size:.55rem;border:1px solid var(--border-2);border-radius:3px;padding:3px 8px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-2)}
-    /* Results */
     .proj-results{padding:80px 0;background:rgba(12,12,12,.45)}
     .proj-results-head{margin-bottom:52px}
     .proj-counters{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden}
@@ -143,12 +140,10 @@
     .proj-counter-n{font-family:var(--ff-d);font-size:clamp(2.4rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;color:var(--teal);text-shadow:0 0 48px rgba(52,159,168,.28);line-height:1;margin-bottom:10px}
     .proj-counter-label{font-family:var(--ff-m);font-size:.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.09em;line-height:1.5;margin-bottom:6px}
     .proj-counter-desc{font-size:.8rem;color:var(--text-4);line-height:1.5}
-    /* Featured */
     .proj-featured{padding:80px 0}
-    .proj-featured-wrap{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(160deg,#040d10 0%,#051825 40%,#0d4a52 70%,#040d10 100%);position:relative}
+    .proj-featured-wrap{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(140deg,#030d14 0%,#0a3345 40%,#177580 70%,#040d10 100%);position:relative}
     .proj-featured-wrap img{width:100%;max-height:620px;object-fit:cover;display:block}
     .proj-featured-caption{padding:16px 0 0;font-family:var(--ff-m);font-size:.6rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em}
-    /* Gallery */
     .proj-gallery{padding:0 0 96px}
     .proj-gallery-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:28px}
     .proj-gallery-grid{display:grid;gap:12px}
@@ -158,7 +153,6 @@
     @media(min-width:640px){.pg-main{aspect-ratio:auto}}
     .pg-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease-quart)}
     @media(hover:hover) and (pointer:fine){.pg-img:hover img{transform:scale(1.04)}}
-    /* Next */
     .proj-next{padding:0 0 96px}
     .proj-next-inner{border-top:1px solid var(--border);padding-top:56px}
     .proj-next-link{display:flex;flex-direction:column;gap:8px}
@@ -168,12 +162,10 @@
     .proj-next-arrow{flex-shrink:0;width:56px;height:56px;border-radius:50%;border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:border-color .2s,color .2s,transform .25s var(--ease-quart),background .2s}
     .proj-next-arrow svg{stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
     @media(hover:hover) and (pointer:fine){.proj-next-link:hover .proj-next-title{color:var(--teal)} .proj-next-link:hover .proj-next-arrow{border-color:var(--teal);color:var(--teal);transform:translateX(6px);background:rgba(52,159,168,.07)}}
-    /* CTA */
     .proj-cta{padding:96px 0;background:rgba(12,12,12,.45);text-align:center}
     .proj-cta-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:24px}
     .proj-cta-title{font-family:var(--ff-d);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;line-height:1.05;color:var(--text);margin-bottom:16px}
     .proj-cta-sub{color:var(--text-2);font-size:1rem;max-width:44ch;margin:0 auto 36px;line-height:1.7}
-    /* Footer */
     footer{padding:72px 0 40px;border-top:1px solid var(--border);background:#000}
     .footer-grid{display:grid;gap:48px;margin-bottom:56px}
     @media(min-width:768px){.footer-grid{grid-template-columns:1fr 2fr;gap:64px}}
@@ -302,7 +294,7 @@
 
 <section class="proj-hero">
   <div class="proj-hero-bg"></div>
-  <img class="proj-hero-img" src="" alt="One Two One Interiors hero">
+  <img class="proj-hero-img" src="" alt="Sips Watersports Malta hero">
   <div class="proj-hero-overlay"></div>
   <div class="proj-hero-texture"></div>
   <div class="proj-hero-nav">
@@ -312,10 +304,11 @@
     </a>
   </div>
   <div class="proj-hero-content">
-    <div class="proj-hero-sector">Retail &amp; Services</div>
-    <h1 class="proj-hero-title">One Two One<br>Interiors</h1>
+    <div class="proj-hero-sector">Marine &amp; Water Sports</div>
+    <h1 class="proj-hero-title">Sips<br>Watersports</h1>
     <div class="proj-hero-tags">
-      <span class="proj-hero-tag">Web Dev</span><span class="proj-hero-tag">Shopify</span>
+      <span class="proj-hero-tag">Social Media</span><span class="proj-hero-tag">Paid Advertising</span>
+      <span class="proj-hero-tag">Web Development</span><span class="proj-hero-tag">Booking System</span>
       <span class="proj-hero-tag">Strategy</span>
     </div>
   </div>
@@ -326,29 +319,30 @@
     <div class="proj-overview-grid">
       <div class="reveal">
         <div class="proj-brief-eyebrow">The Brief</div>
-        <p class="proj-brief-lead">Transform a traditional website into a modern Shopify store built for online sales and customer experience.</p>
+        <p class="proj-brief-lead">A long-term digital partnership built to grow a brand, solve operational bottlenecks, and convert online presence into confirmed bookings.</p>
         <div class="proj-brief-body">
-          <p>One Two One Interiors had an existing website built around their services and products, but it wasn't designed for e-commerce. The site didn't reflect a modern customer journey and lacked the functionality required to support online store operations, product browsing, and a structured purchasing experience.</p>
-          <p>Without the right e-commerce features, streamlined navigation, and a clear product browsing and checkout structure, online sales potential was being left on the table. Mobile experience was identified as a key priority — the platform needed to perform intuitively across all devices, particularly for handheld shoppers.</p>
+          <p>Sips Watersports Malta partnered with Novum on a long-term retainer in 2025 to strengthen their digital presence through social media management and paid advertising. Over a full year, we built a consistent content strategy, increased brand visibility, and supported their growth through ongoing campaign optimisation.</p>
+          <p>As demand grew, a key operational challenge emerged. Bookings were arriving through Instagram and Facebook messages, phone calls, and WhatsApp, creating inefficiencies and limiting scalability during peak periods. Novum outlined a strategy to shift Sips towards a more structured, conversion-driven system — and in 2026, we launched a brand new website with real-time booking availability, instant confirmation, and a powerful backend management system for day-to-day operations.</p>
         </div>
         <div class="proj-approach">
           <div class="proj-approach-eyebrow">What We Did</div>
           <div class="proj-approach-list">
-            <div class="proj-approach-item"><div class="proj-approach-num">01</div><div class="proj-approach-text"><strong>Shopify Store Development</strong> — We rebuilt the website into a fully functional Shopify store, giving the business a live e-commerce platform ready to sell products online from day one.</div></div>
-            <div class="proj-approach-item"><div class="proj-approach-num">02</div><div class="proj-approach-text"><strong>Modern Website Redesign</strong> — We modernised the entire design and layout to create a premium digital presence that reflects the brand and supports a smooth customer journey.</div></div>
-            <div class="proj-approach-item"><div class="proj-approach-num">03</div><div class="proj-approach-text"><strong>Mobile Optimisation</strong> — We optimised the full experience for mobile performance, ensuring fast load times and intuitive browsing behaviour for handheld shoppers.</div></div>
+            <div class="proj-approach-item"><div class="proj-approach-num">01</div><div class="proj-approach-text"><strong>Social Media Management</strong> — We built and managed a consistent content strategy across Instagram and Facebook, increasing brand visibility and engagement throughout the full-year retainer.</div></div>
+            <div class="proj-approach-item"><div class="proj-approach-num">02</div><div class="proj-approach-text"><strong>Paid Advertising Strategy</strong> — We managed paid campaigns and evolved the strategy from engagement-focused to traffic-driven advertising, directing audiences directly to the new booking platform to maximise confirmed reservations.</div></div>
+            <div class="proj-approach-item"><div class="proj-approach-num">03</div><div class="proj-approach-text"><strong>Website &amp; Booking System</strong> — We designed and launched a new website with real-time availability, instant booking confirmation, and a backend management system enabling the Sips team to monitor bookings, update schedules, and export reports efficiently.</div></div>
           </div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:120ms">
         <div class="proj-meta-card">
           <div class="proj-meta-header">Project Details</div>
-          <div class="proj-meta-row"><div class="proj-meta-label">Client</div><div class="proj-meta-value">One Two One Interiors</div></div>
-          <div class="proj-meta-row"><div class="proj-meta-label">Sector</div><div class="proj-meta-value">Retail &amp; Services</div></div>
-          <div class="proj-meta-row"><div class="proj-meta-label">Year</div><div class="proj-meta-value">2025</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Client</div><div class="proj-meta-value">Sips Watersports Malta</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Sector</div><div class="proj-meta-value">Marine &amp; Water Sports</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Year</div><div class="proj-meta-value">2025 – 2026</div></div>
           <div class="proj-meta-row"><div class="proj-meta-label">Services</div>
             <div class="proj-meta-tags">
-              <span class="proj-meta-tag">Web Dev</span><span class="proj-meta-tag">Shopify</span>
+              <span class="proj-meta-tag">Social Media</span><span class="proj-meta-tag">Paid Advertising</span>
+              <span class="proj-meta-tag">Web Dev</span><span class="proj-meta-tag">Booking System</span>
               <span class="proj-meta-tag">Strategy</span>
             </div>
           </div>
@@ -366,19 +360,19 @@
     </div>
     <div class="proj-counters stagger">
       <div class="proj-counter-cell">
-        <div class="proj-counter-n"><span class="cnt" data-target="100" data-suffix="%">100%</span></div>
-        <div class="proj-counter-label">Shopify Conversion</div>
-        <div class="proj-counter-desc">Full transition from a static website into a live e-commerce platform ready to sell products online.</div>
+        <div class="proj-counter-n"><span class="cnt" data-target="473" data-suffix="K">473K</span></div>
+        <div class="proj-counter-label">Ad Impressions</div>
+        <div class="proj-counter-desc">Total impressions generated through paid advertising campaigns across a full year of management.</div>
       </div>
       <div class="proj-counter-cell">
-        <div class="proj-counter-n">Mobile</div>
-        <div class="proj-counter-label">Mobile-First Experience</div>
-        <div class="proj-counter-desc">Improved usability and navigation designed specifically for handheld shopping behaviour and fast performance.</div>
+        <div class="proj-counter-n"><span class="cnt" data-target="129" data-suffix="K">129K</span></div>
+        <div class="proj-counter-label">Total Reach</div>
+        <div class="proj-counter-desc">Unique accounts reached through targeted paid advertising on Instagram and Facebook.</div>
       </div>
       <div class="proj-counter-cell">
-        <div class="proj-counter-n">Journey</div>
-        <div class="proj-counter-label">Customer Experience</div>
-        <div class="proj-counter-desc">Clearer product browsing, smoother navigation, and a stronger structure built to increase conversion potential.</div>
+        <div class="proj-counter-n"><span class="cnt" data-target="12" data-suffix="+">12+</span></div>
+        <div class="proj-counter-label">Months on Retainer</div>
+        <div class="proj-counter-desc">Over one full year managing social media, advertising, and delivering the website and booking system.</div>
       </div>
     </div>
   </div>
@@ -386,7 +380,7 @@
 
 <section class="proj-featured">
   <div class="wrap">
-    <div class="proj-featured-wrap reveal"><img src="" alt="One Two One Interiors featured work"></div>
+    <div class="proj-featured-wrap reveal"><img src="" alt="Sips Watersports Malta featured work"></div>
   </div>
 </section>
 
@@ -394,9 +388,9 @@
   <div class="wrap">
     <div class="proj-gallery-eyebrow reveal">Gallery</div>
     <div class="proj-gallery-grid stagger">
-      <div class="pg-img pg-main"><img src="" alt="One Two One Interiors gallery 1"></div>
-      <div class="pg-img"><img src="" alt="One Two One Interiors gallery 2"></div>
-      <div class="pg-img"><img src="" alt="One Two One Interiors gallery 3"></div>
+      <div class="pg-img pg-main"><img src="" alt="Sips Watersports Malta gallery 1"></div>
+      <div class="pg-img"><img src="" alt="Sips Watersports Malta gallery 2"></div>
+      <div class="pg-img"><img src="" alt="Sips Watersports Malta gallery 3"></div>
     </div>
   </div>
 </section>
@@ -404,8 +398,8 @@
 <section class="proj-next">
   <div class="wrap">
     <div class="proj-next-inner">
-      <a href="sips-watersports.html" class="proj-next-link">
-        <div><div class="proj-next-label">Next Project</div><div class="proj-next-title">Sips Watersports</div></div>
+      <a href="adoro-charters.html" class="proj-next-link">
+        <div><div class="proj-next-label">Next Project</div><div class="proj-next-title">Adoro Charters</div></div>
         <div class="proj-next-arrow"><svg width="20" height="20" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
       </a>
     </div>
@@ -443,7 +437,7 @@
     <div class="footer-bottom"><div class="footer-legal">© 2026 Novum Marketing. All rights reserved.</div></div>
   </div>
 </footer>
-<!-- Contact Modal -->
+
 <!-- ─── Strategy Modal ───────────────────────────────── -->
 <div class="modal-overlay" id="modal-strategy" role="dialog" aria-modal="true" aria-label="Growth Stack Builder">
   <div class="modal-box modal-box--wide">
