@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Novum Marketing</title>
+  <meta name="description" content="Novum Marketing's privacy policy. How we collect, use, and protect your personal data in accordance with GDPR.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family:'Qurova'; src:url('Qurova-Bold.otf') format('opentype'); font-weight:700 900; font-display:swap; }
+    @font-face { font-family:'Qurova'; src:url('Qurova-Light.otf') format('opentype'); font-weight:100 400; font-display:swap; }
+    @font-face { font-family:'Aileron'; src:url('Aileron-Regular.otf') format('opentype'); font-weight:400 600; font-display:swap; }
+    :root {
+      --teal:#349fa8; --teal-dim:#1d6269;
+      --bg:#000; --surface:#0c0c0c; --surface-2:#141414;
+      --border:#1e1e1e; --border-2:#2c2c2c;
+      --text:#fff; --text-2:#9a9a9a; --text-3:#555; --text-4:#333;
+      --ff-d:'Qurova','Syne',system-ui,sans-serif;
+      --ff-b:'Aileron','DM Sans',system-ui,sans-serif;
+      --ff-m:'DM Mono','Cascadia Code',monospace;
+      --r:12px; --r-sm:8px;
+      --ease-expo:cubic-bezier(.23,1,.32,1); --ease-quart:cubic-bezier(.25,1,.5,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden;background:#000}
+    body{background:transparent;color:var(--text);font-family:var(--ff-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;-webkit-tap-highlight-color:transparent}
+    @media(hover:none){body{cursor:auto}}
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block;max-width:100%}
+
+    /* Cursor */
+    .c-dot,.c-ring{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+    .c-dot{width:5px;height:5px;background:var(--teal);transition:transform .1s,width .2s var(--ease-quart),height .2s var(--ease-quart),opacity .2s}
+    .c-ring{width:36px;height:36px;border:1px solid rgba(52,159,168,.5);transition:width .3s var(--ease-quart),height .3s var(--ease-quart),border-color .3s,opacity .3s}
+    .c-dot.hover{width:8px;height:8px} .c-ring.hover{width:56px;height:56px;border-color:var(--teal)}
+    @media(hover:none){.c-dot,.c-ring{display:none}}
+
+    .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+    @media(min-width:768px){.wrap{padding:0 48px}} @media(min-width:1280px){.wrap{padding:0 72px}}
+
+    /* Background gradient */
+    .bg-grad{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(52,159,168,.07) 0%,transparent 70%)}
+
+    /* Nav */
+    .pp-nav{padding:32px 0;border-bottom:1px solid var(--border)}
+    .pp-nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .pp-logo{height:40px;width:auto;filter:brightness(0) invert(1)}
+    .pp-back{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);transition:color .2s}
+    .pp-back svg{transition:transform .2s var(--ease-quart)}
+    @media(hover:hover) and (pointer:fine){.pp-back:hover{color:var(--text)} .pp-back:hover svg{transform:translateX(-3px)}}
+
+    /* Content */
+    .pp-hero{padding:72px 0 56px}
+    .pp-eyebrow{font-family:var(--ff-m);font-size:.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
+    .pp-title{font-family:var(--ff-d);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;text-transform:uppercase;margin-bottom:16px}
+    .pp-updated{font-family:var(--ff-m);font-size:.62rem;color:var(--text-3);letter-spacing:.06em}
+
+    .pp-body{max-width:72ch;padding-bottom:96px}
+    .pp-section{margin-top:52px}
+    .pp-section-title{font-family:var(--ff-d);font-size:1.15rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .pp-body p{font-size:.9375rem;color:var(--text-2);line-height:1.8;margin-bottom:14px}
+    .pp-body p:last-child{margin-bottom:0}
+    .pp-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+    .pp-body ul li{font-size:.9375rem;color:var(--text-2);line-height:1.7;padding-left:18px;position:relative}
+    .pp-body ul li::before{content:'—';position:absolute;left:0;color:var(--teal);font-size:.75rem;top:3px}
+    .pp-body a{color:var(--teal);transition:opacity .2s}
+    .pp-body a:hover{opacity:.75;text-decoration:underline}
+    .pp-highlight{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;margin:24px 0}
+    .pp-highlight p{margin:0;font-size:.875rem}
+
+    /* Footer */
+    footer{padding:64px 0 40px;border-top:1px solid var(--border);background:#000}
+    .footer-grid{display:grid;gap:48px;margin-bottom:56px}
+    @media(min-width:768px){.footer-grid{grid-template-columns:1fr 2fr;gap:64px}}
+    .footer-logo-wrap{display:flex;align-items:center;gap:12px}
+    .footer-logo-img{height:40px;width:auto;filter:brightness(0) invert(1)}
+    .footer-tagline{font-size:.9rem;color:var(--text-3);line-height:1.65;max-width:32ch;margin-top:16px}
+    .footer-social-btns{display:none}
+    .footer-social-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-2);border-radius:var(--r-sm);font-family:var(--ff-m);font-size:.6rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.07em;transition:border-color .2s,color .2s}
+    @media(hover:hover) and (pointer:fine){.footer-social-btn:hover{color:var(--text)}}
+    .footer-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    @media(max-width:640px){.footer-nav{grid-template-columns:1fr 1fr}}
+    .footer-col-ttl{font-family:var(--ff-m);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:14px}
+    .footer-col{display:flex;flex-direction:column;gap:10px}
+    .footer-col a{font-size:.875rem;color:var(--text-2);transition:color .2s}
+    @media(hover:hover) and (pointer:fine){.footer-col a:hover{color:var(--text)}}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:8px}
+    .footer-legal{font-family:var(--ff-m);font-size:.6rem;color:var(--text-4);text-transform:uppercase;letter-spacing:.07em}
+    .footer-privacy{font-family:var(--ff-m);font-size:.6rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;transition:color .2s}
+    @media(hover:hover) and (pointer:fine){.footer-privacy:hover{color:var(--text)}}
+    @media(max-width:767px){.footer-social-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px} .footer-grid>div:first-child{display:flex;flex-direction:column;align-items:center;text-align:center} .footer-tagline{max-width:100%} .footer-bottom{flex-direction:column;align-items:center;gap:8px;text-align:center}}
+    @media(max-width:480px){.footer-nav{display:none}}
+  </style>
+</head>
+<body>
+<div class="c-dot" id="c-dot"></div>
+<div class="c-ring" id="c-ring"></div>
+<div class="bg-grad" aria-hidden="true"></div>
+
+<div class="pp-nav">
+  <div class="wrap">
+    <div class="pp-nav-inner">
+      <a href="index.html"><img src="Novum.svg" alt="Novum Marketing" class="pp-logo"></a>
+      <a href="index.html" class="pp-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to home
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="pp-hero">
+  <div class="wrap">
+    <div class="pp-eyebrow">Legal</div>
+    <h1 class="pp-title">Privacy Policy</h1>
+    <p class="pp-updated">Last updated: May 2026</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="pp-body">
+
+    <div class="pp-highlight">
+      <p>This policy explains how Novum Marketing collects, uses, and protects your personal data. We are committed to your privacy and operate in full compliance with the General Data Protection Regulation (GDPR) and Maltese data protection law.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Who we are</h2>
+      <p>Novum Marketing is a digital marketing agency based in Malta. We are the data controller for any personal data you provide to us through this website.</p>
+      <p>For any privacy-related queries, contact us at: <a href="mailto:novummarketingagency@gmail.com">novummarketingagency@gmail.com</a></p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">What data we collect</h2>
+      <p>We only collect personal data that you voluntarily provide to us through our contact form. This includes:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>Your company name (optional)</li>
+        <li>The message or enquiry you submit</li>
+      </ul>
+      <p>We do not collect any data automatically through cookies or tracking scripts beyond what is described below.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Why we collect it</h2>
+      <p>Your data is collected solely to respond to your enquiry. We do not use it for marketing purposes, share it with third parties for advertising, or add you to mailing lists without your explicit consent.</p>
+      <p>The legal basis for processing your data is <strong style="color:var(--text)">legitimate interest</strong> — we need your contact details in order to reply to you — and, where applicable, your <strong style="color:var(--text)">consent</strong> given at the time of submission.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">How long we keep it</h2>
+      <p>We retain your data only for as long as necessary to address your enquiry and for a reasonable period thereafter, not exceeding two years. After that period, your data is deleted.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Third-party services</h2>
+      <p>This website uses the following third-party services:</p>
+      <ul>
+        <li><strong style="color:var(--text)">Web3Forms</strong> — our contact form submissions are processed via Web3Forms, which forwards your message to our email inbox. Web3Forms is GDPR-compliant. No data is stored on their servers after forwarding.</li>
+        <li><strong style="color:var(--text)">Google Fonts</strong> — we load fonts from Google's servers. This may result in your IP address being shared with Google as part of the font request. You can read Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+        <li><strong style="color:var(--text)">Cloudflare</strong> — this website is hosted on Cloudflare Pages. Cloudflare may process technical data (such as IP addresses) for security and performance purposes. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a>.</li>
+      </ul>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Cookies</h2>
+      <p>This website does not use tracking cookies or analytics cookies. No cookies are set that identify you personally or track your behaviour across websites. Technical cookies required for normal browser operation may be set by your browser itself, but are not placed by us.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Your rights</h2>
+      <p>Under GDPR, you have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong style="color:var(--text)">Right of access</strong> — you can request a copy of the data we hold about you</li>
+        <li><strong style="color:var(--text)">Right to rectification</strong> — you can ask us to correct inaccurate data</li>
+        <li><strong style="color:var(--text)">Right to erasure</strong> — you can ask us to delete your data</li>
+        <li><strong style="color:var(--text)">Right to restriction</strong> — you can ask us to limit how we use your data</li>
+        <li><strong style="color:var(--text)">Right to data portability</strong> — you can request your data in a structured, machine-readable format</li>
+        <li><strong style="color:var(--text)">Right to object</strong> — you can object to the processing of your data</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:novummarketingagency@gmail.com">novummarketingagency@gmail.com</a>. We will respond within 30 days.</p>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Complaints</h2>
+      <p>If you believe your data has been handled improperly, you have the right to lodge a complaint with the Maltese supervisory authority:</p>
+      <div class="pp-highlight">
+        <p><strong style="color:var(--text)">Office of the Information and Data Protection Commissioner (IDPC)</strong><br>
+        Second Floor, Airways House, High Street, Sliema SLM 1549, Malta<br>
+        <a href="https://idpc.org.mt" target="_blank" rel="noopener">idpc.org.mt</a></p>
+      </div>
+    </div>
+
+    <div class="pp-section">
+      <h2 class="pp-section-title">Changes to this policy</h2>
+      <p>We may update this privacy policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this page periodically.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap"><img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
+        <p class="footer-tagline">Social media management, branding, and web development for Maltese businesses ready to stand out online.</p>
+        <div class="footer-social-btns">
+          <a href="mailto:novummarketingagency@gmail.com" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>
+          <a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div><div class="footer-col-ttl">Services</div><div class="footer-col"><a href="index.html#growth-engine">Social Media Management</a><a href="index.html#growth-engine">Branding &amp; Identity</a><a href="index.html#growth-engine">Web Development</a><a href="index.html#growth-engine">Launch Campaigns</a></div></div>
+        <div><div class="footer-col-ttl">Company</div><div class="footer-col"><a href="index.html#work">Work</a><a href="index.html#process">Process</a><a href="index.html#results">Results</a><a href="index.html#growth-engine">Growth Engine</a></div></div>
+        <div><div class="footer-col-ttl">Get Started</div><div class="footer-col"><a href="index.html#strategy">Growth Blueprint</a><a href="index.html#contact">Contact</a><a href="https://www.linkedin.com/company/novum-agency/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener">Facebook</a></div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2026 Novum Marketing. All rights reserved.</div>
+      <a href="privacy-policy.html" class="footer-privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var dot = document.getElementById('c-dot');
+    var ring = document.getElementById('c-ring');
+    if(!dot||!ring) return;
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+    function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+    animRing();
+    document.querySelectorAll('a,button').forEach(function(el){
+      el.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});
+      el.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')});
+    });
+  })();
+</script>
+</body>
+</html>
