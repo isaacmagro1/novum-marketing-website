@@ -1459,27 +1459,6 @@
     }
     .work-slide-link:hover .work-slide-arrow { transform: translateX(4px); }
 
-    /* Scroll dots */
-    .work-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 36px;
-    }
-    .work-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      border: none;
-      padding: 0;
-      background: rgba(52,159,168,0.18);
-      cursor: none;
-      transition: background 0.25s, transform 0.25s var(--ease-quart);
-    }
-    @media (hover: none) { .work-dot { cursor: pointer; } }
-    .work-dot.active {
-      background: var(--teal);
-      transform: scale(1.35);
-    }
 
     /* ─────────────────────────────────────────────────────
        RESULTS
@@ -3059,14 +3038,6 @@
     </div>
   </div>
 
-  <div class="work-dots" id="work-dots">
-    <button class="work-dot active" aria-label="Go to slide 1"></button>
-    <button class="work-dot" aria-label="Go to slide 2"></button>
-    <button class="work-dot" aria-label="Go to slide 3"></button>
-    <button class="work-dot" aria-label="Go to slide 4"></button>
-    <button class="work-dot" aria-label="Go to slide 5"></button>
-    <button class="work-dot" aria-label="Go to slide 6"></button>
-  </div>
 </section>
 
 <!-- ──────────────────────────────────── RESULTS ─── -->
@@ -4160,11 +4131,9 @@
   var outer      = document.getElementById('work-carousel-outer');
   var prevBtn    = document.getElementById('work-prev');
   var nextBtn    = document.getElementById('work-next');
-  var dotsEl     = document.getElementById('work-dots');
-  if (!carousel || !outer || !prevBtn || !nextBtn || !dotsEl) return;
+  if (!carousel || !outer || !prevBtn || !nextBtn) return;
 
   var slides = carousel.querySelectorAll('.work-slide');
-  var dots   = dotsEl.querySelectorAll('.work-dot');
   var count  = slides.length;
   var current = 0;
 
@@ -4180,17 +4149,12 @@
   }
 
   function updateState() {
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === count - 1;
   }
 
   prevBtn.addEventListener('click', function () { goTo(current - 1); });
   nextBtn.addEventListener('click', function () { goTo(current + 1); });
-
-  dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () { goTo(i); });
-  });
 
   /* Scroll tracking — update dot/button state when user scroll-snaps */
   var scrollTimer;
