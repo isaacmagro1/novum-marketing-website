@@ -705,41 +705,6 @@
     }
     @media (min-width: 768px) { .hero-visual { display: flex; } }
 
-    /* Floating badge inside hero-visual */
-    .badge-float {
-      position: absolute;
-      bottom: 16px;
-      left: 0px;
-      width: 130px;
-      height: 130px;
-      z-index: 2;
-    }
-    .badge-spin {
-      position: absolute;
-      inset: 0;
-      animation: badge-rotate 18s linear infinite;
-    }
-    .badge-spin svg { width: 100%; height: 100%; }
-    .badge-spin text {
-      font-family: var(--ff-m);
-      font-size: 8.5px;
-      fill: var(--text-3);
-      letter-spacing: 0.14em;
-    }
-    .badge-center {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px; height: 44px;
-      border: 1px solid var(--border-2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--teal);
-    }
-    @keyframes badge-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
     /* Ring System */
     .ring-sys {
@@ -2517,7 +2482,6 @@
     ───────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       .ring-outer, .ring-inner { animation: none; }
-      .badge-spin { animation: none; }
       .orb-center-ring { animation: none; }
       .orb-node-btn.is-related { animation: none; }
       .hl-rotate-inner { transition-duration: 0.01s !important; }
@@ -2658,19 +2622,6 @@
 
       <!-- Ring visual -->
       <div class="hero-visual" aria-hidden="true">
-
-        <!-- Floating rotating badge -->
-        <div class="badge-float">
-          <div class="badge-spin">
-            <svg viewBox="0 0 154 154" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <path id="bp" d="M 77,77 m -59,0 a 59,59 0 1,1 118,0 a 59,59 0 1,1 -118,0"/>
-              </defs>
-              <text><textPath href="#bp" startOffset="0%" textLength="370.71" lengthAdjust="spacing">SOCIAL MEDIA · BRANDING · WEB DEVELOPMENT · MALTA ·</textPath></text>
-            </svg>
-          </div>
-          <div class="badge-center" aria-hidden="true">✦</div>
-        </div>
 
         <!-- CSS ring system -->
         <div class="ring-sys" id="ring-sys">
