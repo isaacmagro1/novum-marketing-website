@@ -6,7 +6,12 @@
      natively — no JS event interception, no z-index issues. Browsers
      that don't support the rule silently ignore it.
   ──────────────────────────────────────────────────────────────────── */
-  var css = '@view-transition{navigation:auto}';
+  var css = '@view-transition{navigation:auto}' +
+    /* Keep nav out of the root snapshot — prevents logo blur/white-box */
+    '#nav{view-transition-name:site-nav}' +
+    '::view-transition-old(site-nav),::view-transition-new(site-nav){' +
+      'animation:none;mix-blend-mode:normal' +
+    '}';
 
   if (!reduced) {
     css +=
