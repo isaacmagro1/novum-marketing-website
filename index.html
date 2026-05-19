@@ -105,6 +105,12 @@
     @media (hover: none) { button { cursor: pointer; } }
     img, svg { display: block; max-width: 100%; }
 
+    /* Eliminate subpixel seams between stacked sections */
+    .hero, .clients-section, .engine-section, .work-section,
+    .results-section, .process-section, .audit-section {
+      margin-bottom: -1px;
+    }
+
     /* ─────────────────────────────────────────────────────
        CUSTOM CURSOR
     ───────────────────────────────────────────────────── */
