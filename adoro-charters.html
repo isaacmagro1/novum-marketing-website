@@ -274,6 +274,14 @@
     }
   </style>
   
+  <!-- hCaptcha – spam protection for contact forms -->
+  <script>
+    window._hcModal = undefined;
+    window.hcaptchaOnLoad = function () {
+      if (document.getElementById('hc-modal')) window._hcModal = hcaptcha.render('hc-modal', { sitekey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2' });
+    };
+  </script>
+  <script src="https://js.hcaptcha.com/1/api.js?onload=hcaptchaOnLoad&render=explicit" async defer></script>
 </head>
 <body>
 <div class="c-dot" id="cdot"></div>
@@ -547,8 +555,10 @@
         </div>
         <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization"></div>
         <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea></div>
-        
+        <div id="hc-modal" style="margin-bottom:16px;"></div>
+
         <div class="contact-submit-wrap"><button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button></div>
+        <div class="contact-status contact-status--err" id="mf-hc-err">Please complete the CAPTCHA to continue.</div>
         <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
         <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">novummarketingagency@gmail.com</a></div>
       </form>
@@ -598,11 +608,13 @@
   var form=document.getElementById('contact-form-modal');
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault();if(isRateLimited())return;
-    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
-    ok.classList.remove('show');err.classList.remove('show');btn.disabled=true;btn.textContent='Sending…';
+    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error'),hcErr=document.getElementById('mf-hc-err');
+    ok.classList.remove('show');err.classList.remove('show');if(hcErr)hcErr.classList.remove('show');
+    if(window.hcaptcha&&window._hcModal!==undefined&&!hcaptcha.getResponse(window._hcModal)){if(hcErr)hcErr.classList.add('show');return;}
+    btn.disabled=true;btn.textContent='Sending…';
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
-    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
-    .catch(function(){err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
+    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();if(window.hcaptcha&&window._hcModal!==undefined)hcaptcha.reset(window._hcModal);}else{console.error('Web3Forms error:',j.message);err.classList.add('show');}})
+    .catch(function(e){console.error('Fetch error:',e);err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
 })();
 (function(){
