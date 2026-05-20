@@ -4050,13 +4050,13 @@
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (isRateLimited()) return;
       var submitBtn = document.getElementById('cf-submit');
       var successEl = document.getElementById('cf-success');
       var errorEl   = document.getElementById('cf-error');
 
       successEl.classList.remove('show');
       errorEl.classList.remove('show');
+      if (isRateLimited()) { errorEl.innerHTML = 'Please wait a moment before sending another message.'; errorEl.classList.add('show'); return; }
 
       var nameVal  = contactForm.querySelector('[name="name"]').value.trim();
       var emailVal = contactForm.querySelector('[name="email"]').value.trim();
@@ -4257,12 +4257,16 @@
   if (modalForm) {
     modalForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      if (isRateLimited()) return;
       var submitBtn = document.getElementById('mf-submit');
       var successEl = document.getElementById('mf-success');
       var errorEl   = document.getElementById('mf-error');
       successEl.classList.remove('show');
       errorEl.classList.remove('show');
+      if (isRateLimited()) { errorEl.innerHTML = 'Please wait a moment before sending another message.'; errorEl.classList.add('show'); return; }
+      var nameVal  = modalForm.querySelector('[name="name"]').value.trim();
+      var emailVal = modalForm.querySelector('[name="email"]').value.trim();
+      var msgVal   = modalForm.querySelector('[name="message"]').value.trim();
+      if (!nameVal || !emailVal || !msgVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { errorEl.innerHTML = 'Please fill in your name, a valid email, and a message.'; errorEl.classList.add('show'); return; }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';

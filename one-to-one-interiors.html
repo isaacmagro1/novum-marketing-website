@@ -592,13 +592,17 @@
   var FORM_COOLDOWN=60000;function isRateLimited(){var l=parseInt(sessionStorage.getItem('nv_last_submit')||'0',10);return Date.now()-l<FORM_COOLDOWN;}function markSubmitted(){sessionStorage.setItem('nv_last_submit',Date.now());}
   var form=document.getElementById('contact-form-modal');
   if(form){form.addEventListener('submit',function(e){
-    e.preventDefault();if(isRateLimited())return;
+    e.preventDefault();
     var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
     ok.classList.remove('show');err.classList.remove('show');
-    
+    if(isRateLimited()){err.innerHTML='Please wait a moment before sending another message.';err.classList.add('show');return;}
+    var nameVal=form.querySelector('[name="name"]').value.trim();
+    var emailVal=form.querySelector('[name="email"]').value.trim();
+    var msgVal=form.querySelector('[name="message"]').value.trim();
+    if(!nameVal||!emailVal||!msgVal||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){err.innerHTML='Please fill in your name, a valid email, and a message.';err.classList.add('show');return;}
     btn.disabled=true;btn.textContent='Sending…';
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
-    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{console.error('Web3Forms error:',j.message);err.classList.add('show');}})
+    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{console.error('Web3Forms error:',j.message);err.innerHTML='Error: '+(j.message||'unknown')+' — <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">email us directly</a>';err.classList.add('show');}})
     .catch(function(e){console.error('Fetch error:',e);err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
 })();
