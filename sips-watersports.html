@@ -590,8 +590,7 @@
     e.preventDefault();if(isRateLimited())return;
     var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
     ok.classList.remove('show');err.classList.remove('show');btn.disabled=true;btn.textContent='Sending…';
-    var data={};new FormData(form).forEach(function(v,k){data[k]=v;});
-    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
     .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{err.classList.add('show');}})
     .catch(function(){err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
