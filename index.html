@@ -4076,6 +4076,15 @@
       errorEl.classList.remove('show');
       if (hcErrEl) hcErrEl.classList.remove('show');
 
+      var nameVal  = contactForm.querySelector('[name="name"]').value.trim();
+      var emailVal = contactForm.querySelector('[name="email"]').value.trim();
+      var msgVal   = contactForm.querySelector('[name="message"]').value.trim();
+      if (!nameVal || !emailVal || !msgVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        errorEl.innerHTML = 'Please fill in your name, a valid email, and a message.';
+        errorEl.classList.add('show');
+        return;
+      }
+
       if (window.hcaptcha && window._hcMain !== undefined && !hcaptcha.getResponse(window._hcMain)) {
         if (hcErrEl) hcErrEl.classList.add('show');
         return;
@@ -4098,6 +4107,7 @@
           if (window.hcaptcha && window._hcMain !== undefined) hcaptcha.reset(window._hcMain);
         } else {
           console.error('Web3Forms error:', json.message);
+          errorEl.innerHTML = 'Error: ' + (json.message || 'unknown') + ' — <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">email us directly</a>';
           errorEl.classList.add('show');
         }
       })
