@@ -2580,6 +2580,17 @@
     ]
   }
   </script>
+
+  <!-- Google reCAPTCHA v2 -->
+  <script>
+    window._rcMain  = undefined;
+    window._rcModal = undefined;
+    window.rcOnLoad = function () {
+      if (document.getElementById('rc-main'))  window._rcMain  = grecaptcha.render('rc-main',  { sitekey: '6LeSBQktAAAAAGJNxF7jlgUidxmSyYd2h_JwGVwn' });
+      if (document.getElementById('rc-modal')) window._rcModal = grecaptcha.render('rc-modal', { sitekey: '6LeSBQktAAAAAGJNxF7jlgUidxmSyYd2h_JwGVwn' });
+    };
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=rcOnLoad&render=explicit" async defer></script>
 </head>
 <body>
 
@@ -3268,9 +3279,12 @@
             <textarea class="contact-textarea" id="cf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea>
           </div>
 
+          <div id="rc-main" style="margin-bottom:16px;"></div>
+
           <div class="contact-submit-wrap">
             <button type="submit" class="btn btn-teal btn-lg" id="cf-submit">Send Message →</button>
           </div>
+          <div class="contact-status contact-status--err" id="cf-rc-err">Please complete the reCAPTCHA to continue.</div>
           <div class="contact-status contact-status--ok" id="cf-success">
             ✓ &nbsp;Message sent. We'll be in touch within 24 hours.
           </div>
@@ -3397,9 +3411,12 @@
           <textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea>
         </div>
 
+        <div id="rc-modal" style="margin-bottom:16px;"></div>
+
         <div class="contact-submit-wrap">
           <button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button>
         </div>
+        <div class="contact-status contact-status--err" id="mf-rc-err">Please complete the reCAPTCHA to continue.</div>
         <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
         <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">novummarketingagency@gmail.com</a></div>
       </form>
@@ -4109,8 +4126,10 @@
       var successEl = document.getElementById('cf-success');
       var errorEl   = document.getElementById('cf-error');
 
+      var rcErrEl = document.getElementById('cf-rc-err');
       successEl.classList.remove('show');
       errorEl.classList.remove('show');
+      if (rcErrEl) rcErrEl.classList.remove('show');
       if (isRateLimited()) { errorEl.innerHTML = 'Please wait a moment before sending another message.'; errorEl.classList.add('show'); return; }
 
       var nameVal  = contactForm.querySelector('[name="name"]').value.trim();
@@ -4119,6 +4138,11 @@
       if (!nameVal || !emailVal || !msgVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
         errorEl.innerHTML = 'Please fill in your name, a valid email, and a message.';
         errorEl.classList.add('show');
+        return;
+      }
+
+      if (window.grecaptcha && window._rcMain !== undefined && !grecaptcha.getResponse(window._rcMain)) {
+        if (rcErrEl) rcErrEl.classList.add('show');
         return;
       }
 
@@ -4136,9 +4160,10 @@
           markSubmitted();
           successEl.classList.add('show');
           contactForm.reset();
+          if (window.grecaptcha && window._rcMain !== undefined) grecaptcha.reset(window._rcMain);
         } else {
           console.error('Web3Forms error:', json.message);
-          errorEl.innerHTML = 'Error: ' + (json.message || 'unknown') + ' — <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">email us directly</a>';
+          errorEl.innerHTML = 'Something went wrong. Please email us directly at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline;">novummarketingagency@gmail.com</a>';
           errorEl.classList.add('show');
         }
       })
@@ -4315,13 +4340,16 @@
       var submitBtn = document.getElementById('mf-submit');
       var successEl = document.getElementById('mf-success');
       var errorEl   = document.getElementById('mf-error');
+      var rcErrEl = document.getElementById('mf-rc-err');
       successEl.classList.remove('show');
       errorEl.classList.remove('show');
+      if (rcErrEl) rcErrEl.classList.remove('show');
       if (isRateLimited()) { errorEl.innerHTML = 'Please wait a moment before sending another message.'; errorEl.classList.add('show'); return; }
       var nameVal  = modalForm.querySelector('[name="name"]').value.trim();
       var emailVal = modalForm.querySelector('[name="email"]').value.trim();
       var msgVal   = modalForm.querySelector('[name="message"]').value.trim();
       if (!nameVal || !emailVal || !msgVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { errorEl.innerHTML = 'Please fill in your name, a valid email, and a message.'; errorEl.classList.add('show'); return; }
+      if (window.grecaptcha && window._rcModal !== undefined && !grecaptcha.getResponse(window._rcModal)) { if (rcErrEl) rcErrEl.classList.add('show'); return; }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
@@ -4335,6 +4363,7 @@
           markSubmitted();
           successEl.classList.add('show');
           modalForm.reset();
+          if (window.grecaptcha && window._rcModal !== undefined) grecaptcha.reset(window._rcModal);
         } else { console.error('Web3Forms error:', json.message); errorEl.classList.add('show'); }
       })
       .catch(function(err){ console.error('Fetch error:', err); errorEl.classList.add('show'); })

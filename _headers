@@ -8,7 +8,7 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Cross-Origin-Resource-Policy: same-site
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' js.hcaptcha.com; style-src 'self' 'unsafe-inline' js.hcaptcha.com; font-src 'self' data:; img-src 'self' data: hcaptcha.com *.hcaptcha.com; connect-src 'self' api.web3forms.com hcaptcha.com *.hcaptcha.com; frame-src newassets.hcaptcha.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' www.google.com www.gstatic.com; style-src 'self' 'unsafe-inline' www.gstatic.com; font-src 'self' data: fonts.gstatic.com; img-src 'self' data: www.gstatic.com; connect-src 'self' api.web3forms.com www.google.com; frame-src www.google.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;
 
 /Novum.svg
   Access-Control-Allow-Origin: *
