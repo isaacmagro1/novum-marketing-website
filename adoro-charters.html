@@ -297,14 +297,6 @@
       .footer-nav{display:none}
     }
   </style>
-  <!-- Google reCAPTCHA v2 -->
-  <script>
-    window._rcModal = undefined;
-    window.rcOnLoad = function () {
-      if (document.getElementById('rc-modal')) window._rcModal = grecaptcha.render('rc-modal', { sitekey: '6LeSBQktAAAAAGJNxF7jlgUidxmSyYd2h_JwGVwn' });
-    };
-  </script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=rcOnLoad&render=explicit" async defer></script>
 </head>
 <body>
 <div class="c-dot" id="cdot"></div>
@@ -579,10 +571,7 @@
         <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization"></div>
         <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea></div>
 
-        <div id="rc-modal" style="margin-bottom:16px;"></div>
-
         <div class="contact-submit-wrap"><button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button></div>
-        <div class="contact-status contact-status--err" id="mf-rc-err">Please complete the reCAPTCHA to continue.</div>
         <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
         <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">novummarketingagency@gmail.com</a></div>
       </form>
@@ -632,17 +621,17 @@
   var form=document.getElementById('contact-form-modal');
   if(form){form.addEventListener('submit',function(e){
     e.preventDefault();
-    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error'),rcErr=document.getElementById('mf-rc-err');
-    ok.classList.remove('show');err.classList.remove('show');if(rcErr)rcErr.classList.remove('show');
+    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
+    ok.classList.remove('show');err.classList.remove('show');
     if(isRateLimited()){err.innerHTML='Please wait a moment before sending another message.';err.classList.add('show');return;}
     var nameVal=form.querySelector('[name="name"]').value.trim();
     var emailVal=form.querySelector('[name="email"]').value.trim();
     var msgVal=form.querySelector('[name="message"]').value.trim();
     if(!nameVal||!emailVal||!msgVal||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){err.innerHTML='Please fill in your name, a valid email, and a message.';err.classList.add('show');return;}
-    if(window.grecaptcha&&window._rcModal!==undefined&&!grecaptcha.getResponse(window._rcModal)){if(rcErr)rcErr.classList.add('show');return;}
+    
     btn.disabled=true;btn.textContent='Sending…';
     fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
-    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();if(window.grecaptcha&&window._rcModal!==undefined)grecaptcha.reset(window._rcModal);}else{console.error('Web3Forms error:',j.message);err.classList.add('show');}})
+    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{console.error('Web3Forms error:',j.message);err.classList.add('show');}})
     .catch(function(e){console.error('Fetch error:',e);err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
   });}
 })();
