@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZHBTYJB9S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LZHBTYJB9S');
+  </script>
+  <title>Twiys Limited Malta — Novum Marketing</title>
+  <meta name="description" content="How Novum built the complete digital presence for Twiys Ltd — a Malta recruitment agency serving six sectors with a custom website, CV upload forms, and Vercel serverless backend.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://www.novummarketing.co/twiys-limited.html">
+
+  <meta property="og:title" content="Twiys Limited Case Study | Novum Marketing Malta">
+  <meta property="og:description" content="How Novum built the complete digital presence for Twiys Ltd — a Malta recruitment agency serving six sectors with a custom website, CV upload forms, and Vercel serverless backend.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.novummarketing.co/twiys-limited.html">
+  <meta property="og:image" content="https://www.novummarketing.co/images/twiys-limited/featured.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Novum Marketing">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Twiys Limited Case Study | Novum Marketing Malta">
+  <meta name="twitter:description" content="How Novum built the complete digital presence for Twiys Ltd — a Malta recruitment agency serving six sectors with a custom website, CV upload forms, and Vercel serverless backend.">
+  <meta name="twitter:image" content="https://www.novummarketing.co/images/twiys-limited/featured.png">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="Qurova-Bold.otf" as="font" type="font/otf" crossorigin>
+  <style>
+    @font-face { font-family:'Qurova'; src:url('Qurova-Bold.otf') format('opentype'); font-weight:700 900; font-display:swap; }
+    @font-face { font-family:'Qurova'; src:url('Qurova-Light.otf') format('opentype'); font-weight:100 400; font-display:swap; }
+    @font-face { font-family:'Aileron'; src:url('Aileron-Regular.otf') format('opentype'); font-weight:400 600; font-display:swap; }
+    @font-face { font-family:'DM Mono'; src:url('DMMono-Regular-latin.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD; }
+    @font-face { font-family:'DM Mono'; src:url('DMMono-Regular-latinext.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    :root {
+      --teal:#349fa8; --teal-dim:#1d6269; --teal-glow:rgba(52,159,168,.10); --teal-mid:rgba(52,159,168,.22);
+      --bg:#000; --surface:#0c0c0c; --surface-2:#141414; --surface-3:#1e1e1e;
+      --border:#1e1e1e; --border-2:#2c2c2c;
+      --text:#fff; --text-2:#9a9a9a; --text-3:#555; --text-4:#333;
+      --ff-d:'Qurova',system-ui,sans-serif;
+      --ff-b:'Aileron',system-ui,sans-serif;
+      --ff-m:'DM Mono','Cascadia Code',monospace;
+      --r:12px; --r-sm:8px; --r-lg:20px;
+      --ease-expo:cubic-bezier(.23,1,.32,1); --ease-quart:cubic-bezier(.25,1,.5,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden;background:#000}
+    body{background:transparent;color:var(--text);font-family:var(--ff-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;-webkit-tap-highlight-color:transparent}
+    body.menu-open{overflow:hidden}
+    @media(hover:none){body{cursor:auto}}
+    a{color:inherit;text-decoration:none} button{font-family:inherit;cursor:none;touch-action:manipulation} @media(hover:none){button{cursor:pointer}}
+    img,svg{display:block;max-width:100%}
+    .c-dot,.c-ring{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+    .c-dot{width:5px;height:5px;background:var(--teal);transition:transform .1s,width .2s var(--ease-quart),height .2s var(--ease-quart),opacity .2s}
+    .c-ring{width:36px;height:36px;border:1px solid rgba(52,159,168,.5);transition:width .3s var(--ease-quart),height .3s var(--ease-quart),border-color .3s,opacity .3s}
+    .c-dot.hover{width:8px;height:8px} .c-ring.hover{width:56px;height:56px;border-color:var(--teal)}
+    @media(hover:none){.c-dot,.c-ring{display:none}}
+    .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+    @media(min-width:768px){.wrap{padding:0 48px}} @media(min-width:1280px){.wrap{padding:0 72px}}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:4px;font-family:var(--ff-b);font-size:.9rem;font-weight:600;letter-spacing:.01em;cursor:none;text-decoration:none;border:1px solid transparent;transition:background 160ms var(--ease-expo),border-color 160ms var(--ease-expo),box-shadow 160ms var(--ease-expo),transform 140ms var(--ease-expo);position:relative;overflow:hidden}
+    .btn:active{transform:scale(.97);transition-duration:100ms}
+    .btn-teal{background:var(--teal);color:#000;border-color:var(--teal)}
+    .btn-teal::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-100%);transition:transform 520ms var(--ease-expo);pointer-events:none}
+    .btn-outline{background:transparent;color:var(--text-2);border-color:var(--border-2)}
+    .btn-arrow{display:inline-block;transition:transform 160ms var(--ease-expo)}
+    .btn-lg{padding:17px 36px;font-size:1rem}
+    @media(hover:hover) and (pointer:fine){.btn-teal:hover{background:#3dbac4;border-color:#3dbac4;box-shadow:0 0 0 4px rgba(52,159,168,.18),0 6px 24px rgba(52,159,168,.30)} .btn-teal:hover::before{transform:translateX(100%)} .btn:hover .btn-arrow{transform:translateX(3px)}}
+    #nav{position:fixed;inset:0 0 auto 0;z-index:500;border-bottom:1px solid transparent;transition:background .4s var(--ease-quart),border-color .4s var(--ease-quart)}
+    #nav.scrolled{background:rgba(0,0,0,.92);border-color:var(--border);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1280px;margin:0 auto;padding:0 24px}
+    @media(min-width:960px){.nav-inner{display:grid;grid-template-columns:1fr auto 1fr}}
+    @media(min-width:768px){.nav-inner{padding:0 48px}} @media(min-width:1280px){.nav-inner{padding:0 72px}}
+    .nav-logo-link{display:flex;align-items:center;justify-self:start;height:48px}
+    .nav-logo-img{display:block;height:48px;width:48px;background:#fff;-webkit-mask:url('Novum.svg') center/contain no-repeat;mask:url('Novum.svg') center/contain no-repeat}
+    :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+    .nav-links{display:none;list-style:none;gap:36px}
+    @media(min-width:960px){.nav-links{display:flex}}
+    .nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);letter-spacing:.01em;transition:color .2s}
+    @media(hover:hover) and (pointer:fine){.nav-links a:hover{color:var(--text)}}
+    .nav-right{display:flex;align-items:center;gap:16px;justify-self:end}
+    .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:10px;cursor:none;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    @media(min-width:960px){.hamburger{display:none}}
+    .hamburger span{display:block;width:24px;height:1.5px;background:var(--text-2);transition:all .3s var(--ease-quart)}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);background:var(--text)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);background:var(--text)}
+    .mobile-menu{position:fixed;top:68px;left:0;right:0;background:rgba(0,0,0,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:20px 24px 36px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:0;transform:translateY(-110%);opacity:0;transition:transform .38s var(--ease-expo),opacity .28s;z-index:490;overscroll-behavior:contain}
+    @media(max-width:767px){.mobile-menu{top:60px}}
+    .mobile-menu.open{transform:translateY(0);opacity:1}
+    .mobile-menu a{display:flex;align-items:center;font-size:1.05rem;font-weight:500;color:var(--text-2);padding:15px 0;border-bottom:1px solid var(--border);transition:color .2s;min-height:52px}
+    .mobile-menu a:last-child{border:none;margin-top:12px}
+    @media(hover:hover) and (pointer:fine){.mobile-menu a:hover{color:var(--text)}}
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease-expo),transform .8s var(--ease-expo)}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .stagger>*{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-expo),transform .7s var(--ease-expo)}
+    .stagger.in>*:nth-child(1){opacity:1;transform:none;transition-delay:0ms}
+    .stagger.in>*:nth-child(2){opacity:1;transform:none;transition-delay:90ms}
+    .stagger.in>*:nth-child(3){opacity:1;transform:none;transition-delay:180ms}
+    .stagger.in>*:nth-child(4){opacity:1;transform:none;transition-delay:270ms}
+    .section-eyebrow{font-family:var(--ff-m);font-size:.68rem;color:var(--teal);text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;text-shadow:0 0 18px rgba(52,159,168,.35)}
+    .section-title{font-family:var(--ff-d);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:800;letter-spacing:.01em;line-height:1.04;color:var(--text);text-transform:uppercase}
+    .hero-grad-anim{position:fixed;inset:0;z-index:-1;pointer-events:none;--grad-size:80%}
+    .hero-grad-blobs{position:absolute;inset:0;filter:blur(80px)}
+    .hero-grad-blob{position:absolute;width:var(--grad-size);height:var(--grad-size);top:calc(50% - var(--grad-size)/2);left:calc(50% - var(--grad-size)/2)}
+    .hgb-1{background:radial-gradient(circle at center,rgba(52,159,168,.32) 0,rgba(52,159,168,0) 70%) no-repeat;transform-origin:center;animation:hgb-vertical 30s ease infinite}
+    .hgb-2{background:radial-gradient(circle at center,rgba(52,159,168,.17) 0,rgba(52,159,168,0) 50%) no-repeat;transform-origin:calc(50% - 400px);animation:hgb-circle 20s reverse infinite}
+    .hgb-3{background:radial-gradient(circle at center,rgba(29,98,105,.15) 0,rgba(29,98,105,0) 50%) no-repeat;transform-origin:calc(50% + 400px);animation:hgb-circle 40s linear infinite}
+    .hgb-4{background:radial-gradient(circle at center,rgba(10,45,55,.13) 0,rgba(10,45,55,0) 50%) no-repeat;transform-origin:calc(50% - 200px);animation:hgb-horizontal 40s ease infinite}
+    .hgb-5{background:radial-gradient(circle at center,rgba(52,159,168,.15) 0,rgba(52,159,168,0) 50%) no-repeat;transform-origin:calc(50% - 800px) calc(50% + 800px);animation:hgb-circle 20s ease infinite}
+    .hero-grad-pointer{position:absolute;background:radial-gradient(circle at center,rgba(52,159,168,.17) 0,rgba(52,159,168,0) 50%) no-repeat;width:100%;height:100%;top:-50%;left:-50%}
+    @keyframes hgb-vertical{0%{transform:translateY(-50%)}50%{transform:translateY(50%)}100%{transform:translateY(-50%)}}
+    @keyframes hgb-circle{0%{transform:rotate(0deg)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
+    @keyframes hgb-horizontal{0%{transform:translateX(-50%) translateY(-10%)}50%{transform:translateX(50%) translateY(10%)}100%{transform:translateX(-50%) translateY(-10%)}}
+    .proj-hero{position:relative;height:65svh;min-height:420px;overflow:hidden;display:flex;flex-direction:column}
+    .proj-hero-bg{position:absolute;inset:0;background:linear-gradient(140deg,#060814 0%,#0c1035 35%,#162870 65%,#060812 100%)}
+    .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.65) 0%,rgba(0,0,0,.20) 35%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.92) 85%,rgba(0,0,0,1) 100%)}
+    .proj-hero-texture{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(75,88,255,.08) 1px,transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,0,0,.5) 0%,transparent 70%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,0,0,.5) 0%,transparent 70%);pointer-events:none}
+    .proj-hero-nav{position:relative;z-index:2;padding:88px 24px 0}
+    @media(min-width:768px){.proj-hero{height:100svh;min-height:580px} .proj-hero-nav{padding:100px 48px 0}} @media(min-width:1280px){.proj-hero-nav{padding:100px 72px 0}}
+    .proj-hero-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-m);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);transition:color .2s}
+    .proj-hero-back svg{transition:transform .2s var(--ease-quart)}
+    @media(hover:hover) and (pointer:fine){.proj-hero-back:hover{color:rgba(255,255,255,.85)} .proj-hero-back:hover svg{transform:translateX(-3px)}}
+    .proj-hero-content{position:relative;z-index:2;margin-top:auto;padding:0 24px 56px;max-width:1280px}
+    @media(min-width:768px){.proj-hero-content{padding:0 48px 72px}} @media(min-width:1280px){.proj-hero-content{padding:0 72px 80px}}
+    .proj-hero-sector{font-family:var(--ff-m);font-size:.6rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.16em;margin-bottom:20px;text-shadow:0 0 20px rgba(52,159,168,.35)}
+    .proj-hero-title{font-family:var(--ff-d);font-size:clamp(3rem,9vw,7.5rem);font-weight:800;letter-spacing:-.03em;line-height:.93;color:#fff;margin-bottom:28px}
+    .proj-hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .proj-hero-tag{font-family:var(--ff-m);font-size:.6rem;border:1px solid rgba(255,255,255,.18);border-radius:3px;padding:5px 11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.48)}
+    .proj-overview{padding:96px 0 80px}
+    .proj-overview-grid{display:grid;gap:56px}
+    @media(min-width:900px){.proj-overview-grid{grid-template-columns:1fr 320px;gap:80px;align-items:start}}
+    @media(min-width:1100px){.proj-overview-grid{grid-template-columns:1fr 360px}}
+    .proj-brief-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:20px}
+    .proj-brief-lead{font-family:var(--ff-d);font-size:clamp(1.4rem,2.8vw,1.9rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:24px}
+    .proj-brief-body{font-size:1rem;color:var(--text-2);line-height:1.8;max-width:58ch}
+    .proj-brief-body p+p{margin-top:16px}
+    .proj-approach{margin-top:52px;padding-top:40px;border-top:1px solid var(--border)}
+    .proj-approach-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:24px}
+    .proj-approach-list{display:flex;flex-direction:column;gap:20px}
+    .proj-approach-item{display:grid;grid-template-columns:32px 1fr;gap:14px;align-items:start}
+    .proj-approach-num{font-family:var(--ff-m);font-size:.65rem;color:var(--teal);padding-top:3px;line-height:1}
+    .proj-approach-text{font-size:.9375rem;color:var(--text-2);line-height:1.65}
+    .proj-approach-text strong{color:var(--text);font-weight:600}
+    .proj-meta-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;position:sticky;top:88px}
+    .proj-meta-header{padding:18px 24px;border-bottom:1px solid var(--border);font-family:var(--ff-m);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3)}
+    .proj-meta-row{padding:18px 24px;border-bottom:1px solid var(--border)}
+    .proj-meta-row:last-child{border-bottom:none}
+    .proj-meta-label{font-family:var(--ff-m);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:7px}
+    .proj-meta-value{font-size:.9rem;color:var(--text);font-weight:500}
+    .proj-meta-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .proj-meta-tag{font-family:var(--ff-m);font-size:.55rem;border:1px solid var(--border-2);border-radius:3px;padding:3px 8px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-2)}
+    .proj-meta-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-m);font-size:.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-top:10px;transition:opacity .2s}
+    .proj-meta-link svg{stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    @media(hover:hover) and (pointer:fine){.proj-meta-link:hover{opacity:.75}}
+    .proj-results{padding:80px 0;background:rgba(12,12,12,.45)}
+    .proj-results-head{margin-bottom:52px}
+    .proj-counters{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden}
+    @media(max-width:560px){.proj-counters{grid-template-columns:1fr}}
+    .proj-counter-cell{background:var(--surface-2);padding:36px 28px}
+    .proj-counter-n{font-family:var(--ff-d);font-size:clamp(2.4rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;color:var(--teal);text-shadow:0 0 48px rgba(52,159,168,.28);line-height:1;margin-bottom:10px}
+    .proj-counter-label{font-family:var(--ff-m);font-size:.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.09em;line-height:1.5;margin-bottom:6px}
+    .proj-counter-desc{font-size:.8rem;color:var(--text-4);line-height:1.5}
+    .proj-featured{padding:80px 0}
+    .proj-featured-wrap{border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(140deg,#060814 0%,#0c1035 40%,#162870 70%,#060812 100%);position:relative}
+    .proj-featured-wrap img{width:100%;max-height:620px;object-fit:cover;display:block}
+    .proj-featured-caption{padding:16px 0 0;font-family:var(--ff-m);font-size:.6rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em}
+    .proj-gallery{padding:0 0 96px}
+    .proj-gallery-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:28px}
+    .proj-gallery-grid{display:grid;gap:12px}
+    @media(min-width:640px){.proj-gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto} .pg-main{grid-row:span 2}}
+    .pg-img{border-radius:var(--r);overflow:hidden;background:var(--surface-2);aspect-ratio:4/3}
+    .pg-main{aspect-ratio:3/4}
+    @media(min-width:640px){.pg-main{aspect-ratio:auto}}
+    .pg-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease-quart)}
+    @media(hover:hover) and (pointer:fine){.pg-img:hover img{transform:scale(1.04)}}
+    .proj-next{padding:0 0 96px}
+    .proj-next-inner{border-top:1px solid var(--border);padding-top:56px}
+    .proj-next-link{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:16px}
+    @media(min-width:768px){.proj-next-link{flex-direction:row;align-items:center;justify-content:space-between}}
+    .proj-next-label{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:14px}
+    .proj-next-title{font-family:var(--ff-d);font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--text);transition:color .2s}
+    .proj-next-arrow{flex-shrink:0;width:56px;height:56px;border-radius:50%;border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;color:var(--text-2);transition:border-color .2s,color .2s,transform .25s var(--ease-quart),background .2s}
+    .proj-next-arrow svg{stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    @media(hover:hover) and (pointer:fine){.proj-next-link:hover .proj-next-title{color:var(--teal)} .proj-next-link:hover .proj-next-arrow{border-color:var(--teal);color:var(--teal);transform:translateX(6px);background:rgba(52,159,168,.07)}}
+    .proj-cta{padding:96px 0;background:rgba(12,12,12,.45);text-align:center}
+    .proj-cta-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:24px}
+    .proj-cta-title{font-family:var(--ff-d);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;line-height:1.05;color:var(--text);margin-bottom:16px}
+    .proj-cta-sub{color:var(--text-2);font-size:1rem;max-width:44ch;margin:0 auto 36px;line-height:1.7}
+    footer{padding:72px 0 40px;border-top:1px solid var(--border);background:#000}
+    .footer-grid{display:grid;gap:48px;margin-bottom:56px}
+    @media(min-width:768px){.footer-grid{grid-template-columns:1fr 2fr;gap:64px}}
+    .footer-logo-wrap{display:flex;align-items:center;gap:12px}
+    .footer-logo-img{height:40px;width:auto}
+    .footer-tagline{font-size:.9rem;color:var(--text-3);line-height:1.65;max-width:32ch}
+    .footer-social-btns{display:none}
+    .footer-social-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-2);border-radius:var(--r-sm);font-family:var(--ff-m);font-size:.6rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.07em;transition:border-color .2s,color .2s}
+    @media(hover:hover) and (pointer:fine){.footer-social-btn:hover{color:var(--text)}}
+    .footer-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    @media(max-width:640px){.footer-nav{grid-template-columns:1fr 1fr}}
+    .footer-col-ttl{font-family:var(--ff-m);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:14px}
+    .footer-col{display:flex;flex-direction:column;gap:10px}
+    .footer-col a{font-size:.875rem;color:var(--text-2);transition:color .2s}
+    @media(hover:hover) and (pointer:fine){.footer-col a:hover{color:var(--text)}}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:8px}
+    .footer-legal{font-family:var(--ff-m);font-size:.6rem;color:var(--text-4);text-transform:uppercase;letter-spacing:.07em}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    .modal-overlay{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s var(--ease-expo)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);width:100%;max-width:560px;max-height:90svh;overflow-y:auto;transform:scale(.95) translateY(12px);transition:transform .35s var(--ease-expo);position:relative;scrollbar-width:thin;scrollbar-color:var(--border-2) transparent}
+    .modal-overlay.open .modal-box{transform:scale(1) translateY(0)}
+    .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;background:rgba(255,255,255,.06);border:1px solid var(--border-2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;color:var(--text-3);transition:background .2s,color .2s;z-index:2}
+    @media(hover:none){.modal-close{cursor:pointer}}
+    @media(hover:hover) and (pointer:fine){.modal-close:hover{background:rgba(255,255,255,.14);color:var(--text)}}
+    .modal-inner{padding:40px 36px 36px} @media(max-width:540px){.modal-inner{padding:28px 20px 24px}}
+    .modal-head{margin-bottom:28px;padding-right:40px}
+    .modal-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;text-shadow:0 0 18px rgba(52,159,168,.35)}
+    .modal-title{font-family:var(--ff-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:10px}
+    .modal-sub{font-size:.875rem;color:var(--text-2);line-height:1.7}
+    .contact-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media(max-width:560px){.contact-form-row{grid-template-columns:1fr}}
+    .contact-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+    .contact-label{font-family:var(--ff-m);font-size:.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em}
+    .contact-input,.contact-textarea{background:var(--surface-2);border:1px solid var(--border-2);border-radius:var(--r-sm);padding:13px 16px;font-family:var(--ff-b);font-size:.9rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+    .contact-input::placeholder,.contact-textarea::placeholder{color:var(--text-4)}
+    .contact-input:focus,.contact-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(52,159,168,.10)}
+    .contact-textarea{resize:vertical;min-height:120px;line-height:1.6}
+    .contact-submit-wrap{margin-top:8px}
+    .contact-status{display:none;align-items:center;gap:10px;padding:14px 20px;border-radius:var(--r-sm);font-size:.875rem;margin-top:16px;border:1px solid} .contact-status.show{display:flex}
+    .contact-status--ok{color:#4caf74;border-color:rgba(76,175,116,.25);background:rgba(76,175,116,.07)}
+    .contact-status--err{color:#ef4444;border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.07)}
+    .modal-box--wide{max-width:700px}
+    .stack-widget{background:var(--surface);border:1px solid rgba(52,159,168,0.22);border-radius:var(--r);overflow:hidden;box-shadow:0 0 60px rgba(52,159,168,0.07),0 0 0 1px rgba(52,159,168,0.08)}
+    .widget-hdr{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;border-bottom:1px solid var(--border)}
+    .widget-hdr-title{font-family:var(--ff-d);font-size:0.95rem;font-weight:700;color:var(--text);letter-spacing:-0.01em}
+    .wdots{display:flex;gap:7px} .wdot{width:9px;height:9px;border-radius:50%;background:var(--border-2);transition:background 0.3s} .wdot.on{background:var(--teal)}
+    .widget-body{padding:40px 32px;min-height:260px}
+    .wq{font-family:var(--ff-d);font-size:1.2rem;font-weight:700;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px}
+    .wq-sub{font-size:0.875rem;color:var(--text-2);margin-bottom:26px}
+    .wopts{display:grid;grid-template-columns:1fr 1fr;gap:10px} .wopts-3{grid-template-columns:1fr 1fr 1fr}
+    @media(max-width:520px){.wopts,.wopts-3{grid-template-columns:1fr}}
+    .wopt{padding:17px 18px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;text-align:left;transition:border-color 0.2s,background 0.2s}
+    .wopt:hover{border-color:rgba(52,159,168,0.35)} .wopt.picked{border-color:var(--teal);background:rgba(52,159,168,0.07)}
+    .wopt-t{font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:2px} .wopt-s{font-size:0.75rem;color:var(--text-2)}
+    .widget-ftr{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-top:1px solid var(--border)}
+    .wstep-l{font-family:var(--ff-m);font-size:0.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.1em}
+    .wresult{display:none;flex-direction:column;gap:18px} .wresult.show{display:flex}
+    .wresult-l{font-family:var(--ff-m);font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.12em}
+    .wresult-title{font-family:var(--ff-d);font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
+    .wresult-items{display:flex;flex-direction:column;gap:9px}
+    .wresult-item{display:flex;align-items:center;gap:13px;padding:13px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);font-size:0.875rem;color:var(--text-2)}
+    .wresult-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+    .wresult-cta{display:flex;gap:12px;flex-wrap:wrap;padding-top:8px}
+    .wloading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:52px 0}
+    .wloading-ring{width:34px;height:34px;border:2px solid var(--border-2);border-top-color:var(--teal);border-radius:50%;animation:wl-spin 0.75s linear infinite}
+    @keyframes wl-spin{to{transform:rotate(360deg)}}
+    .wloading-text{font-family:var(--ff-m);font-size:0.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em}
+    @media(max-width:959px){#proj-strategy-btn{display:none!important}}
+    #proj-strategy-btn{padding:7px 15px;font-size:0.78rem;background:transparent;color:var(--teal);border-color:rgba(52,159,168,0.45);letter-spacing:0.02em}
+    @media(hover:hover) and (pointer:fine){#proj-strategy-btn:hover{background:rgba(52,159,168,0.08);border-color:var(--teal);box-shadow:none}}
+    @media(max-width:767px){
+      .proj-overview{padding:60px 0 48px}
+      .proj-results{padding:52px 0}
+      .proj-results-head{margin-bottom:32px}
+      .proj-featured{padding:48px 0}
+      .proj-gallery{padding:0 0 56px}
+      .proj-next{padding:0 0 56px}
+      .proj-next-inner{padding-top:36px}
+      .proj-cta{padding:64px 0}
+      .proj-counter-cell{padding:24px 18px}
+      footer{padding:56px 0 32px}
+      .widget-hdr{padding:14px 18px}
+      .widget-body{padding:24px 18px;min-height:180px}
+      .widget-ftr{padding:12px 18px}
+      .proj-cta .btn{width:100%;justify-content:center}
+      .proj-approach{margin-top:36px;padding-top:28px}
+      .footer-social-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+      .footer-grid{gap:36px;margin-bottom:44px}
+      .footer-nav{grid-template-columns:1fr 1fr;gap:28px}
+      .footer-grid>div:first-child{display:flex;flex-direction:column;align-items:center;text-align:center}
+      .footer-tagline{max-width:100%}
+      .footer-bottom{flex-direction:column;align-items:center;gap:8px;text-align:center}
+    }
+    @media(max-width:479px){
+      .wrap{padding:0 16px}
+      .nav-inner{padding:0 16px}
+      .footer-nav{display:none}
+    }
+  </style>
+</head>
+<body>
+<div class="c-dot" id="cdot"></div>
+<div class="c-ring" id="cring"></div>
+<div class="hero-grad-anim" aria-hidden="true">
+  <div class="hero-grad-blobs" id="hero-grad-blobs">
+    <div class="hero-grad-blob hgb-1"></div><div class="hero-grad-blob hgb-2"></div>
+    <div class="hero-grad-blob hgb-3"></div><div class="hero-grad-blob hgb-4"></div>
+    <div class="hero-grad-blob hgb-5"></div>
+    <div class="hero-grad-pointer" id="hero-grad-pointer"></div>
+  </div>
+</div>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-link" aria-label="Novum Marketing"><span class="nav-logo-img" aria-hidden="true"></span></a>
+    <ul class="nav-links">
+      <li><a href="/#growth-engine">Services</a></li><li><a href="/#work">Work</a></li>
+      <li><a href="/#results">Results</a></li><li><a href="/#process">Process</a></li><li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right"><button class="btn btn-teal" id="proj-strategy-btn">Strategy Session</button><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#growth-engine">Services</a><a href="/#work">Work</a><a href="/#results">Results</a><a href="/#process">Process</a><a href="/#contact">Contact</a>
+</div>
+<main>
+
+<section class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <img class="proj-hero-img" src="images/twiys-limited/hero-banner.png" alt="Twiys Limited Malta hero">
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-texture"></div>
+  <div class="proj-hero-nav">
+    <a href="index.html" class="proj-hero-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All Projects
+    </a>
+  </div>
+  <div class="proj-hero-content">
+    <div class="proj-hero-sector">Recruitment &amp; Workforce Outsourcing</div>
+    <h1 class="proj-hero-title">Twiys<br>Limited</h1>
+    <div class="proj-hero-tags">
+      <span class="proj-hero-tag">Brand Identity</span><span class="proj-hero-tag">Brand Guidelines</span>
+      <span class="proj-hero-tag">Web Development</span><span class="proj-hero-tag">Lead Capture</span>
+      <span class="proj-hero-tag">Launch</span>
+    </div>
+  </div>
+</section>
+
+<section class="proj-overview">
+  <div class="wrap">
+    <div class="proj-overview-grid">
+      <div class="reveal">
+        <div class="proj-brief-eyebrow">The Brief</div>
+        <p class="proj-brief-lead">A full brand launch for a Malta recruitment agency — from a placeholder logo to a complete brand identity and professional website built to convert two audiences at once.</p>
+        <div class="proj-brief-body">
+          <p>Twiys Limited came to Novum at the very start of their journey, with no brand identity and no digital presence. The brief was to build everything from scratch: a distinct visual identity that would feel credible in the recruitment space, and a professional website that speaks equally to businesses looking to hire and candidates looking for work across Malta's key industries.</p>
+          <p>We took ownership of the full process — brand strategy, logo design, brand guidelines, and website — delivering a cohesive identity the client could own and grow with from day one.</p>
+        </div>
+        <div class="proj-approach">
+          <div class="proj-approach-eyebrow">What We Did</div>
+          <div class="proj-approach-list">
+            <div class="proj-approach-item"><div class="proj-approach-num">01</div><div class="proj-approach-text"><strong>Brand Identity &amp; Guidelines</strong> — We designed a complete brand identity for Twiys from the ground up: logo, colour palette, typography, and a full brand guidelines document. The client went from having no visual identity to a polished, consistent brand they could apply across every touchpoint.</div></div>
+            <div class="proj-approach-item"><div class="proj-approach-num">02</div><div class="proj-approach-text"><strong>Website Design &amp; Development</strong> — We designed and built a complete single-page marketing site serving two distinct audiences: job candidates looking for work and businesses looking to hire. The site covers Twiys's full offering across six sectors — hospitality, construction, logistics, healthcare, retail and manufacturing — in a dark, corporate layout built around the new brand.</div></div>
+            <div class="proj-approach-item"><div class="proj-approach-num">03</div><div class="proj-approach-text"><strong>Lead Capture &amp; Launch</strong> — Two dedicated contact forms were built into the site: Apply Now for candidates, and Hire Staff for employers, each collecting the right information and routing directly to the client. The site was launched on a custom domain with professional branded email, security, and everything in place for day one.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:120ms">
+        <div class="proj-meta-card">
+          <div class="proj-meta-header">Project Details</div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Client</div><div class="proj-meta-value">Twiys Limited</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Sector</div><div class="proj-meta-value">Recruitment &amp; Workforce Outsourcing</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Year</div><div class="proj-meta-value">2025 – 2026</div></div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Live Site</div>
+            <a href="https://twiysltd.com" target="_blank" rel="noopener" class="proj-meta-link">
+              twiysltd.com
+              <svg width="11" height="11" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+          <div class="proj-meta-row"><div class="proj-meta-label">Services</div>
+            <div class="proj-meta-tags">
+              <span class="proj-meta-tag">Brand Identity</span><span class="proj-meta-tag">Brand Guidelines</span>
+              <span class="proj-meta-tag">Web Dev</span><span class="proj-meta-tag">Lead Capture</span>
+              <span class="proj-meta-tag">Launch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-results">
+  <div class="wrap">
+    <div class="proj-results-head reveal">
+      <div class="section-eyebrow">The Outcome</div>
+      <h2 class="section-title">Zero to<br>branded.</h2>
+    </div>
+    <div class="proj-counters stagger">
+      <div class="proj-counter-cell">
+        <div class="proj-counter-n"><span class="cnt" data-target="1" data-suffix="">1</span></div>
+        <div class="proj-counter-label">Full Brand Built from Scratch</div>
+        <div class="proj-counter-desc">Logo, colour palette, typography and brand guidelines — all designed and delivered by Novum. The client went from a placeholder to a brand with real presence.</div>
+      </div>
+      <div class="proj-counter-cell">
+        <div class="proj-counter-n"><span class="cnt" data-target="6" data-suffix="">6</span></div>
+        <div class="proj-counter-label">Industries Covered</div>
+        <div class="proj-counter-desc">Hospitality, construction, logistics, healthcare, retail and manufacturing — every major workforce sector in Malta represented across the site.</div>
+      </div>
+      <div class="proj-counter-cell">
+        <div class="proj-counter-n"><span class="cnt" data-target="2" data-suffix="">2</span></div>
+        <div class="proj-counter-label">Active Lead Channels</div>
+        <div class="proj-counter-desc">Apply Now for job candidates and Hire Staff for employers — two dedicated contact flows capturing both sides of the recruitment market from day one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-featured">
+  <div class="wrap">
+    <div class="proj-featured-wrap reveal"><img src="images/twiys-limited/carousel.png" alt="Twiys Limited Malta website showcase"></div>
+  </div>
+</section>
+
+<section class="proj-gallery">
+  <div class="wrap">
+    <div class="proj-gallery-eyebrow reveal">Gallery</div>
+    <div class="proj-gallery-grid stagger">
+      <div class="pg-img pg-main"><img src="images/twiys-limited/gallery-main.png" alt="Twiys Limited Malta gallery 1"></div>
+      <div class="pg-img"><img src="images/twiys-limited/gallery-2.png" alt="Twiys Limited Malta gallery 2"></div>
+      <div class="pg-img"><img src="images/twiys-limited/gallery-3.png" alt="Twiys Limited Malta gallery 3"></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-next">
+  <div class="wrap">
+    <div class="proj-next-inner">
+      <a href="adoro-charters.html" class="proj-next-link">
+        <div><div class="proj-next-label">Next Project</div><div class="proj-next-title">Adoro Charters</div></div>
+        <div class="proj-next-arrow"><svg width="20" height="20" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="proj-cta">
+  <div class="wrap">
+    <div class="proj-cta-eyebrow reveal">Work With Us</div>
+    <h2 class="proj-cta-title reveal" style="transition-delay:60ms">Ready to<br>stand out?</h2>
+    <p class="proj-cta-sub reveal" style="transition-delay:120ms">Let's build something your audience actually remembers.</p>
+    <div class="reveal" style="transition-delay:180ms"><button class="btn btn-teal btn-lg" id="proj-contact-btn">Start the conversation <span class="btn-arrow">→</span></button></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap"><img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
+        <p class="footer-tagline" style="margin-top:16px;">Social media management, branding, and web development for Maltese businesses ready to stand out online.</p>
+        <div class="footer-social-btns">
+          <a href="mailto:novummarketingagency@gmail.com" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>
+          <a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div><div class="footer-col-ttl">Services</div><div class="footer-col"><a href="index.html#growth-engine">Social Media Management</a><a href="index.html#growth-engine">Branding &amp; Identity</a><a href="index.html#growth-engine">Web Development</a><a href="index.html#growth-engine">Launch Campaigns</a></div></div>
+        <div><div class="footer-col-ttl">Company</div><div class="footer-col"><a href="index.html#work">Work</a><a href="index.html#process">Process</a><a href="index.html#results">Results</a><a href="index.html#growth-engine">Growth Engine</a><a href="privacy-policy.html">Privacy Policy</a></div></div>
+        <div><div class="footer-col-ttl">Get Started</div><div class="footer-col"><a href="index.html#strategy">Growth Blueprint</a><a href="index.html#contact">Contact</a><a href="https://www.linkedin.com/company/novum-agency/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/novumagency.mt/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/novumagency.mt" target="_blank" rel="noopener">Facebook</a></div></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-legal">© 2026 Novum Marketing. All rights reserved.</div></div>
+  </div>
+</footer>
+
+<!-- ─── Strategy Modal ───────────────────────────────── -->
+<div class="modal-overlay" id="modal-strategy" role="dialog" aria-modal="true" aria-label="Growth Stack Builder">
+  <div class="modal-box modal-box--wide">
+    <button class="modal-close" id="modal-strategy-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Find Your Fit</div>
+        <h3 class="modal-title">Build your growth stack.</h3>
+        <p class="modal-sub">Answer three quick questions and we'll point you towards the services that make the most sense for your brand right now.</p>
+      </div>
+      <div class="stack-widget" style="margin-top:0">
+        <div class="widget-hdr">
+          <div class="widget-hdr-title">Growth Stack Builder</div>
+          <div class="wdots">
+            <div class="wdot on" id="wd1"></div>
+            <div class="wdot"    id="wd2"></div>
+            <div class="wdot"    id="wd3"></div>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div id="ws1">
+            <div class="wq">What does your brand need most right now?</div>
+            <div class="wq-sub">Pick the option that feels closest to where you are.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="1" data-val="social"><div class="wopt-t">A social media presence</div><div class="wopt-s">Need someone to manage content and posting</div></button>
+              <button class="wopt" data-step="1" data-val="branding"><div class="wopt-t">A stronger brand identity</div><div class="wopt-s">Need a new look or proper brand guidelines</div></button>
+              <button class="wopt" data-step="1" data-val="web"><div class="wopt-t">A new website</div><div class="wopt-s">Need a website that reflects the brand</div></button>
+              <button class="wopt" data-step="1" data-val="all"><div class="wopt-t">All of the above</div><div class="wopt-s">Need the full package</div></button>
+            </div>
+          </div>
+          <div id="ws2" style="display:none;">
+            <div class="wq">How established is your brand online?</div>
+            <div class="wq-sub">This helps us understand how much groundwork is needed.</div>
+            <div class="wopts">
+              <button class="wopt" data-step="2" data-val="new"><div class="wopt-t">Just starting out</div><div class="wopt-s">Little or no online presence yet</div></button>
+              <button class="wopt" data-step="2" data-val="inconsistent"><div class="wopt-t">Present but inconsistent</div><div class="wopt-s">Some profiles, but not well maintained</div></button>
+              <button class="wopt" data-step="2" data-val="refresh"><div class="wopt-t">Established, needs a refresh</div><div class="wopt-s">Already online but the brand needs updating</div></button>
+              <button class="wopt" data-step="2" data-val="launch"><div class="wopt-t">Ready for a big launch</div><div class="wopt-s">Have something new to announce</div></button>
+            </div>
+          </div>
+          <div id="ws3" style="display:none;">
+            <div class="wq">What's your monthly budget for marketing?</div>
+            <div class="wq-sub">This helps us recommend what's realistic for your stage.</div>
+            <div class="wopts wopts-3">
+              <button class="wopt" data-step="3" data-val="micro"><div class="wopt-t">€200 – €500</div><div class="wopt-s">Starting lean</div></button>
+              <button class="wopt" data-step="3" data-val="small"><div class="wopt-t">€500 – €1,000</div><div class="wopt-s">Building momentum</div></button>
+              <button class="wopt" data-step="3" data-val="large"><div class="wopt-t">€1,000+</div><div class="wopt-s">Ready to invest seriously</div></button>
+            </div>
+          </div>
+          <div id="ws-loading" style="display:none;">
+            <div class="wloading"><div class="wloading-ring"></div><p class="wloading-text">Building your stack&hellip;</p></div>
+          </div>
+          <div id="ws4" style="display:none;">
+            <div class="wresult show" id="wresult">
+              <div class="wresult-l">Your recommended growth stack</div>
+              <div class="wresult-title" id="wres-title">Performance Foundation</div>
+              <div class="wresult-items" id="wres-items"></div>
+              <div class="wresult-cta">
+                <a href="mailto:novummarketingagency@gmail.com?subject=Strategy Session Request" class="btn btn-teal btn-lg">Book Strategy Session →</a>
+                <button class="btn btn-outline" id="wres-restart">Start over</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widget-ftr">
+          <div class="wstep-l" id="wstep-lbl">Step 1 of 3</div>
+          <button class="btn btn-outline" id="wback" style="display:none;padding:8px 18px;font-size:0.8rem;">← Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Contact Modal ────────────────────────────────── -->
+<div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-label="Contact Form">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-contact-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-eyebrow">Get In Touch</div>
+        <h3 class="modal-title">Start the conversation.</h3>
+        <p class="modal-sub">Tell us where you are and what you need — we'll be in touch within 24 hours.</p>
+      </div>
+      <form id="contact-form-modal" novalidate>
+        <input type="hidden" name="access_key" value="1aea86c8-12b7-4d05-a000-b78cc7f75099">
+        <input type="hidden" name="subject" value="New enquiry from Novum website">
+        <input type="hidden" name="from_name" value="Novum Website">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <div class="contact-form-row">
+          <div class="contact-field"><label class="contact-label" for="mf-name">Name</label><input class="contact-input" type="text" id="mf-name" name="name" placeholder="Your name" required maxlength="100" autocomplete="name"></div>
+          <div class="contact-field"><label class="contact-label" for="mf-email">Email</label><input class="contact-input" type="email" id="mf-email" name="email" placeholder="your@email.com" required maxlength="254" autocomplete="email"></div>
+        </div>
+        <div class="contact-field"><label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:.58rem;text-transform:none">(optional)</span></label><input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization"></div>
+        <div class="contact-field"><label class="contact-label" for="mf-message">What are you looking to achieve?</label><textarea class="contact-textarea" id="mf-message" name="message" placeholder="Tell us about your brand, your goals, and where you want to grow..." required maxlength="2000"></textarea></div>
+        <div class="contact-submit-wrap"><button type="submit" class="btn btn-teal btn-lg" id="mf-submit">Send Message →</button></div>
+        <div class="contact-status contact-status--ok" id="mf-success">✓ &nbsp;Message sent. We'll be in touch within 24 hours.</div>
+        <div class="contact-status contact-status--err" id="mf-error">Something went wrong. Please email us at <a href="mailto:novummarketingagency@gmail.com" style="color:inherit;text-decoration:underline">novummarketingagency@gmail.com</a></div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  'use strict';
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';},{passive:true});
+    (function a(){rx+=(mx-rx)/8;ry+=(my-ry)/8;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(a);})();
+    document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});el.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')})});
+  }
+  var nav=document.getElementById('nav');
+  function upNav(){nav.classList.toggle('scrolled',window.scrollY>20)}upNav();
+  window.addEventListener('scroll',upNav,{passive:true});
+  var ham=document.getElementById('hamburger'),menu=document.getElementById('mobile-menu');
+  if(ham&&menu){ham.addEventListener('click',function(){var o=menu.classList.toggle('open');ham.classList.toggle('open',o);document.body.classList.toggle('menu-open',o)});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');ham.classList.remove('open');document.body.classList.remove('menu-open')})})}
+  var ro=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.10,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(el){ro.observe(el)});
+  function easeOutQuart(t){return 1-Math.pow(1-t,4)}
+  function runCounter(el){var target=parseFloat(el.dataset.target),suffix=el.dataset.suffix||'',isDec=el.dataset.dec==='true',dur=1900,start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),v=isDec?(easeOutQuart(p)*target).toFixed(1):Math.round(easeOutQuart(p)*target);el.textContent=v+suffix;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  var co=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){runCounter(e.target);co.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('.cnt').forEach(function(el){co.observe(el)});
+  var gp=document.getElementById('hero-grad-pointer');
+  if(gp&&window.matchMedia('(hover:hover)').matches){var gpx=0,gpy=0,gtx=0,gty=0;document.addEventListener('mousemove',function(e){gtx=e.clientX;gty=e.clientY},{passive:true});(function m(){gpx+=(gtx-gpx)/20;gpy+=(gty-gpy)/20;gp.style.transform='translate('+Math.round(gpx)+'px,'+Math.round(gpy)+'px)';requestAnimationFrame(m)})()}
+})();
+(function(){
+  'use strict';
+  var overlay=document.getElementById('modal-contact');
+  var closeBtn=document.getElementById('modal-contact-close');
+  var trigger=document.getElementById('proj-contact-btn');
+  function open(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';}
+  if(trigger)trigger.addEventListener('click',open);
+  if(closeBtn)closeBtn.addEventListener('click',close);
+  if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+    if(dot&&ring&&closeBtn){closeBtn.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});closeBtn.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')})}
+  }
+  var FORM_COOLDOWN=60000;function isRateLimited(){var l=parseInt(sessionStorage.getItem('nv_last_submit')||'0',10);return Date.now()-l<FORM_COOLDOWN;}function markSubmitted(){sessionStorage.setItem('nv_last_submit',Date.now());}
+  var form=document.getElementById('contact-form-modal');
+  if(form){form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('mf-submit'),ok=document.getElementById('mf-success'),err=document.getElementById('mf-error');
+    ok.classList.remove('show');err.classList.remove('show');
+    if(isRateLimited()){err.innerHTML='Please wait a moment before sending another message.';err.classList.add('show');return;}
+    var nameVal=form.querySelector('[name="name"]').value.trim();
+    var emailVal=form.querySelector('[name="email"]').value.trim();
+    var msgVal=form.querySelector('[name="message"]').value.trim();
+    if(!nameVal||!emailVal||!msgVal||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){err.innerHTML='Please fill in your name, a valid email, and a message.';err.classList.add('show');return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)})
+    .then(function(r){return r.json();}).then(function(j){if(j.success){markSubmitted();ok.classList.add('show');form.reset();}else{console.error('Web3Forms error:',j.message);err.classList.add('show');}})
+    .catch(function(e){console.error('Fetch error:',e);err.classList.add('show');}).finally(function(){btn.disabled=false;btn.textContent='Send Message →';});
+  });}
+})();
+(function(){
+  'use strict';
+  var overlay=document.getElementById('modal-strategy');
+  var closeBtn=document.getElementById('modal-strategy-close');
+  var trigger=document.getElementById('proj-strategy-btn');
+  function open(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){overlay.classList.remove('open');document.body.style.overflow='';}
+  if(trigger)trigger.addEventListener('click',open);
+  if(closeBtn)closeBtn.addEventListener('click',close);
+  if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))close();});
+  var answers={},curStep=1;
+  var steps=[null,document.getElementById('ws1'),document.getElementById('ws2'),document.getElementById('ws3'),document.getElementById('ws4')];
+  var dots=[document.getElementById('wd1'),document.getElementById('wd2'),document.getElementById('wd3')];
+  var stepLbl=document.getElementById('wstep-lbl');
+  var backBtn=document.getElementById('wback');
+  var restBtn=document.getElementById('wres-restart');
+  var loadEl=document.getElementById('ws-loading');
+  function showStep(n){
+    for(var i=1;i<=4;i++){if(steps[i])steps[i].style.display='none';}
+    if(steps[n])steps[n].style.display='';
+    dots.forEach(function(d,i){if(d)d.classList.toggle('on',i<Math.min(n,3));});
+    stepLbl.textContent=n<=3?'Step '+n+' of 3':'Your Stack';
+    backBtn.style.display=n>1?'':'none';
+    curStep=n;
+  }
+  function getStack(){
+    var s1=answers[1],s2=answers[2],s3=answers[3];
+    if(s1==='all'||s2==='refresh')return{title:'Full Brand Package',items:['Social media management (monthly retainer)','Brand refresh + brand guidelines','New website implementing the brand','Launch campaign to announce the changes']};
+    if(s1==='social'&&s2==='launch')return{title:'Social + Launch',items:['Social media management (monthly retainer)','Content creation and posting strategy','Launch campaign: Instagram + Facebook rollout','Community management and engagement']};
+    if(s1==='branding'){if(s2==='new')return{title:'Brand Foundation',items:['Brand identity design (logo, colours, typography)','Digital brand guidelines','Social media profile setup and branding']};return{title:'Brand Refresh',items:['Brand refresh: updated logo and visual identity','Brand guidelines documentation','Website update to reflect the new brand','Launch campaign around the rebrand']};}
+    if(s1==='web')return{title:'Web Development',items:['New website design and build','Brand implementation across all pages','Mobile-first, built to last','Optional: Shopify if e-commerce is needed']};
+    if(s3==='micro')return{title:'Starter Social Package',items:['Social media management (entry-level retainer)','Content creation for 1 platform','Monthly performance reporting']};
+    return{title:'Social Media Management',items:['Monthly retainer: content creation and posting','Instagram and Facebook management','Community engagement','Monthly performance review']};
+  }
+  function showResult(){
+    var stack=getStack();
+    document.getElementById('wres-title').textContent=stack.title;
+    var el=document.getElementById('wres-items');el.innerHTML='';
+    stack.items.forEach(function(item){var d=document.createElement('div');d.className='wresult-item';d.innerHTML='<div class="wresult-dot"></div>'+item;el.appendChild(d);});
+    showStep(4);
+  }
+  document.querySelectorAll('.wopt').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var step=parseInt(this.dataset.step);
+      answers[step]=this.dataset.val;
+      this.parentElement.querySelectorAll('.wopt').forEach(function(b){b.classList.remove('picked');});
+      this.classList.add('picked');
+      if(step<3){setTimeout(function(){showStep(step+1);},280);}
+      else{setTimeout(function(){for(var i=1;i<=4;i++){if(steps[i])steps[i].style.display='none';}if(loadEl)loadEl.style.display='';stepLbl.textContent='Analysing…';backBtn.style.display='none';setTimeout(function(){if(loadEl)loadEl.style.display='none';showResult();},1100);},280);}
+    });
+  });
+  if(backBtn)backBtn.addEventListener('click',function(){showStep(curStep===4?3:curStep-1);});
+  if(restBtn)restBtn.addEventListener('click',function(){answers={};if(loadEl)loadEl.style.display='none';document.querySelectorAll('.wopt').forEach(function(b){b.classList.remove('picked');});showStep(1);});
+})();
+</script>
+<script src="transitions.js"></script>
+</body>
+</html>

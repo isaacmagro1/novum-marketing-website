@@ -1058,6 +1058,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin-bottom: 16px;
+      position: relative; z-index: 1;
     }
     .node-title {
       font-family: var(--ff-d);
@@ -1066,18 +1067,21 @@
       letter-spacing: -0.02em;
       color: var(--text);
       margin-bottom: 10px;
+      position: relative; z-index: 1;
     }
     .node-desc {
       font-size: 0.875rem;
       color: var(--text-2);
       line-height: 1.68;
       max-width: 38ch;
+      position: relative; z-index: 1;
     }
     .node-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
       margin-top: 20px;
+      position: relative; z-index: 1;
     }
     .node-pill {
       font-family: var(--ff-m);
@@ -1347,6 +1351,7 @@
     .ws-el    .work-slide-inner  { background: linear-gradient(150deg, #040d10 0%, #0f3d45 55%, #1a6470 100%); }
     .ws-121   .work-slide-inner  { background: linear-gradient(160deg, #040d10 0%, #051825 35%, #0d4a52 65%, #040d10 100%); }
     .ws-sips  .work-slide-inner  { background: linear-gradient(135deg, #030c12 0%, #0a3040 40%, #177080 70%, #040d10 100%); }
+    .ws-twiys .work-slide-inner  { background: linear-gradient(140deg, #060814 0%, #0c1035 35%, #162870 65%, #060812 100%); }
 
     /* Subtle dot-grid texture overlay for the placeholder look */
     .work-slide-inner::before {
@@ -1906,7 +1911,7 @@
       .engine-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
       .engine-callout { max-width: 100%; }
       .engine-node { padding: 28px 22px; }
-      .engine-node::after { font-size: 3.5rem; }
+      .engine-node::after { font-size: 2.2rem; bottom: 14px; right: 16px; }
       .engine-output { padding: 24px 20px; flex-direction: column; gap: 16px; }
       .engine-output-title { font-size: 1.5rem; }
 
@@ -2803,6 +2808,7 @@
         <div class="clients-logo-item" role="listitem"><img src="Client Logos/Bone Fitness Studio.svg"             alt="Bone Fitness Studio"     class="clients-logo-img"></div>
         <div class="clients-logo-item" role="listitem"><img src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"    alt="Rotunda Pharmacy"        class="clients-logo-img clients-logo-img--sm"></div>
         <div class="clients-logo-item" role="listitem"><img src="Client Logos/Thanks A Million.svg"                alt="Thanks A Million"        class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img src="Client Logos/TWIYS white.svg"                     alt="Twiys Limited"           class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
         <!-- Duplicate for seamless loop -->
         <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Adoro Charters Logo.svg"           alt="" class="clients-logo-img"></div>
         <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Malta Rugby Championship Logo.svg" alt="" class="clients-logo-img"></div>
@@ -2815,6 +2821,7 @@
         <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Bone Fitness Studio.svg"           alt="" class="clients-logo-img"></div>
         <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"  alt="" class="clients-logo-img clients-logo-img--sm"></div>
         <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Thanks A Million.svg"               alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/TWIYS white.svg"                    alt="" class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
       </div>
     </div>
   </div>
@@ -2957,6 +2964,26 @@
               <div class="work-slide-title">E&amp;L<br>Enterprise</div>
               <div class="work-slide-tags">
                 <span class="work-slide-tag">Social Media</span>
+                <span class="work-slide-tag">Brand Guidelines</span>
+                <span class="work-slide-tag">Web Dev</span>
+              </div>
+              <div class="work-slide-readmore">View Project <span class="work-slide-arrow">→</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Twiys Limited -->
+      <div class="work-slide ws-twiys">
+        <a href="twiys-limited.html" class="work-slide-link">
+          <div class="work-slide-inner">
+            <img class="work-slide-img" src="images/twiys-limited/featured.png" alt="Twiys Limited Malta project">
+            <div class="work-slide-overlay"></div>
+            <div class="work-slide-content">
+              <div class="work-slide-sector">Recruitment &amp; Outsourcing</div>
+              <div class="work-slide-title">Twiys<br>Limited</div>
+              <div class="work-slide-tags">
+                <span class="work-slide-tag">Brand Identity</span>
                 <span class="work-slide-tag">Brand Guidelines</span>
                 <span class="work-slide-tag">Web Dev</span>
               </div>
