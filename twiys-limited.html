@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZHBTYJB9S"></script>
@@ -291,7 +292,70 @@
       .nav-inner{padding:0 16px}
       .footer-nav{display:none}
     }
+  
+    /* No-JS fallback: if scripts never run, show everything immediately */
+    html:not(.js) .reveal,
+    html:not(.js) .stagger > * {
+      opacity: 1;
+      transform: none;
+    }
   </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.novummarketing.co/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Work",
+      "item": "https://www.novummarketing.co/#work"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Twiys Limited Malta",
+      "item": "https://www.novummarketing.co/twiys-limited.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Twiys Limited Malta \u2014 Novum Marketing Case Study",
+  "description": "How Novum built the complete digital presence for Twiys Ltd \u2014 a Malta recruitment agency serving six sectors with a custom website, CV upload forms, and Vercel serverless backend.",
+  "image": "https://www.novummarketing.co/images/twiys-limited/featured.png",
+  "url": "https://www.novummarketing.co/twiys-limited.html",
+  "inLanguage": "en-MT",
+  "author": {
+    "@type": "Organization",
+    "name": "Novum Marketing",
+    "url": "https://www.novummarketing.co"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Novum Marketing",
+    "url": "https://www.novummarketing.co",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.novummarketing.co/Novum.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.novummarketing.co/twiys-limited.html"
+  }
+}
+  </script>
 </head>
 <body>
 <div class="c-dot" id="cdot"></div>
@@ -321,7 +385,7 @@
 
 <section class="proj-hero">
   <div class="proj-hero-bg"></div>
-  <img class="proj-hero-img" src="images/twiys-limited/hero-banner.png" alt="Twiys Limited Malta hero">
+  <img fetchpriority="high" decoding="async" class="proj-hero-img" src="images/twiys-limited/hero-banner.webp" alt="Twiys Limited Malta hero">
   <div class="proj-hero-overlay"></div>
   <div class="proj-hero-texture"></div>
   <div class="proj-hero-nav">
@@ -413,7 +477,7 @@
 
 <section class="proj-featured">
   <div class="wrap">
-    <div class="proj-featured-wrap reveal"><img src="images/twiys-limited/carousel.png" alt="Twiys Limited Malta website showcase"></div>
+    <div class="proj-featured-wrap reveal"><img loading="lazy" decoding="async" src="images/twiys-limited/carousel.webp" alt="Twiys Limited Malta website showcase"></div>
   </div>
 </section>
 
@@ -421,9 +485,9 @@
   <div class="wrap">
     <div class="proj-gallery-eyebrow reveal">Gallery</div>
     <div class="proj-gallery-grid stagger">
-      <div class="pg-img pg-main"><img src="images/twiys-limited/gallery-main.png" alt="Twiys Limited Malta gallery 1"></div>
-      <div class="pg-img"><img src="images/twiys-limited/gallery-2.png" alt="Twiys Limited Malta gallery 2"></div>
-      <div class="pg-img"><img src="images/twiys-limited/gallery-3.png" alt="Twiys Limited Malta gallery 3"></div>
+      <div class="pg-img pg-main"><img loading="lazy" decoding="async" src="images/twiys-limited/gallery-main.webp" alt="Twiys Limited Malta gallery 1"></div>
+      <div class="pg-img"><img loading="lazy" decoding="async" src="images/twiys-limited/gallery-2.webp" alt="Twiys Limited Malta gallery 2"></div>
+      <div class="pg-img"><img loading="lazy" decoding="async" src="images/twiys-limited/gallery-3.webp" alt="Twiys Limited Malta gallery 3"></div>
     </div>
   </div>
 </section>
@@ -453,7 +517,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo-wrap"><img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
+        <div class="footer-logo-wrap"><img loading="lazy" decoding="async" src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
         <p class="footer-tagline" style="margin-top:16px;">Social media management, branding, and web development for Maltese businesses ready to stand out online.</p>
         <div class="footer-social-btns">
           <a href="mailto:novummarketingagency@gmail.com" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>

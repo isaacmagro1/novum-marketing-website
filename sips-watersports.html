@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZHBTYJB9S"></script>
@@ -288,7 +289,70 @@
       .nav-inner{padding:0 16px}
       .footer-nav{display:none}
     }
+  
+    /* No-JS fallback: if scripts never run, show everything immediately */
+    html:not(.js) .reveal,
+    html:not(.js) .stagger > * {
+      opacity: 1;
+      transform: none;
+    }
   </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.novummarketing.co/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Work",
+      "item": "https://www.novummarketing.co/#work"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sips Watersports Malta",
+      "item": "https://www.novummarketing.co/sips-watersports.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sips Watersports Malta \u2014 Novum Marketing Case Study",
+  "description": "How Novum grew Sips Watersports Malta through a full-year retainer, paid advertising, and a website with real-time booking \u2014 473K impressions, 129K reach.",
+  "image": "https://www.novummarketing.co/images/sips-watersports/featured.png",
+  "url": "https://www.novummarketing.co/sips-watersports.html",
+  "inLanguage": "en-MT",
+  "author": {
+    "@type": "Organization",
+    "name": "Novum Marketing",
+    "url": "https://www.novummarketing.co"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Novum Marketing",
+    "url": "https://www.novummarketing.co",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.novummarketing.co/Novum.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.novummarketing.co/sips-watersports.html"
+  }
+}
+  </script>
 </head>
 <body>
 <div class="c-dot" id="cdot"></div>
@@ -318,7 +382,7 @@
 
 <section class="proj-hero">
   <div class="proj-hero-bg"></div>
-  <img class="proj-hero-img" src="images/sips-watersports/hero-banner.png" alt="Sips Watersports Malta hero">
+  <img fetchpriority="high" decoding="async" class="proj-hero-img" src="images/sips-watersports/hero-banner.webp" alt="Sips Watersports Malta hero">
   <div class="proj-hero-overlay"></div>
   <div class="proj-hero-texture"></div>
   <div class="proj-hero-nav">
@@ -404,7 +468,7 @@
 
 <section class="proj-featured">
   <div class="wrap">
-    <div class="proj-featured-wrap reveal"><img src="images/sips-watersports/carousel.png" alt="Sips Watersports Malta featured work"></div>
+    <div class="proj-featured-wrap reveal"><img loading="lazy" decoding="async" src="images/sips-watersports/carousel.webp" alt="Sips Watersports Malta featured work"></div>
   </div>
 </section>
 
@@ -412,9 +476,9 @@
   <div class="wrap">
     <div class="proj-gallery-eyebrow reveal">Gallery</div>
     <div class="proj-gallery-grid stagger">
-      <div class="pg-img pg-main"><img src="images/sips-watersports/gallery-main.png" alt="Sips Watersports Malta gallery 1"></div>
-      <div class="pg-img"><img src="images/sips-watersports/gallery-2.png" alt="Sips Watersports Malta gallery 2"></div>
-      <div class="pg-img"><img src="images/sips-watersports/gallery-3.png" alt="Sips Watersports Malta gallery 3"></div>
+      <div class="pg-img pg-main"><img loading="lazy" decoding="async" src="images/sips-watersports/gallery-main.webp" alt="Sips Watersports Malta gallery 1"></div>
+      <div class="pg-img"><img loading="lazy" decoding="async" src="images/sips-watersports/gallery-2.webp" alt="Sips Watersports Malta gallery 2"></div>
+      <div class="pg-img"><img loading="lazy" decoding="async" src="images/sips-watersports/gallery-3.webp" alt="Sips Watersports Malta gallery 3"></div>
     </div>
   </div>
 </section>
@@ -444,7 +508,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo-wrap"><img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
+        <div class="footer-logo-wrap"><img loading="lazy" decoding="async" src="Novum.svg" alt="Novum Marketing" class="footer-logo-img"></div>
         <p class="footer-tagline" style="margin-top:16px;">Social media management, branding, and web development for Maltese businesses ready to stand out online.</p>
         <div class="footer-social-btns">
           <a href="mailto:novummarketingagency@gmail.com" class="footer-social-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</a>

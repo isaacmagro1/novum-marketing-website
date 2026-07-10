@@ -8,7 +8,7 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Cross-Origin-Resource-Policy: same-site
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' www.google.com www.gstatic.com; style-src 'self' 'unsafe-inline' www.gstatic.com; font-src 'self' data: fonts.gstatic.com; img-src 'self' data: www.gstatic.com; connect-src 'self' api.web3forms.com www.google.com; frame-src www.google.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; connect-src 'self' api.web3forms.com www.googletagmanager.com www.google-analytics.com *.google-analytics.com *.analytics.google.com; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' api.web3forms.com; upgrade-insecure-requests;
 
 /Novum.svg
   Access-Control-Allow-Origin: *

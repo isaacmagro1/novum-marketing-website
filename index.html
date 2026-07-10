@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZHBTYJB9S"></script>
@@ -2550,6 +2551,18 @@
     .modal-eyebrow{font-family:var(--ff-m);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;text-shadow:0 0 18px rgba(52,159,168,.35)}
     .modal-title{font-family:var(--ff-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--text);margin-bottom:10px}
     .modal-sub{font-size:.875rem;color:var(--text-2);line-height:1.7}
+  
+    /* No-JS fallback: if scripts never run, show everything immediately */
+    html:not(.js) .reveal,
+    html:not(.js) .stagger > *,
+    html:not(.js) .hero-eyebrow,
+    html:not(.js) .hero-h1,
+    html:not(.js) .hero-sub,
+    html:not(.js) .hero-actions,
+    html:not(.js) .hero-stats {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 
   <!-- Structured Data — LocalBusiness / MarketingAgency -->
@@ -2569,6 +2582,7 @@
       "addressLocality": "Malta"
     },
     "areaServed": { "@type": "Country", "name": "Malta" },
+    "foundingDate": "2025",
     "serviceType": [
       "Social Media Management",
       "Branding",
@@ -2578,10 +2592,60 @@
       "Content Creation",
       "Launch Campaigns"
     ],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Social Media Management",
+          "description": "Monthly retainer social media management — content creation, posting, and performance for Maltese businesses."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Branding & Brand Identity",
+          "description": "Brand refreshes, brand guidelines, and digitalising existing brand assets for consistent use across suppliers."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Web Development",
+          "description": "Website builds implementing new branding, including Shopify storefronts."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Launch Campaigns",
+          "description": "Strategic campaign planning around brand refresh and website launch moments."
+        }
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/novumagency.mt",
       "https://www.instagram.com/novumagency.mt/",
       "https://www.linkedin.com/company/novum-agency/"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Novum Marketing Case Studies",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "url": "https://www.novummarketing.co/adoro-charters.html" },
+      { "@type": "ListItem", "position": 2, "url": "https://www.novummarketing.co/bone-fitness.html" },
+      { "@type": "ListItem", "position": 3, "url": "https://www.novummarketing.co/el-enterprises.html" },
+      { "@type": "ListItem", "position": 4, "url": "https://www.novummarketing.co/malta-rugby.html" },
+      { "@type": "ListItem", "position": 5, "url": "https://www.novummarketing.co/one-to-one-interiors.html" },
+      { "@type": "ListItem", "position": 6, "url": "https://www.novummarketing.co/sips-watersports.html" },
+      { "@type": "ListItem", "position": 7, "url": "https://www.novummarketing.co/twiys-limited.html" }
     ]
   }
   </script>
@@ -2671,15 +2735,15 @@
 
         <div class="hero-stats">
           <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="340" data-suffix="%">0%</div>
+            <div class="hero-stat-n counter" data-target="340" data-suffix="%">340%</div>
             <div class="hero-stat-l">Avg. engagement growth</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="10" data-suffix="+">0+</div>
+            <div class="hero-stat-n counter" data-target="10" data-suffix="+">10+</div>
             <div class="hero-stat-l">Yrs. experience</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="8" data-suffix="">0</div>
+            <div class="hero-stat-n counter" data-target="8" data-suffix="">8</div>
             <div class="hero-stat-l">Sectors served</div>
           </div>
         </div>
@@ -2797,31 +2861,31 @@
     <div class="clients-slider-outer">
       <div class="clients-slider-track" role="list" aria-label="Our clients">
         <!-- First set -->
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Adoro Charters Logo.svg"            alt="Adoro Charters"          class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Malta Rugby Championship Logo.svg"  alt="Malta Rugby Championship" class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/E&L Enterprises Logo.svg"           alt="E&L Enterprises"         class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Flamingo Hotel Logo.svg"            alt="Flamingo Hotel"          class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Sips Watersports logo.svg"          alt="Sips Watersports"        class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/One Two One Logo.svg"               alt="One Two One"             class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Malta Rugby Logo.svg"               alt="Malta Rugby"             class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Vaganza.svg"                        alt="Vaganza"                 class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Bone Fitness Studio.svg"             alt="Bone Fitness Studio"     class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"    alt="Rotunda Pharmacy"        class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/Thanks A Million.svg"                alt="Thanks A Million"        class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img src="Client Logos/TWIYS white.svg"                     alt="Twiys Limited"           class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Adoro Charters Logo.svg"            alt="Adoro Charters"          class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg"  alt="Malta Rugby Championship" class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/E&L Enterprises Logo.svg"           alt="E&L Enterprises"         class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"            alt="Flamingo Hotel"          class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Sips Watersports logo.svg"          alt="Sips Watersports"        class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/One Two One Logo.svg"               alt="One Two One"             class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Logo.svg"               alt="Malta Rugby"             class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Vaganza.svg"                        alt="Vaganza"                 class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Bone Fitness Studio.svg"             alt="Bone Fitness Studio"     class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"    alt="Rotunda Pharmacy"        class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Thanks A Million.svg"                alt="Thanks A Million"        class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/TWIYS white.svg"                     alt="Twiys Limited"           class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
         <!-- Duplicate for seamless loop -->
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Adoro Charters Logo.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Malta Rugby Championship Logo.svg" alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/E&L Enterprises Logo.svg"          alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Flamingo Hotel Logo.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Sips Watersports logo.svg"         alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/One Two One Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Malta Rugby Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Vaganza.svg"                       alt="" class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Bone Fitness Studio.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"  alt="" class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/Thanks A Million.svg"               alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img src="Client Logos/TWIYS white.svg"                    alt="" class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Adoro Charters Logo.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg" alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/E&L Enterprises Logo.svg"          alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Sips Watersports logo.svg"         alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/One Two One Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Vaganza.svg"                       alt="" class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Bone Fitness Studio.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"  alt="" class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Thanks A Million.svg"               alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/TWIYS white.svg"                    alt="" class="clients-logo-img clients-logo-img--sm" style="height:26px"></div>
       </div>
     </div>
   </div>
@@ -2937,7 +3001,7 @@
       <div class="work-slide ws-sips">
         <a href="sips-watersports.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/sips-watersports/featured.png" alt="Sips Watersports Malta project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/sips-watersports/featured.webp" alt="Sips Watersports Malta project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Marine &amp; Water Sports</div>
@@ -2957,7 +3021,7 @@
       <div class="work-slide ws-el">
         <a href="el-enterprises.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/el-enterprises/carousel.jpg" alt="E&amp;L Enterprise project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/el-enterprises/carousel.webp" alt="E&amp;L Enterprise project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Enterprise &amp; Corporate</div>
@@ -2977,7 +3041,7 @@
       <div class="work-slide ws-twiys">
         <a href="twiys-limited.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/twiys-limited/featured.png" alt="Twiys Limited Malta project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/twiys-limited/featured.webp" alt="Twiys Limited Malta project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Recruitment &amp; Outsourcing</div>
@@ -2997,7 +3061,7 @@
       <div class="work-slide ws-121">
         <a href="one-to-one-interiors.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/one-to-one-interiors/featured.jpg" alt="One to One Interiors project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/one-to-one-interiors/featured.webp" alt="One to One Interiors project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Retail &amp; Services</div>
@@ -3017,7 +3081,7 @@
       <div class="work-slide ws-rugby">
         <a href="malta-rugby.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/malta-rugby/featured.png" alt="Malta Rugby Championship project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/malta-rugby/featured.webp" alt="Malta Rugby Championship project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Sports &amp; Events</div>
@@ -3037,7 +3101,7 @@
       <div class="work-slide ws-adoro">
         <a href="adoro-charters.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/adoro-charters/featured.png" alt="Adoro Charters project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/adoro-charters/featured.webp" alt="Adoro Charters project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Marine &amp; Hospitality</div>
@@ -3057,7 +3121,7 @@
       <div class="work-slide ws-bone">
         <a href="bone-fitness.html" class="work-slide-link">
           <div class="work-slide-inner">
-            <img class="work-slide-img" src="images/bone-fitness/featured.png" alt="Bone Fitness Studio project">
+            <img loading="lazy" decoding="async" class="work-slide-img" src="images/bone-fitness/featured.webp" alt="Bone Fitness Studio project">
             <div class="work-slide-overlay"></div>
             <div class="work-slide-content">
               <div class="work-slide-sector">Health &amp; Fitness</div>
@@ -3091,19 +3155,19 @@
 
     <div class="counters stagger">
       <div class="counter-cell">
-        <div class="counter-n"><span class="cnt" data-target="340" data-suffix="%">0%</span></div>
+        <div class="counter-n"><span class="cnt" data-target="340" data-suffix="%">340%</span></div>
         <div class="counter-l">Average social media engagement growth across managed accounts in Malta</div>
       </div>
       <div class="counter-cell">
-        <div class="counter-n"><span class="cnt" data-target="62" data-suffix="%">0%</span></div>
+        <div class="counter-n"><span class="cnt" data-target="62" data-suffix="%">62%</span></div>
         <div class="counter-l">Average follower growth in the first 6 months of social management</div>
       </div>
       <div class="counter-cell">
-        <div class="counter-n"><span class="cnt" data-target="28" data-suffix="%">0%</span></div>
+        <div class="counter-n"><span class="cnt" data-target="28" data-suffix="%">28%</span></div>
         <div class="counter-l">Average increase in brand enquiries following a brand refresh</div>
       </div>
       <div class="counter-cell">
-        <div class="counter-n"><span class="cnt" data-target="4.1" data-suffix="×" data-dec="true">0×</span></div>
+        <div class="counter-n"><span class="cnt" data-target="4.1" data-suffix="×" data-dec="true">4.1×</span></div>
         <div class="counter-l">Average growth in content reach within 6 months of launch</div>
       </div>
     </div>
@@ -3440,7 +3504,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo-wrap">
-          <img src="Novum.svg" alt="Novum Marketing" class="footer-logo-img">
+          <img loading="lazy" decoding="async" src="Novum.svg" alt="Novum Marketing" class="footer-logo-img">
         </div>
         <p class="footer-tagline" style="margin-top:16px;">Social media management, branding, and web development for Maltese businesses ready to stand out online.</p>
         <div class="footer-social-btns">
