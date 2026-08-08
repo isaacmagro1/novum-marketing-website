@@ -428,10 +428,10 @@
     ───────────────────────────────────────────────────── */
     .hero {
       position: relative;
-      min-height: 100svh;
+      min-height: 88svh;
       display: flex;
       align-items: center;
-      padding: 100px 0 60px;
+      padding: 100px 0 72px;
       overflow: hidden;
     }
 
@@ -548,55 +548,6 @@
     }
 
     /* Hero metadata bar — Brandboost reference */
-    .hero-meta {
-      position: absolute;
-      bottom: 28px;
-      left: 0; right: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-meta-inner {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-family: var(--ff-m);
-      font-size: 0.59rem;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-    }
-    .hero-meta-dot {
-      width: 3px; height: 3px;
-      border-radius: 50%;
-      background: rgba(52,159,168,0.5);
-    }
-    .hero-scroll-anim {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .hero-scroll-track {
-      width: 36px; height: 1px;
-      background: var(--border-2);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-scroll-track::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: var(--teal);
-      animation: scroll-sweep 2.4s ease-in-out infinite;
-    }
-    @keyframes scroll-sweep {
-      0%   { left: -100%; }
-      50%  { left: 0%; }
-      100% { left: 100%; }
-    }
-    @media (max-width: 767px) { .hero-meta { display: none; } }
 
     .hero-grid {
       position: relative;
@@ -608,47 +559,28 @@
     }
     @media (min-width: 900px) {
       .hero-grid {
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 40px;
+        grid-template-columns: 1fr;
+        gap: 0;
       }
     }
 
-    .hero-content { display: flex; flex-direction: column; gap: 24px; }
-    .hero-eyebrow { margin-bottom: -8px; }
-
-    /* Eyebrow tag */
-    .hero-eyebrow {
-      display: inline-flex;
+    .hero-content {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      font-family: var(--ff-m);
-      font-size: 0.63rem;
-      color: rgba(52,159,168,0.85);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      border: 1px solid rgba(52,159,168,0.22);
-      border-radius: 100px;
-      padding: 7px 16px;
-      width: fit-content;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
-    }
-    .hero-eyebrow.visible { opacity: 1; transform: none; }
-    .hero-eyebrow-pip {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--teal);
-      flex-shrink: 0;
+      text-align: center;
+      gap: 24px;
+      max-width: 74rem;
+      margin: 0 auto;
     }
 
     /* Hero headline */
     .hero-h1 {
       font-family: var(--ff-d);
-      font-size: clamp(2.8rem, 5.2vw, 5.6rem);
+      font-size: clamp(3.1rem, 7.4vw, 8rem);
       font-weight: 800;
-      letter-spacing: -0.038em;
-      line-height: 1.0;
+      letter-spacing: -0.04em;
+      line-height: 1.06;
       color: var(--text);
       opacity: 0;
       transform: translateY(22px);
@@ -661,8 +593,8 @@
     .hero-sub {
       font-size: clamp(0.95rem, 1.4vw, 1.1rem);
       color: var(--text-2);
-      max-width: 46ch;
-      line-height: 1.75;
+      max-width: 68ch;
+      line-height: 1.7;
       opacity: 0;
       transform: translateY(14px);
       transition: opacity 0.75s var(--ease-expo) 0.72s, transform 0.75s var(--ease-expo) 0.72s;
@@ -680,172 +612,15 @@
     .hero-h1.revealed ~ .hero-actions { opacity: 1; transform: none; }
 
     /* Hero stats bar */
-    .hero-stats {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      flex-wrap: wrap;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      transition: opacity 0.75s var(--ease-expo) 1.1s;
-    }
-    .hero-h1.revealed ~ .hero-stats { opacity: 1; }
 
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      padding: 0 28px 0 0;
-      margin-right: 28px;
-      border-right: 1px solid var(--border);
-    }
-    .hero-stat:last-child { border: none; padding: 0; margin: 0; }
-    .hero-stat-n {
-      font-family: var(--ff-d);
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      color: var(--text);
-    }
-    .hero-stat-l {
-      font-family: var(--ff-m);
-      font-size: 0.62rem;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin-top: 4px;
-    }
-
-    /* Hero Visual — CSS Ring System */
-    .hero-visual {
-      display: none;
-      position: relative;
-      align-items: center;
-      justify-content: center;
-      height: 440px;
-    }
-    @media (min-width: 768px) { .hero-visual { display: flex; } }
-
-
-    /* Ring System */
-    .ring-sys {
-      position: relative;
-      width: 380px;
-      height: 380px;
-      flex-shrink: 0;
-      will-change: transform;
-    }
-    .ring-sys::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 50%, rgba(52,159,168,0.09) 0%, transparent 58%);
-      pointer-events: none;
-    }
-    .ring-outer {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      animation: ring-spin 36s linear infinite;
-    }
-    .ring-outer-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-      pointer-events: none;
-    }
-    .ring-inner {
-      position: absolute;
-      inset: 17%;
-      border-radius: 50%;
-      border: 1px solid rgba(52,159,168,0.10);
-      animation: ring-spin-rev 22s linear infinite;
-    }
-    @keyframes ring-spin     { to { transform: rotate(360deg);  } }
-    @keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
-
-    /* Orbiting particles — children of ring-outer, inherit its rotation */
-    .ring-particle {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 10px rgba(52,159,168,0.8), 0 0 20px rgba(52,159,168,0.25);
-    }
-    .rp-a { width: 8px; height: 8px; top: -4px; left: calc(50% - 4px); }
-    .rp-b { width: 5px; height: 5px; bottom: -2.5px; right: calc(50% - 2.5px); opacity: 0.45; }
-    .rp-c { width: 6px; height: 6px; top: calc(50% - 3px); right: -3px; opacity: 0.6; }
-
-    /* Center orb */
-    .ring-center {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 128px; height: 128px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(52,159,168,0.42);
-      background: radial-gradient(circle at 50% 40%, rgba(52,159,168,0.10) 0%, #000 65%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      z-index: 1;
-    }
-    .rc-label {
-      font-family: var(--ff-m);
-      font-size: 0.58rem;
-      color: rgba(52,159,168,0.65);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .rc-value {
-      font-family: var(--ff-d);
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
-    }
-
-    /* Service chips at compass positions */
-    .svc-chip {
-      position: absolute;
-      font-family: var(--ff-m);
-      font-size: 0.59rem;
-      color: rgba(255,255,255,0.45);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      padding: 6px 13px;
-      background: rgba(10,10,10,0.95);
-      border: 1px solid rgba(52,159,168,0.15);
-      border-radius: 100px;
-      white-space: nowrap;
-      z-index: 2;
-    }
-    .chip-top   { top: 8px;    left: 50%; transform: translateX(-50%); }
-    .chip-right { right: -6px; top: 50%;  transform: translateY(-50%); }
-    .chip-bot   { bottom: 8px; left: 50%; transform: translateX(-50%); }
-    .chip-left  { left: -6px;  top: 50%;  transform: translateY(-50%); }
 
     /* Proof band — client logos marquee */
     /* ── Clients Section ─────────────────────────────── */
     .clients-section {
       position: relative;
       padding: 88px 0 0;
-      border-bottom: 1px solid var(--border);
       overflow: hidden;
       contain: paint;
-    }
-    .clients-sparkles-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
     }
     .clients-inner {
       position: relative;
@@ -854,21 +629,22 @@
     }
     .clients-eyebrow {
       font-family: var(--ff-m);
-      font-size: 0.6rem;
-      color: var(--text-3);
+      font-size: 0.68rem;
+      color: var(--teal);
       text-transform: uppercase;
       letter-spacing: 0.16em;
       text-align: center;
       margin-bottom: 18px;
     }
     .clients-heading {
-      font-family: var(--ff-h);
-      font-size: clamp(1.7rem, 3.2vw, 3rem);
-      font-weight: 700;
-      color: var(--text-1);
+      font-family: var(--ff-d);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 800;
+      color: var(--text);
       text-align: center;
-      line-height: 1.1;
-      letter-spacing: -0.025em;
+      line-height: 1.04;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
       margin-bottom: 60px;
     }
     .clients-heading em {
@@ -938,51 +714,67 @@
     }
 
     /* ─────────────────────────────────────────────────────
-       DOUBLE MARQUEE
+       PLATFORMS
     ───────────────────────────────────────────────────── */
-    .marquee-section {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .platforms-section {
+      padding: 84px 0;
     }
-    .mrow {
-      display: flex;
-      gap: 0;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .mrow:last-child { border: none; }
-    .mtrack {
-      display: flex;
-      gap: 0;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-    .mrow.fwd  .mtrack { animation: mq-fwd 28s linear infinite; }
-    .mrow.rev  .mtrack { animation: mq-rev 28s linear infinite; }
-    @keyframes mq-fwd { from { transform: translate3d(0,0,0); }     to { transform: translate3d(-50%,0,0); } }
-    @keyframes mq-rev { from { transform: translate3d(-50%,0,0); }  to { transform: translate3d(0,0,0); } }
-
-    .mitem {
-      display: inline-flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 20px;
+    .platforms-head { margin-bottom: 40px; text-align: center; }
+    .platforms-eyebrow {
       font-family: var(--ff-m);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
+      color: var(--teal);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
     }
-    .mitem.highlight { color: var(--teal); }
-    .mitem-sep {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--border-2);
+    .platforms-title {
+      font-family: var(--ff-d);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.04;
+      text-transform: uppercase;
+    }
+    .platforms-title em { font-style: normal; color: var(--teal); }
+    .platforms-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .platform-logo {
+      width: auto;
+      fill: #fff;
+      opacity: 0.62;
+      transition: opacity 0.25s var(--ease-quart);
       flex-shrink: 0;
     }
-    .mrow.rev .mitem-sep { background: rgba(52,159,168,0.3); }
+    @media (hover: hover) and (pointer: fine) {
+      .platform-logo:hover { opacity: 1; }
+    }
+    /* optically balanced: filled marks sit smaller than open ones */
+    .pl-meta   { height: 36px; }
+    .pl-tiktok { height: 32px; }
+    .pl-li     { height: 29px; }
+    .pl-google { height: 32px; }
+    .pl-wp     { height: 36px; }
+    .pl-shop   { height: 34px; }
+    @media (max-width: 900px) {
+      .platforms-section { padding: 48px 0; }
+      .platforms-row { gap: 30px 36px; }
+    }
+    @media (max-width: 560px) {
+      .platforms-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+        gap: 30px 8px;
+      }
+      .platform-logo { transform: scale(0.86); }
+    }
 
     /* ─────────────────────────────────────────────────────
        GROWTH ENGINE
@@ -1514,8 +1306,7 @@
       font-family: var(--ff-m);
       font-size: 0.65rem;
       color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
+            letter-spacing: 0.01em;
       line-height: 1.5;
     }
 
@@ -1543,6 +1334,16 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 24px;
+    }
+    .case-unit {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      margin-top: 3px;
+    }
+    .label-opt {
+      color: var(--text-4);
+      font-size: 0.58rem;
+      text-transform: none;
     }
     .case-ba {
       display: grid;
@@ -1866,8 +1667,6 @@
     /* Tablet: 768-899px — stacked hero with visible ring below */
     @media (min-width: 768px) and (max-width: 899px) {
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero-visual { height: 320px; justify-content: center; }
-      .ring-sys { width: 280px; height: 280px; }
       .hero-h1 { font-size: clamp(2.8rem, 7vw, 4rem); }
       .hero-content { max-width: 600px; }
     }
@@ -1886,21 +1685,14 @@
       /* Hero — remove full-screen height constraint, content-height only */
       .hero { min-height: 0; align-items: flex-start; padding: 80px 0 56px; }
       .hero-grid { gap: 0; }
-      .hero-visual { display: none; }
       .hero-content { gap: 20px; }
-      .hero-eyebrow { font-size: 0.6rem; padding: 6px 13px; align-self: flex-start; }
       .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); letter-spacing: -0.032em; line-height: 1.02; }
       .hero-sub { max-width: 100%; font-size: 0.95rem; }
       .hero-actions { flex-direction: column; gap: 10px; }
       .hero-actions .btn { width: 100%; justify-content: center; padding: 16px 24px; }
-      .hero-stats { flex-wrap: wrap; gap: 12px; padding-top: 20px; }
-      .hero-stat { padding: 0 16px 0 0; margin-right: 0; border-right-width: 1px; }
-      .hero-stat:last-child { border: none; padding: 0; }
-      .hero-stat-n { font-size: 1.5rem; }
-      .hero-stat-l { font-size: 0.57rem; }
 
       /* Typography */
-      .section-title { font-size: clamp(1.75rem, 7vw, 2.6rem); }
+      .section-title, .platforms-title, .clients-heading { font-size: clamp(1.75rem, 7vw, 2.6rem); }
       .section-sub { font-size: 0.9rem; }
       .section-eyebrow { font-size: 0.62rem; }
 
@@ -1948,13 +1740,12 @@
       /* Clients section */
       .clients-section { padding: 56px 0 0; }
       .clients-inner { padding-bottom: 52px; }
-      .clients-heading { font-size: clamp(1.4rem, 6vw, 1.9rem); margin-bottom: 36px; }
+      .clients-heading { margin-bottom: 36px; }
       .clients-logo-img { height: 40px; }
       .clients-logo-img--sm { height: 32px; }
       .clients-logo-item { padding: 0 20px; }
 
       /* Orbital section */
-      .orbital-section { padding: 64px 0 72px; }
       .orbital-layout { gap: 40px; }
       .orbital-stage { width: 260px; height: 260px; }
       .orb-orbit-ring { width: 220px; height: 220px; }
@@ -1962,7 +1753,6 @@
 
       /* Marquee */
       .mrow { padding: 12px 0; }
-      .mitem { font-size: 0.65rem; padding: 0 14px; }
 
       /* Footer — centered on mobile */
       .footer-grid { gap: 36px; margin-bottom: 44px; }
@@ -1980,28 +1770,22 @@
       .hero { min-height: 0; padding: 72px 0 48px; }
       .hero-h1 { font-size: clamp(2rem, 9.5vw, 2.8rem); letter-spacing: -0.03em; }
       .hero-actions .btn { font-size: 0.875rem; padding: 14px 20px; }
-      .hero-stats { flex-wrap: nowrap; gap: 0; }
-      .hero-stat { padding: 0 12px 0 0; margin-right: 0; }
-      .hero-stat:last-child { padding: 0; }
       .footer-nav { display: none; }
       .engine-nodes { grid-template-columns: 1fr; }
       .counters { grid-template-columns: repeat(2, 1fr); }
-      .section-title { font-size: clamp(1.5rem, 8vw, 2.2rem); }
+      .section-title, .platforms-title, .clients-heading { font-size: clamp(1.5rem, 8vw, 2.2rem); }
       .work-carousel { padding-left: 16px; }
       .wopts { grid-template-columns: 1fr; }
       .wopts-3 { grid-template-columns: 1fr; }
       .clients-logo-img { height: 34px; }
       .clients-logo-img--sm { height: 26px; }
       .clients-logo-item { padding: 0 16px; }
-      .clients-heading { font-size: clamp(1.3rem, 7vw, 1.7rem); }
     }
 
     /* Very small phones (<380px) */
     @media (max-width: 379px) {
       .hero-h1 { font-size: clamp(1.75rem, 9vw, 2.4rem); }
-      .hero-eyebrow { font-size: 0.55rem; padding: 5px 11px; }
-      .section-title { font-size: clamp(1.4rem, 8.5vw, 2rem); }
-      .hero-stats { display: none; }
+      .section-title, .platforms-title, .clients-heading { font-size: clamp(1.4rem, 8.5vw, 2rem); }
       .counters { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -2167,7 +1951,7 @@
       display: inline-block;
       overflow: hidden;
       vertical-align: bottom;
-      height: 1.06em;
+      height: 1.22em;
     }
     .hl-rotate-inner {
       display: inline-block;
@@ -2187,36 +1971,6 @@
     /* ─────────────────────────────────────────────────────
        ORBITAL GROWTH ENGINE SECTION
     ───────────────────────────────────────────────────── */
-    .orbital-section {
-      padding: 100px 0 112px;
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
-      contain: paint;
-      border-bottom: 1px solid var(--border);
-    }
-    .orbital-section::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -8%;
-      width: clamp(260px, 50vw, 700px);
-      height: clamp(260px, 50vw, 700px);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(52,159,168,0.10) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .orbital-section::after {
-      content: '';
-      position: absolute;
-      bottom: -10%;
-      left: -5%;
-      width: clamp(180px, 35vw, 400px);
-      height: clamp(180px, 35vw, 400px);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(52,159,168,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
     .orbital-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -2503,22 +2257,18 @@
        STAT & COUNTER GLOW — premium teal radiance
     ───────────────────────────────────────────────────── */
     .counter-n { text-shadow: 0 0 28px rgba(52,159,168,0.18); }
-    .hero-stat-n { text-shadow: 0 0 22px rgba(52,159,168,0.15); }
 
     /* ─────────────────────────────────────────────────────
        PREFERS-REDUCED-MOTION — accessibility
     ───────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
-      .ring-outer, .ring-inner { animation: none; }
       .orb-center-ring { animation: none; }
       .orb-node-btn.is-related { animation: none; }
       .hl-rotate-inner { transition-duration: 0.01s !important; }
-      .mrow .mtrack { animation: none; }
       .clients-slider-track { animation: none; }
-      .clients-sparkles-canvas { display: none; }
       .wloading-ring { animation: none; }
       .hero-grad-blob { animation: none !important; }
-      .hero-h1, .hero-eyebrow, .hero-sub, .hero-actions, .hero-stats {
+      .hero-h1, .hero-sub, .hero-actions {
         transition-duration: 0.01s !important;
         opacity: 1 !important;
         transform: none !important;
@@ -2551,14 +2301,39 @@
     /* No-JS fallback: if scripts never run, show everything immediately */
     html:not(.js) .reveal,
     html:not(.js) .stagger > *,
-    html:not(.js) .hero-eyebrow,
     html:not(.js) .hero-h1,
     html:not(.js) .hero-sub,
-    html:not(.js) .hero-actions,
-    html:not(.js) .hero-stats {
+    html:not(.js) .hero-actions {
       opacity: 1;
       transform: none;
     }
+    /* ─────────────────────────────────────────────────────
+       MOBILE REFINEMENTS  (last in the cascade so it wins)
+       12px floor on labels + 44px minimum touch targets
+    ───────────────────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .section-eyebrow,
+      .platforms-eyebrow,
+      .clients-eyebrow,
+      .node-tag, .node-pill,
+      .engine-output-label, .engine-loop-note, .engine-callout .hi,
+      .work-slide-sector, .work-slide-tag, .work-slide-readmore, .work-slide-arrow,
+      .case-tag, .case-stag, .case-ml, .case-ba,
+      .counter-l, .wstep-l, .wresult-l, .wloading-text,
+      .footer-col-ttl, .footer-legal, .footer-privacy, .footer-social-btn, .footer-contact,
+      .contact-info-label, .contact-label,
+      .pstep-num, .pstep-badge,
+      .modal-eyebrow, .svc-chip, .rc-label,
+      .case-unit, .label-opt { font-size: 0.75rem; }
+
+      .engine-callout { font-size: 0.8rem; }
+
+      /* touch targets */
+      .modal-close { width: 44px; height: 44px; }
+      .footer-social-btn { padding: 12px 16px; }
+      .work-nav-btn { width: 44px; height: 44px; }
+    }
+
   </style>
 
   <!-- Structured Data — LocalBusiness / MarketingAgency -->
@@ -2709,10 +2484,6 @@
       <div class="hero-content">
 
         <!-- Eyebrow -->
-        <div class="hero-eyebrow" id="hero-eyebrow">
-          <span class="hero-eyebrow-pip"></span>
-          Social Media &amp; Branding Agency &mdash; Malta
-        </div>
 
         <!-- Headline -->
         <h1 class="hero-h1" id="hero-h1">
@@ -2728,162 +2499,67 @@
           <button class="btn btn-teal btn-lg magnetic" id="hero-contact-btn">Start the Conversation →</button>
           <a href="#work" class="btn btn-outline btn-lg magnetic">View Our Work</a>
         </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="340" data-suffix="%">340%</div>
-            <div class="hero-stat-l">Avg. engagement growth</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="10" data-suffix="+">10+</div>
-            <div class="hero-stat-l">Yrs. experience</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-n counter" data-target="8" data-suffix="">8</div>
-            <div class="hero-stat-l">Sectors served</div>
-          </div>
-        </div>
       </div>
-
-      <!-- Ring visual -->
-      <div class="hero-visual" aria-hidden="true">
-
-        <!-- CSS ring system -->
-        <div class="ring-sys" id="ring-sys">
-          <div class="ring-outer">
-            <svg class="ring-outer-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="190" cy="190" r="189" stroke="rgba(52,159,168,0.20)" stroke-width="1" pathLength="100" stroke-dasharray="0.35 0.65"/>
-            </svg>
-            <div class="ring-particle rp-a"></div>
-            <div class="ring-particle rp-b"></div>
-            <div class="ring-particle rp-c"></div>
-          </div>
-          <div class="ring-inner"></div>
-          <div class="ring-center">
-            <span class="rc-label">BRAND</span>
-            <span class="rc-value">NOVUM</span>
-          </div>
-          <div class="svc-chip chip-top">Social Media</div>
-          <div class="svc-chip chip-right">Branding</div>
-          <div class="svc-chip chip-bot">Web Dev</div>
-          <div class="svc-chip chip-left">Campaigns</div>
-        </div>
-
-      </div>
-
     </div>
   </div>
 
   <!-- Brandboost-style metadata bar -->
-  <div class="hero-meta" aria-hidden="true">
-    <div class="hero-meta-inner">
-      <span>EST. 2025</span>
-      <span class="hero-meta-dot"></span>
-      <span>Malta</span>
-      <span class="hero-meta-dot"></span>
-      <span>Social Media &middot; Branding &middot; Web Development</span>
-      <span class="hero-meta-dot"></span>
-      <span class="hero-scroll-anim">
-        <span class="hero-scroll-track"></span>
-        Scroll to explore
-      </span>
-    </div>
-  </div>
 
 </section>
 
 <!-- ──────────────────────────────── DOUBLE MARQUEE ─── -->
-<div class="marquee-section">
-  <div class="mrow fwd">
-    <div class="mtrack">
-      <span class="mitem highlight">Social Media Management<span class="mitem-sep"></span></span>
-      <span class="mitem">Content Creation<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Monthly Retainers<span class="mitem-sep"></span></span>
-      <span class="mitem">Instagram<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Facebook<span class="mitem-sep"></span></span>
-      <span class="mitem">Brand Guidelines<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Branding<span class="mitem-sep"></span></span>
-      <span class="mitem">Web Development<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Launch Campaigns<span class="mitem-sep"></span></span>
-      <span class="mitem">Strategy<span class="mitem-sep"></span></span>
+<section class="platforms-section" aria-label="Platforms we work in">
+  <div class="wrap">
+    <div class="platforms-head">
+      <div class="platforms-eyebrow">We work in these every day</div>
+      <h2 class="platforms-title">Specialists, <em>not generalists.</em></h2>
     </div>
-    <div class="mtrack" aria-hidden="true">
-      <span class="mitem highlight">Social Media Management<span class="mitem-sep"></span></span>
-      <span class="mitem">Content Creation<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Monthly Retainers<span class="mitem-sep"></span></span>
-      <span class="mitem">Instagram<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Facebook<span class="mitem-sep"></span></span>
-      <span class="mitem">Brand Guidelines<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Branding<span class="mitem-sep"></span></span>
-      <span class="mitem">Web Development<span class="mitem-sep"></span></span>
-      <span class="mitem highlight">Launch Campaigns<span class="mitem-sep"></span></span>
-      <span class="mitem">Strategy<span class="mitem-sep"></span></span>
+    <div class="platforms-row">
+      <svg class="platform-logo pl-meta" viewBox="0 0 24 24" role="img" aria-label="Meta"><title>Meta</title><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.81-4.35 1.802-5.678.688-.921 1.484-1.593 2.479-1.593z"/></svg>
+      <svg class="platform-logo pl-tiktok" viewBox="0 0 24 24" role="img" aria-label="TikTok"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      <svg class="platform-logo pl-li" viewBox="0 0 24 24" role="img" aria-label="LinkedIn"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <svg class="platform-logo pl-google" viewBox="0 0 24 24" role="img" aria-label="Google"><title>Google</title><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+      <svg class="platform-logo pl-wp" viewBox="0 0 24 24" role="img" aria-label="WordPress"><title>WordPress</title><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.211 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg>
+      <svg class="platform-logo pl-shop" viewBox="0 0 24 24" role="img" aria-label="Shopify"><title>Shopify</title><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 4.02-.656.203-1.293.402-1.889.578C7.618 3.83 8.85.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.503.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.756-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.87zm2.856 1.386c-.6.019-.66.039-.734.039-.213-.716-.62-1.716-1.485-2.35 1.05.135 1.815.985 2.22 2.31v.001z"/></svg>
     </div>
   </div>
-  <div class="mrow rev">
-    <div class="mtrack">
-      <span class="mitem">Brand Identity<span class="mitem-sep"></span></span>
-      <span class="mitem">Digital Presence<span class="mitem-sep"></span></span>
-      <span class="mitem">Brand Refresh<span class="mitem-sep"></span></span>
-      <span class="mitem">Community Growth<span class="mitem-sep"></span></span>
-      <span class="mitem">Visual Identity<span class="mitem-sep"></span></span>
-      <span class="mitem">Digitalisation<span class="mitem-sep"></span></span>
-      <span class="mitem">Online Presence<span class="mitem-sep"></span></span>
-      <span class="mitem">Shopify<span class="mitem-sep"></span></span>
-      <span class="mitem">Engagement<span class="mitem-sep"></span></span>
-      <span class="mitem">Consistency<span class="mitem-sep"></span></span>
-    </div>
-    <div class="mtrack" aria-hidden="true">
-      <span class="mitem">Brand Identity<span class="mitem-sep"></span></span>
-      <span class="mitem">Digital Presence<span class="mitem-sep"></span></span>
-      <span class="mitem">Brand Refresh<span class="mitem-sep"></span></span>
-      <span class="mitem">Community Growth<span class="mitem-sep"></span></span>
-      <span class="mitem">Visual Identity<span class="mitem-sep"></span></span>
-      <span class="mitem">Digitalisation<span class="mitem-sep"></span></span>
-      <span class="mitem">Online Presence<span class="mitem-sep"></span></span>
-      <span class="mitem">Shopify<span class="mitem-sep"></span></span>
-      <span class="mitem">Engagement<span class="mitem-sep"></span></span>
-      <span class="mitem">Consistency<span class="mitem-sep"></span></span>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ──────────────────────────── CLIENT LOGOS ─── -->
 <section class="clients-section" id="clients" aria-label="Our clients">
-  <canvas class="clients-sparkles-canvas" id="clients-sparkles-canvas" aria-hidden="true"></canvas>
   <div class="clients-inner">
     <p class="clients-eyebrow">Trusted by Malta's leading brands</p>
     <h2 class="clients-heading">Brands that chose to<br><em>grow differently.</em></h2>
     <div class="clients-slider-outer">
       <div class="clients-slider-track" role="list" aria-label="Our clients">
         <!-- First set -->
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Adoro Charters Logo.svg"            alt="Adoro Charters"          class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg"  alt="Malta Rugby Championship" class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/E&L Enterprises Logo.svg"           alt="E&L Enterprises"         class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"            alt="Flamingo Hotel"          class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Sips Watersports logo.svg"          alt="Sips Watersports"        class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/One Two One Logo.svg"               alt="One Two One"             class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Logo.svg"               alt="Malta Rugby"             class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Vaganza.svg"                        alt="Vaganza"                 class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Bone Fitness Studio.svg"             alt="Bone Fitness Studio"     class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"    alt="Rotunda Pharmacy"        class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/Thanks A Million.svg"                alt="Thanks A Million"        class="clients-logo-img"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/TWIYS white.svg"                     alt="Twiys Limited"           class="clients-logo-img clients-logo-img--sm" style="height:22px"></div>
-        <div class="clients-logo-item" role="listitem"><img loading="lazy" decoding="async" src="Client Logos/BARE.png"                           alt="BARE"                    class="clients-logo-img clients-logo-img--sm" style="height:24px"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Adoro Charters Logo.svg"            alt="Adoro Charters"          class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg"  alt="Malta Rugby Championship" class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/E&L Enterprises Logo.svg"           alt="E&L Enterprises"         class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"            alt="Flamingo Hotel"          class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Sips Watersports logo.svg"          alt="Sips Watersports"        class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/One Two One Logo.svg"               alt="One Two One"             class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Malta Rugby Logo.svg"               alt="Malta Rugby"             class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Vaganza.svg"                        alt="Vaganza"                 class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Bone Fitness Studio.svg"             alt="Bone Fitness Studio"     class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"    alt="Rotunda Pharmacy"        class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/Thanks A Million.svg"                alt="Thanks A Million"        class="clients-logo-img"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/TWIYS white.svg"                     alt="Twiys Limited"           class="clients-logo-img clients-logo-img--sm" style="height:22px"></div>
+        <div class="clients-logo-item" role="listitem"><img decoding="async" src="Client Logos/BARE.png"                           alt="BARE"                    class="clients-logo-img clients-logo-img--sm" style="height:24px"></div>
         <!-- Duplicate for seamless loop -->
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Adoro Charters Logo.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg" alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/E&L Enterprises Logo.svg"          alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Sips Watersports logo.svg"         alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/One Two One Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Malta Rugby Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Vaganza.svg"                       alt="" class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Bone Fitness Studio.svg"           alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"  alt="" class="clients-logo-img clients-logo-img--sm"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/Thanks A Million.svg"               alt="" class="clients-logo-img"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/TWIYS white.svg"                    alt="" class="clients-logo-img clients-logo-img--sm" style="height:22px"></div>
-        <div class="clients-logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="Client Logos/BARE.png"                          alt="" class="clients-logo-img clients-logo-img--sm" style="height:24px"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Adoro Charters Logo.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Malta Rugby Championship Logo.svg" alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/E&L Enterprises Logo.svg"          alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Flamingo Hotel Logo.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Sips Watersports logo.svg"         alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/One Two One Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Malta Rugby Logo.svg"              alt="" class="clients-logo-img clients-logo-img--invert"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Vaganza.svg"                       alt="" class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Bone Fitness Studio.svg"           alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Rotunda Pharmacy - BLACK (1).svg"  alt="" class="clients-logo-img clients-logo-img--sm"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/Thanks A Million.svg"               alt="" class="clients-logo-img"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/TWIYS white.svg"                    alt="" class="clients-logo-img clients-logo-img--sm" style="height:22px"></div>
+        <div class="clients-logo-item" aria-hidden="true"><img decoding="async" src="Client Logos/BARE.png"                          alt="" class="clients-logo-img clients-logo-img--sm" style="height:24px"></div>
       </div>
     </div>
   </div>
@@ -3178,13 +2854,13 @@
           <div>
             <div class="case-ml">Before</div>
             <div class="case-mv">1,200</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">followers</div>
+            <div class="case-unit">followers</div>
           </div>
           <div class="case-arrow">→</div>
           <div>
             <div class="case-ml">After 6 months</div>
             <div class="case-mv after">4,600</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">followers</div>
+            <div class="case-unit">followers</div>
           </div>
         </div>
         <div class="case-note">Built a monthly content calendar, created all visual content, and managed posting and community engagement. Engagement rate tripled within 3 months.</div>
@@ -3201,13 +2877,13 @@
           <div>
             <div class="case-ml">Before</div>
             <div class="case-mv">None</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">brand guidelines</div>
+            <div class="case-unit">brand guidelines</div>
           </div>
           <div class="case-arrow">→</div>
           <div>
             <div class="case-ml">After project</div>
             <div class="case-mv after">Full</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">brand identity</div>
+            <div class="case-unit">brand identity</div>
           </div>
         </div>
         <div class="case-note">Developed a complete brand identity including logo system, colour palette, typography, and digital brand guidelines. Followed by a new website launch.</div>
@@ -3224,13 +2900,13 @@
           <div>
             <div class="case-ml">Before launch</div>
             <div class="case-mv">0</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">social following</div>
+            <div class="case-unit">social following</div>
           </div>
           <div class="case-arrow">→</div>
           <div>
             <div class="case-ml">After 3 weeks</div>
             <div class="case-mv after">800+</div>
-            <div style="font-size:0.7rem;color:var(--text-3);margin-top:3px;">followers</div>
+            <div class="case-unit">followers</div>
           </div>
         </div>
         <div class="case-note">Planned and executed a brand launch campaign across Instagram and Facebook for a new charter brand. Coordinated content, stories, and a social rollout.</div>
@@ -3256,23 +2932,23 @@
 
     <div class="process-steps stagger">
       <div class="pstep">
-        <div class="pstep-num">01 ──</div>
+        <div class="pstep-num">01</div>
         <div class="pstep-title">Discovery</div>
         <div class="pstep-desc">We listen first. We understand your brand, your audience, and where you are right now. No assumptions, no generic proposals before we know the full picture.</div>
         <div class="pstep-badge">Free · No commitment</div>
       </div>
       <div class="pstep">
-        <div class="pstep-num">02 ──</div>
+        <div class="pstep-num">02</div>
         <div class="pstep-title">Strategy &amp; Planning</div>
         <div class="pstep-desc">We build a tailored plan: which services fit, what the content approach looks like, what the brand needs, and what the launch moment should be.</div>
       </div>
       <div class="pstep">
-        <div class="pstep-num">03 ──</div>
+        <div class="pstep-num">03</div>
         <div class="pstep-title">Create &amp; Execute</div>
         <div class="pstep-desc">We create the content, build the brand assets, launch the website, or run the campaign. You stay focused on running your business while we handle the rest.</div>
       </div>
       <div class="pstep">
-        <div class="pstep-num">04 ──</div>
+        <div class="pstep-num">04</div>
         <div class="pstep-title">Optimise &amp; Grow</div>
         <div class="pstep-desc">We track what's working, adjust, and build on momentum. Monthly reporting keeps you in the loop. The longer we work together, the better it gets.</div>
       </div>
@@ -3348,7 +3024,7 @@
           </div>
 
           <div class="contact-field">
-            <label class="contact-label" for="cf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
+            <label class="contact-label" for="cf-company">Company <span class="label-opt">(optional)</span></label>
             <input class="contact-input" type="text" id="cf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization">
           </div>
 
@@ -3478,7 +3154,7 @@
           </div>
         </div>
         <div class="contact-field">
-          <label class="contact-label" for="mf-company">Company <span style="color:var(--text-4);font-size:0.58rem;text-transform:none;">(optional)</span></label>
+          <label class="contact-label" for="mf-company">Company <span class="label-opt">(optional)</span></label>
           <input class="contact-input" type="text" id="mf-company" name="company" placeholder="Your company or brand name" maxlength="100" autocomplete="organization">
         </div>
         <div class="contact-field">
@@ -3648,8 +3324,6 @@
 
   /* ── Hero reveal ───────────────────────────────── */
   var h1 = document.getElementById('hero-h1');
-  var heroEyebrow = document.getElementById('hero-eyebrow');
-  if (heroEyebrow) setTimeout(function () { heroEyebrow.classList.add('visible'); }, 40);
   if (h1) setTimeout(function () { h1.classList.add('revealed'); }, 80);
 
   /* ── Magnetic buttons ──────────────────────────── */
@@ -3691,24 +3365,6 @@
       })();
     }
   })();
-
-  /* ── Ring parallax ─────────────────────────────── */
-  var ringSys = document.getElementById('ring-sys');
-  if (ringSys && window.matchMedia('(hover: hover)').matches) {
-    var rpx = 0, rpy = 0, rtx = 0, rty = 0;
-    document.addEventListener('mousemove', function(e) {
-      var cx = window.innerWidth  / 2;
-      var cy = window.innerHeight / 2;
-      rpx = (e.clientX - cx) / cx * 14;
-      rpy = (e.clientY - cy) / cy * 10;
-    });
-    (function animRing() {
-      rtx += (rpx - rtx) * 0.06;
-      rty += (rpy - rty) * 0.06;
-      ringSys.style.transform = 'translate(' + rtx.toFixed(2) + 'px,' + rty.toFixed(2) + 'px)';
-      requestAnimationFrame(animRing);
-    })();
-  }
 
   /* ── 3D card tilt ──────────────────────────────── */
   function initTilt(el) {
@@ -4062,124 +3718,6 @@
     }
 
     tick();
-  })();
-
-  /* ── Clients Sparkles ───────────────────────────── */
-  (function () {
-    var canvas = document.getElementById('clients-sparkles-canvas');
-    if (!canvas) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var animId = null;
-    var W = 0, H = 0;
-    var COUNT = 60;
-
-    function resize() {
-      var dpr = window.devicePixelRatio || 1;
-      var rect = canvas.getBoundingClientRect();
-      W = rect.width;
-      H = rect.height;
-      canvas.width  = Math.round(W * dpr);
-      canvas.height = Math.round(H * dpr);
-      ctx.scale(dpr, dpr);
-    }
-
-    function mkParticle(randomY) {
-      return {
-        x: Math.random() * W,
-        y: randomY ? Math.random() * H : H + Math.random() * 20,
-        r: Math.random() * 1.4 + 0.4,
-        op: 0,
-        targetOp: Math.random() * 0.7 + 0.15,
-        opSpeed: Math.random() * 0.008 + 0.003,
-        vy: -(Math.random() * 0.3 + 0.08),
-        vx: (Math.random() - 0.5) * 0.12,
-        isStar: Math.random() > 0.78,
-        teal: Math.random() > 0.45
-      };
-    }
-
-    function drawStar(x, y, r, op, teal) {
-      ctx.save();
-      ctx.globalAlpha = op;
-      ctx.strokeStyle = teal ? '#349fa8' : 'rgba(255,255,255,0.9)';
-      ctx.lineWidth = r * 0.55;
-      ctx.lineCap = 'round';
-      var arm = r * 3;
-      ctx.beginPath();
-      ctx.moveTo(x - arm, y); ctx.lineTo(x + arm, y);
-      ctx.moveTo(x, y - arm); ctx.lineTo(x, y + arm);
-      ctx.stroke();
-      var d = arm * 0.6;
-      ctx.lineWidth = r * 0.3;
-      ctx.beginPath();
-      ctx.moveTo(x - d, y - d); ctx.lineTo(x + d, y + d);
-      ctx.moveTo(x + d, y - d); ctx.lineTo(x - d, y + d);
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(function (p) {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.y < -8) { Object.assign(p, mkParticle(false)); return; }
-
-        if (p.op < p.targetOp) {
-          p.op = Math.min(p.op + p.opSpeed, p.targetOp);
-        } else {
-          p.op -= p.opSpeed;
-          if (p.op <= 0) {
-            p.targetOp = Math.random() * 0.7 + 0.15;
-            p.opSpeed  = Math.random() * 0.008 + 0.003;
-          }
-        }
-
-        if (p.isStar) {
-          drawStar(p.x, p.y, p.r, Math.max(0, p.op), p.teal);
-        } else {
-          ctx.save();
-          ctx.globalAlpha = Math.max(0, p.op);
-          ctx.fillStyle = p.teal ? '#349fa8' : 'rgba(255,255,255,0.85)';
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
-        }
-      });
-      animId = requestAnimationFrame(draw);
-    }
-
-    function init() {
-      resize();
-      particles = [];
-      for (var i = 0; i < COUNT; i++) particles.push(mkParticle(true));
-      if (!animId) draw();
-    }
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { if (!animId) draw(); }
-        else { cancelAnimationFrame(animId); animId = null; }
-      });
-    });
-    io.observe(canvas);
-
-    var resizeTimer;
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
-        cancelAnimationFrame(animId);
-        animId = null;
-        init();
-      }, 200);
-    });
-
-    init();
   })();
 
   /* ── Contact Form ──────────────────────────────────── */
